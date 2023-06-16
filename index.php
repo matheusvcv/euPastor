@@ -1,3 +1,6 @@
+<?php
+include "src/conexao.php";
+?>
 <!Doctype html>
 <html>
 <head>
@@ -16,7 +19,7 @@
 					<div class="text-center">
 						<img  class=""  src="img/logo_login_image.png" alt="Logo Bíblia">
 					</div>
-					<form>
+					<form method="POST" action="">
 						<div class="row">
 							<div class="col-12 mb-1">
 						    	<label for="nome_usuario" class="form-label">Nome de Usuário:</label>
