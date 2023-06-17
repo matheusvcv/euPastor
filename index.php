@@ -1,5 +1,45 @@
 <?php
 include "src/conexao.php";
+
+	if(isset($_POST['nome_usuario']) || isset($_POST['senha'])){
+
+		if(strlen($_POST['nome_usuario']) == 0){
+
+			echo "Por favor, preencha seu nome de usuário.";
+
+		} else if(strlen($_POST['senha']) == 0) {
+
+			echo "Por favor, preencha sua senha.";
+		} else {
+
+			$nome_usuario = $conexao-> real_escape_string($_POST['nome_usuario']);
+			$senha = $conexao-> real_escape_string($_POST['senha']);
+
+			$seleciona_dados = "SELECT * FROM usuarios WHERE nome_usuario = '$nome_usuario' AND senha = '$senha'";
+			$consulta_sql = $conexao-> query($seleciona_dados) or die("Falha na consulta SQL: " . $conexao->error);
+
+			$dados_retornados = $consulta_sql->num_rows;
+
+			if($dados_retornados == 1){
+
+				$usuario = $consulta_sql-> fetch_assoc();
+
+				if(!isset($_SESSION)){
+
+					session_start();
+				}
+
+				$_SESSION['id'] = $usuario['id'];
+				$_SESSION['nome'] = $usuario['nome'];
+
+				header("Location: pagina_inicial.php");
+
+			} else{
+
+				echo"Falha ao logar. E-mail ou senha incorretos!";
+			}
+		}
+	}
 ?>
 <!Doctype html>
 <html>
@@ -23,13 +63,13 @@ include "src/conexao.php";
 						<div class="row">
 							<div class="col-12 mb-1">
 						    	<label for="nome_usuario" class="form-label">Nome de Usuário:</label>
-						    	<input type="text" class="form-control" id="nome_usuario">
+						    	<input type="text" class="form-control" name="nome_usuario" id="nome_usuario">
 							</div>
 						</div>
 						 <div class="row">
 						 	 <div class="col-12 mb-1">
 								<label for="senha" class="form-label">Senha:</label>
-								<input type="password" class="form-control" id="senha">
+								<input type="password" class="form-control" name="senha" id="senha">
 							</div>
 						</div>
 						<div class="row">
@@ -42,7 +82,7 @@ include "src/conexao.php";
 						</div>
 						<div class="row">
 						 	<div class="6">
-						 		<a type="submit" class="btn btn-primary col-12">Entrar</a>
+						 		<button type="submit" class="btn btn-primary col-12">Entrar</button>
 						 	</div>
 						</div>
 					</form>
