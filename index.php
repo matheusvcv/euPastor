@@ -9,7 +9,7 @@ include "src/logica_login.php";
 	<meta name="viewport" content="width=device-width initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-	<link rel="shortcut icon" href="img/icon_image.png" type="image/x-icon">
+	<link rel="shortcut icon" href="img/logo_login_image.png" type="image/x-icon">
 	<title>Login</title>
 </head>
 <body>
