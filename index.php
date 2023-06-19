@@ -15,35 +15,33 @@ include "src/logica_login.php";
 <body>
 	<div class="container-fluid p-5 mt-4">
 		<div class="row">
-			<div class="col-lg-5 col-sm-12 col-md-8">
-				<div class="container border rounded p-5 mt-4 bg_login">
-					<div class="text-center">
+			<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-8 col-sm-12 col-md-8">
+				<div class="container p-5 mt-4 bg_login container_login">
+					<div class="text-center mb-4">
 						<img  class=""  src="img/logo_login_image.png" alt="Logo Bíblia">
+						<h1 id="titulo_login">EuPastor</h1>
 					</div>
 					<form method="POST" action="">
 						<div class="row">
-							<div class="col-12 mb-1">
-						    	<label for="nome_usuario" class="form-label">Nome de Usuário:</label>
-						    	<input type="text" class="form-control" name="nome_usuario" id="nome_usuario">
+							<div class="col-12 mb-3">
+						    	<label for="nome_usuario" class="form-label letra_escura">Nome de Usuário:</label>
+						    	<input type="text" class="form-control" name="nome_usuario" id="nome_usuario" placeholder="Digite aqui seu nome de usuário">
 							</div>
 						</div>
 						 <div class="row">
-						 	 <div class="col-12 mb-1">
-								<label for="senha" class="form-label">Senha:</label>
-								<input type="password" class="form-control" name="senha" id="senha">
+						 	 <div class="col-12 mb-0">
+								<label for="senha" class="form-label letra_escura">Senha:</label>
+								<input type="password" class="form-control" name="senha" id="senha" placeholder="Digite aqui sua senha">
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-6 mb-2">
-								<a href="auto_cadastro.php" class="card-link">Cadastre-se</a>	
-							</div>
-							 <div class="col-6 mb-2 float-sm-left text-center text-sm-right">
-								<a href="auto_cadastro.php" class="card-link">Esqueci minha senha</a>	
+							<div class="col-12 mb-3">
+								<a href="auto_cadastro.php">Cadastre-se</a>	
 							</div>
 						</div>
 						<div class="row">
-						 	<div class="6">
-						 		<button type="submit" class="btn btn-primary col-12">Entrar</button>
+						 	<div class="col mt-3">
+						 		<button type="submit" class="btn btn-dark col-12 botao_login">Entrar</button>
 						 	</div>
 						</div>
 					</form>

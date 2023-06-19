@@ -21,10 +21,4 @@ include "src/protect.php";
     <a href="logout.php">Sair</a>
   </div>
 </nav>
-
-
-
-
-
-
 </body>
