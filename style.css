@@ -18,23 +18,31 @@ body {
 	border-radius: 15px !important;
 }
 
-
 .container_login {
-	border: solid #696969 1px; 
+	border: solid 	#000000 1px; 
 	border-radius: 15px !important;
 }
 
 .botao_login {
-	background-color: black !important;
+	background-color: 	#000000 !important;
 }
 
 .botao_login:hover {
 	background-color: #363636 !important;
 }
 
-
 .letra_escura{
-	color: black;
+	color: 	#000000;
+	font-weight: bold;
+}
+
+.auto_cadastro{
+	color: 	#000000;
+	text-decoration: none;
+}
+
+.auto_cadastro:hover {
+	color: 	blue;W
 }
 
 #titulo_login {
