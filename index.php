@@ -36,7 +36,7 @@ include "src/logica_login.php";
 						</div>
 						<div class="row">
 							<div class="col-12 mb-3">
-								<a class="auto_cadastro" href="auto_cadastro.php">Cadastre-se</a>	
+								<a class="esqueci_minha_senha" href="">Esqueci minha senha</a>	
 							</div>
 						</div>
 						<div class="row">

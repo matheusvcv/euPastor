@@ -9,12 +9,13 @@ if(isset($_POST['nome_usuario']) || isset($_POST['senha'])){
 	} else if(strlen($_POST['senha']) == 0) {
 
 		echo "Por favor, preencha sua senha.";
+
 	} else {
 
 		$nome_usuario = $conexao-> real_escape_string($_POST['nome_usuario']);
 		$senha = $conexao-> real_escape_string($_POST['senha']);
 
-		$seleciona_dados = "SELECT * FROM usuarios WHERE nome_usuario = '$nome_usuario' AND senha = '$senha'";
+		$seleciona_dados = "SELECT * FROM usuarios WHERE nome_usuario = '$nome_usuario' LIMIT 1";
 		$consulta_sql = $conexao-> query($seleciona_dados) or die("Falha na consulta SQL: " . $conexao->error);
 
 		$dados_retornados = $consulta_sql->num_rows;
@@ -23,19 +24,22 @@ if(isset($_POST['nome_usuario']) || isset($_POST['senha'])){
 
 			$usuario = $consulta_sql-> fetch_assoc();
 
-			if(!isset($_SESSION)){
+			if(password_verify($senha, $usuario['senha'])){
 
-				session_start();
+				if(!isset($_SESSION)){
+
+					session_start();
+				}
+
+				$_SESSION['id'] = $usuario['id'];
+				$_SESSION['nome'] = $usuario['nome'];
+
+				header("Location: pagina_inicial.php");
 			}
 
-			$_SESSION['id'] = $usuario['id'];
-			$_SESSION['nome'] = $usuario['nome'];
+		} else {
 
-			header("Location: pagina_inicial.php");
-
-		} else{
-
-			echo"Falha ao logar. E-mail ou senha incorretos!";
+			echo"Falha ao logar. Nome de usuário ou senha incorretos!";
 		}
 	}
 }
