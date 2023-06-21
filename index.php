@@ -17,6 +17,7 @@ include "ws/ws_login.php";
 	<div class="container-fluid p-5 mt-4">
 		<div class="row">
 			<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-8 col-sm-12 col-md-8">
+				<!--Formulário de Login-->
 				<div class="container p-5 mt-4 bg_login container_login">
 					<div class="text-center mb-4">
 						<img  class=""  src="img/logo_login_image.png" alt="Logo Bíblia">
@@ -51,5 +52,24 @@ include "ws/ws_login.php";
 		</div>
 	</div>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script>
+
+	//Scripts de alertas de preenchimento de usuário e senha:
+
+		$("form").on("submit", function(e){
+			if($("#nome_usuario").val() === ""){
+				e.preventDefault();
+				alert("Por favor, preencha corretamente o campo 'Nome de usuário'.");
+			}
+		});
+
+		$("form").on("submit", function(e){
+			if($("#senha").val() === ""){
+				e.preventDefault();
+				alert("Por favor, preencha corretamente o campo 'Senha'.");
+			}
+		});
+
+	</script>
 </body>
 </html>

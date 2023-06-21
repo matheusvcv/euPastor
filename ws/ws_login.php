@@ -1,16 +1,6 @@
 <?php
 
-if(isset($_POST['nome_usuario']) || isset($_POST['senha'])){
-
-	if(strlen($_POST['nome_usuario']) == 0){
-
-		echo "Por favor, preencha seu nome de usuário.";
-
-	} else if(strlen($_POST['senha']) == 0) {
-
-		echo "Por favor, preencha sua senha.";
-
-	} else {
+if(isset($_POST['nome_usuario']) && isset($_POST['senha'])){
 
 		$nome_usuario = $conexao-> real_escape_string($_POST['nome_usuario']);
 		$senha = $conexao-> real_escape_string($_POST['senha']);
@@ -42,6 +32,5 @@ if(isset($_POST['nome_usuario']) || isset($_POST['senha'])){
 			echo"Falha ao logar. Nome de usuário ou senha incorretos!";
 		}
 	}
-}
-
+			
 ?>
