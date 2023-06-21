@@ -1,6 +1,6 @@
 <?php
 include "src/conexao.php";
-include "src/logica_login.php";
+include "ws/ws_login.php";
 ?>
 <!Doctype html>
 <html>
@@ -10,6 +10,7 @@ include "src/logica_login.php";
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<link rel="shortcut icon" href="img/logo_login_image.png" type="image/x-icon">
+	<script src="js/jquery_3.7.0.js"></script>
 	<title>Login</title>
 </head>
 <body>
