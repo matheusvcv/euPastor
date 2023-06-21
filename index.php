@@ -15,7 +15,7 @@ include "ws/ws_login.php";
 	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css" rel="stylesheet">
 	<title>Login</title>
 </head>
-<body>
+<body class="body_index">
 	<div class="container-fluid p-5 mt-4">
 		<div class="row">
 			<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-8 col-sm-12 col-md-8">
@@ -23,7 +23,7 @@ include "ws/ws_login.php";
 				<div class="container p-5 mt-4 bg_login container_login">
 					<div class="text-center mb-4">
 						<img  class=""  src="img/logo_login_image.png" alt="Logo Bíblia">
-						<h1 id="titulo_login">EuPastor</h1>
+						<h1 id="titulo_login">MyChurch</h1>
 					</div>
 					<form method="POST" action="">
 						<div class="row">

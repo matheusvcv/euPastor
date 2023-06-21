@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-body {
+.body_index{
 	background-image: url(img/bg_image.jpg);
 	background-position: top left;
 	background-repeat: no-repeat;
@@ -43,6 +43,10 @@ body {
 
 .esqueci_minha_senha:hover {
 	color: 	blue;
+}
+
+.botao_sair:hover{
+	font-weight: bold !important;
 }
 
 #titulo_login {
