@@ -10,10 +10,9 @@ include "ws/ws_login.php";
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<link rel="shortcut icon" href="img/logo_login_image.png" type="image/x-icon">
-	<script
-  src="https://code.jquery.com/jquery-3.7.0.js"
-  integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
-  crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css" rel="stylesheet">
 	<title>Login</title>
 </head>
 <body>
@@ -57,21 +56,55 @@ include "ws/ws_login.php";
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<script>
 
-	//Scripts de alertas de preenchimento de usuário e senha:
+	//Scripts de alerta de e-mail ou senha incorretos:
+	<?php if(isset($_GET['err']) && $_GET['err'] == 1) { ?>
+			var timerInterval;
+			Swal.fire({
+			  title: "Não foi possível realizar o Login. Nome de usuário e/ou senha incorretos.",
+			  type: "error",
+			  timer: 9200,
+			  confirmButtonClass: "btn btn-danger",
+			  buttonsStyling: false,
+			  onClose: function() {
+				clearInterval(timerInterval);
+			  }
+			})
 
-		$("form").on("submit", function(e){
-			if($("#nome_usuario").val() === ""){
-				e.preventDefault();
-				alert("Por favor, preencha corretamente o campo 'Nome de usuário'.");
-			}
-		});
+	<?php } ?>
 
-		$("form").on("submit", function(e){
-			if($("#senha").val() === ""){
-				e.preventDefault();
-				alert("Por favor, preencha corretamente o campo 'Senha'.");
-			}
-		});
+	//Scripts de alertas por falta de preenchimento de usuário e senha:
+	$("form").on("submit", function(e){
+		if($("#nome_usuario").val() === ""){
+		e.preventDefault();
+			var timerInterval;
+			Swal.fire({
+			  title: "Por favor, preencha corretamente os campos 'Nome de Usuário' e 'Senha'.",
+			  type: "error",
+			  timer: 9200,
+			  confirmButtonClass: "btn btn-danger",
+			  buttonsStyling: false,
+			  onClose: function() {
+				clearInterval(timerInterval);
+			  }
+			})
+		}
+	});
+	$("form").on("submit", function(e){
+		if($("#senha").val() === ""){
+		e.preventDefault();
+			var timerInterval;
+			Swal.fire({
+			  title: "Por favor, preencha corretamente os campos 'Nome de Usuário' e 'Senha'.",
+			  type: "error",
+			  timer: 9200,
+			  confirmButtonClass: "btn btn-danger",
+			  buttonsStyling: false,
+			  onClose: function() {
+				clearInterval(timerInterval);
+			  }
+			})
+		}
+	});
 
 	</script>
 </body>

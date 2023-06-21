@@ -35,13 +35,17 @@ if(isset($_POST['nome_usuario']) || isset($_POST['senha'])){
 				$_SESSION['nome'] = $usuario['nome'];
 
 				header("Location: pagina_inicial.php");
+			} else {
+
+				header("Location:index.php?err=1");
 			}
 
 		} else {
 
-			echo"Falha ao logar. Nome de usuário ou senha incorretos!";
+			header("Location:index.php?err=1");
 		}
 	}
+
 }
 
 ?>
