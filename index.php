@@ -10,7 +10,10 @@ include "ws/ws_login.php";
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<link rel="shortcut icon" href="img/logo_login_image.png" type="image/x-icon">
-	<script src="js/jquery_3.7.0.js"></script>
+	<script
+  src="https://code.jquery.com/jquery-3.7.0.js"
+  integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+  crossorigin="anonymous"></script>
 	<title>Login</title>
 </head>
 <body>
