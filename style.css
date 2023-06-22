@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+body{
+	background-color: #F5F5F5 !important;
+}
+
 .body_index{
 	background-image: url(img/bg_image.jpg);
 	background-position: top left;
@@ -47,6 +51,26 @@
 
 .botao_sair:hover{
 	font-weight: bold !important;
+}
+
+.card_body{
+	background-color: #FFFFFF !important;
+}
+
+.barra_nav{
+	background-color: #FFFFFF;
+	border: solid #A9A9A9 1px;
+}
+
+.barra_item{
+	color: black !important;
+	font-weight: bold !important;
+}
+
+.barra_item:hover{
+	color: #FFFFFF !important;
+	background-color: #212529 !important;
+
 }
 
 #titulo_login {
