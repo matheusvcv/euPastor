@@ -12,7 +12,7 @@ include"../../src/conexao.php";
 
 		$conexao->query("INSERT INTO usuarios(nome, email, nome_usuario, senha) VALUES ('$nome','$email','$nome_usuario','$senha_crip')");
 
-		header("Location:../views/cadastrar_usuarios.html?sucesso=1");
+		header("Location:../views/cadastrar_usuarios.php?sucesso=1");
 
 	} else {
 

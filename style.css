@@ -73,6 +73,14 @@ body{
 
 }
 
+.form_item{
+	border: solid #212529 1px !important;
+}
+
+.form_item:hover{
+	border: solid green 1px !important;
+}
+
 #titulo_login {
 	font-size: 3vh;
 }
