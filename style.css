@@ -78,7 +78,7 @@ body{
 }
 
 .form_item:hover{
-	border: solid green 1px !important;
+	border: solid silver 1px !important;
 }
 
 #titulo_login {
