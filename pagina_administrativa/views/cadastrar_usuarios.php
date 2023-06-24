@@ -52,7 +52,6 @@
 			<a class="nav-link barra_item">Outro módulo</a>
 		</li>
 	</ul>
-	
 	<div class="card card_body m-3">
 		<div class="card-content collapse show">
 			<div class="card-body card-dashboard">
@@ -134,7 +133,6 @@
 			</div>
 		</div>
 	</div>
-
 	<!--Script Bootstrap-->
 	<script src="../../bootstrap/js/bootstrap.min.js"></script>
 </body>
