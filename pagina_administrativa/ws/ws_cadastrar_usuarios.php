@@ -3,7 +3,6 @@
 include"../../src/conexao.php";
 
 	if(isset($_POST['email'])){
-
 		$nome = filter_input(INPUT_POST, 'nome');
 		$telefone = filter_input(INPUT_POST, 'telefone');
 		$nascimento = filter_input(INPUT_POST, 'nascimento');
@@ -15,13 +14,13 @@ include"../../src/conexao.php";
 		$cargo = filter_input(INPUT_POST, 'cargo');
 		$perfil = filter_input(INPUT_POST, 'perfil', FILTER_VALIDATE_INT);
 
+
 		$conexao->query("INSERT INTO usuarios(nome, telefone, nascimento, email, nome_usuario, senha, igreja, cargo, perfil) VALUES ('$nome','$telefone','$nascimento','$email','$nome_usuario','$senha_crip','$igreja','$cargo','$perfil')");
 
-		header("Location:../../pagina_inicial.php?sucesso=1");
+		header("Location:../../pagina_inicial.php?usuario_cadastrado=1");
 
 	} else {
-
+		
 		echo "Falha!";
 	}
-
 ?>

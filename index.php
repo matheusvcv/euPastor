@@ -72,6 +72,25 @@ include "ws/ws_login.php";
 
 	<?php } ?>
 
+
+	<?php if(isset($_GET['usuario_cadastrado
+']) && $_GET['usuario_cadastrado'] == 1) { ?>
+		var timerInterval;
+		Swal.fire({
+		  title: "Usuário cadastrado com sucesso.",
+		  type: "error",
+		  timer: 9200,
+		  confirmButtonClass: "btn btn-danger",
+		  buttonsStyling: false,
+		  onClose: function() {
+			clearInterval(timerInterval);
+		  }
+		})
+	<?php } ?>
+
+
+
+
 	//Scripts de alertas por falta de preenchimento de usuário e senha:
 	$("form").on("submit", function(e){
 		if($("#nome_usuario").val() === ""){
