@@ -8,7 +8,9 @@ include "src/protect.php";
 	<meta name="viewport" content="width=device-width initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-	<script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css" rel="stylesheet">
 	<link rel="shortcut icon" href="img/logo_login_image.png" type="image/x-icon">
 	<title>Página Inicial</title>
 </head>
@@ -42,27 +44,21 @@ include "src/protect.php";
     </div>
   </div>
 </nav>
-
-
-
-<form>
-  <div class="mb-3 mr-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
-	
-
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+	<script>
+    <?php if(isset($_GET['usuario_cadastrado']) && $_GET['usuario_cadastrado'] == 1) { ?>
+      var timerInterval;
+      Swal.fire({
+      title: "Usuário cadastrado com sucesso.",
+      type: "error",
+      timer: 9200,
+      confirmButtonClass: "btn btn-success",
+      buttonsStyling: false,
+      onClose: function() {
+      clearInterval(timerInterval);
+      }
+      })
+    <?php } ?> 
+  </script>
 </body>
 </html>
