@@ -87,6 +87,20 @@ include "src/protect.php";
       clearInterval(timerInterval);
       }
       })
+    <?php } ?>
+
+    <?php if(isset($_GET['usuario_cadastrado']) && $_GET['usuario_cadastrado'] == 2) { ?>
+      var timerInterval;
+      Swal.fire({
+      title: "Você cancelou o cadastro do usuário.",
+      type: "error",
+      timer: 9200,
+      confirmButtonClass: "btn btn-primary",
+      buttonsStyling: false,
+      onClose: function() {
+      clearInterval(timerInterval);
+      }
+      })
     <?php } ?> 
   </script>
 </body>
