@@ -59,6 +59,20 @@ include "src/protect.php";
       }
       })
     <?php } ?> 
+
+    <?php if(isset($_GET['usuario_cadastrado']) && $_GET['usuario_cadastrado'] == 0) { ?>
+      var timerInterval;
+      Swal.fire({
+      title: "Usuário não pode ser cadastrado. Dados incorretos ou duplicados.",
+      type: "error",
+      timer: 9200,
+      confirmButtonClass: "btn btn-danger",
+      buttonsStyling: false,
+      onClose: function() {
+      clearInterval(timerInterval);
+      }
+      })
+    <?php } ?> 
   </script>
 </body>
 </html>
