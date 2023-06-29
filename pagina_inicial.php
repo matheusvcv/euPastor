@@ -15,7 +15,6 @@ include "src/protect.php";
 	<title>Página Inicial</title>
 </head>
 <body>
-
 <!--Início da NavBar-->
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
@@ -61,6 +60,7 @@ include "src/protect.php";
   </ul>
   <script src="bootstrap/js/bootstrap.min.js"></script>
 	<script>
+    //Alerta de Usuário Cadastrado com sucesso.
     <?php if(isset($_GET['usuario_cadastrado']) && $_GET['usuario_cadastrado'] == 1) { ?>
       var timerInterval;
       Swal.fire({
@@ -74,7 +74,7 @@ include "src/protect.php";
       }
       })
     <?php } ?> 
-
+    //Alerta de falha ao cadastrar usuário.
     <?php if(isset($_GET['usuario_cadastrado']) && $_GET['usuario_cadastrado'] == 0) { ?>
       var timerInterval;
       Swal.fire({
@@ -88,7 +88,7 @@ include "src/protect.php";
       }
       })
     <?php } ?>
-
+    //Alerta cancelamento de cadastro de usuário.
     <?php if(isset($_GET['usuario_cadastrado']) && $_GET['usuario_cadastrado'] == 2) { ?>
       var timerInterval;
       Swal.fire({
