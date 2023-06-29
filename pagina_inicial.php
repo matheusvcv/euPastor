@@ -44,6 +44,21 @@ include "src/protect.php";
     </div>
   </div>
 </nav>
+  <!--Barra de Navegação entre módulos-->
+  <ul class="nav mb-2 barra_nav">
+    <li class="nav-item">
+      <a class="nav-link barra_item" href="pagina_inicial.php">Página Inicial</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link barra_item" href="#">Lista de Membros</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link barra_item" href="pagina_administrativa/views/cadastrar_usuarios.php">Cadastrar Usuários</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link barra_item">Outro módulo</a>
+    </li>
+  </ul>
   <script src="bootstrap/js/bootstrap.min.js"></script>
 	<script>
     <?php if(isset($_GET['usuario_cadastrado']) && $_GET['usuario_cadastrado'] == 1) { ?>

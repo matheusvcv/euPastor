@@ -37,7 +37,7 @@
 			</div>
 		</div>
 	</nav>
-	<!--Barra de Navegação entr módulos-->
+	<!--Barra de Navegação entre módulos-->
 	<ul class="nav mb-2 barra_nav">
 		<li class="nav-item">
 			<a class="nav-link barra_item" href="../../pagina_inicial.php">Página Inicial</a>
@@ -52,6 +52,7 @@
 			<a class="nav-link barra_item">Outro módulo</a>
 		</li>
 	</ul>
+	<!--Início do Corpo da página.-->
 	<div class="card card_body m-3">
 		<div class="card-content collapse show">
 			<div class="card-body card-dashboard">
