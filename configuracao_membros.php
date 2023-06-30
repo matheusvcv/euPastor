@@ -56,6 +56,9 @@
 	<div class="card card_body m-3">
 		<div class="card-content collapse show">
 			<div class="card-body card-dashboard">
+				<div id="cadastro_usuario">
+					
+				
 				<!--Início do formulário-->
 				<h3>Cadastro de Membros</h3>
 				<div class="container-fluid">
@@ -137,6 +140,11 @@
 					</form>
 				</div>	
 			</div>
+
+
+</div>
+
+
 		</div>
 	</div>
 	<!--Script Bootstrap-->
