@@ -132,13 +132,13 @@
 									<button type="submit" class="btn btn-success form-control form_item">Cadastrar</button>
 								</div>
 								<div class="col-lg-1 mt-3">
-									<a href="../../pagina_inicial.php?usuario_cadastrado=2"><div class="btn btn-danger form-control form_item">Cancelar</div></a>
+									<div class="btn btn-danger form-control form_item" onclick="exibe_form_cad_membro();">Cancelar</div>
 								</div>
 							</div>
 						</form>
 					</div>	
 				</div>
-				<button id="exibe_form_cad_membro" class="btn btn-success" onclick="exibe_form_cad_membro();">Cadastrar Membro</button>
+				<button id="exibe_form_cad_membro" class="btn btn-success" onclick="esconde_form_cad_membro();">Cadastrar Membro</button>
 			</div>
 		</div>
 	</div>
@@ -150,6 +150,22 @@
 		{
 			$('#cadastro_usuario').css('display', 'block');
 		}
+
+
+
+
+		
+		function esconde_form_cad_membro()
+		{
+			$('#cadastro_usuario').css('display', 'none');
+		}
+
+		
+
+
+
+
+
 
 	</script>
 </body>
