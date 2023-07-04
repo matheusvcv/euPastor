@@ -120,7 +120,7 @@
 							</div>
 							<div class="row justify-content-end mb-2">
 								<div class="col-lg-1 col-sm-12 mt-3">
-									<button type="submit" class="btn btn-success form-control form_item">Cadastrar</button>
+									<button type="submit" class="btn btn-success form-control form_item" onclick="inserir_membro();">Cadastrar</button>
 								</div>
 								<div class="col-lg-1 mt-3">
 									<div class="btn btn-danger form-control form_item" onclick="esconde_form_cad_membro();">Cancelar</div>
