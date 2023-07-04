@@ -61,16 +61,16 @@
 				<div class="container-fluid">
 					<form class="mt-3" method="POST" action="../ws/ws_cadastrar_usuarios.php">
 						<div class="row mt-3">
-							<h6>Dados pessoais</h6>
+							<h6>Dados Pessoais</h6>
 						</div>
-						<div class="row">
+						<div class="row mb-4">
 							<div class="col-lg-4">
 								<label for="nome" class="form-label">Nome Completo:</label>
-								<input type="text" class="form-control form_item" id="nome" name="nome">
+								<input type="text" class="form-control form_item" id="nome" name="nome" placeholder="Digite o nome aqui.">
 							</div>
 							<div class="col-lg-4">
 								<label for="telefone" class="form-label">Telefone:</label>
-								<input type="text" class="form-control form_item" id="telefone" name="telefone">
+								<input type="text" class="form-control form_item" id="telefone" name="telefone" placeholder="Digite o telefone aqui.">
 							</div>
 							<div class="col-lg-4">
 								<label for="nascimento" class="form-label">Data de Nascimento:</label>
@@ -80,27 +80,27 @@
 						<div class="row mt-3">
 							<h6>Dados de Login</h6>
 						</div>
-						<div class="row">
+						<div class="row mb-4">
 							<div class="col-lg-4">
 								<label for="email" class="form-label">Endereço de e-mail:</label>
-								<input type="email" class="form-control form_item" id="email" name="email">
+								<input type="email" class="form-control form_item" id="email" name="email" placeholder="Digite o e-mail aqui.">
 							</div>
 							<div class="col-lg-4">
 								<label for="nome_usuario" class="form-label">Defina um nome de usuário:</label>
-								<input type="text" class="form-control form_item" id="nome_usuario" name="nome_usuario">
+								<input type="text" class="form-control form_item" id="nome_usuario" name="nome_usuario" placeholder="Digite o nome de usuário aqui.">
 							</div>
 							<div class="col-lg-4">
 								<label for="senha" class="form-label">Senha:</label>
-								<input type="password" class="form-control form_item" id="senha" name="senha">
+								<input type="password" class="form-control form_item" id="senha" name="senha" placeholder="Digite a senha aqui.">
 							</div>
 						</div>
 						<div class="row mt-3">
 							<h6>Dados da Instituição</h6>
 						</div>
-						<div class="row">
+						<div class="row mb-4">
 							<div class="col-lg-4">
 								<label for="igreja" class="form-label">Igreja:</label>
-								<input type="text" class="form-control form_item" id="igreja" name="igreja">
+								<input type="text" class="form-control form_item" id="igreja" name="igreja" placeholder="Digite o nome da igreja aqui.">
 							</div>
 							<div class="col-lg-4">
 								<label for="cargo" class="form-label">Cargo:</label>

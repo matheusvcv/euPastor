@@ -63,16 +63,16 @@
 					<div class="container-fluid">
 						<form class="mt-3" method="POST" action="../ws/ws_cadastrar_usuarios.php">
 							<div class="row mt-3">
-								<h6>***</h6>
+								<h6>Dados Pessoais</h6>
 							</div>
-							<div class="row">
+							<div class="row mb-4">
 								<div class="col-lg-4">
 									<label for="nome" class="form-label">Nome do membro:</label>
-									<input type="text" class="form-control form_item" id="nome_membro" name="nome_membro">
+									<input type="text" class="form-control form_item" id="nome_membro" name="nome_membro" placeholder="Digite o nome aqui.">
 								</div>
 								<div class="col-lg-4">
 									<label for="telefone" class="form-label">CPF do mebro:</label>
-									<input type="text" class="form-control form_item" id="cpf_membro" name="cpf_membro">
+									<input type="text" class="form-control form_item" id="cpf_membro" name="cpf_membro" placeholder="Digite o CPF aqui.">
 								</div>
 								<div class="col-lg-4">
 									<label for="nascimento" class="form-label">Data de Nascimento:</label>
@@ -80,31 +80,26 @@
 								</div>
 							</div>
 							<div class="row mt-3">
-								<h6>******</h6>
+								<h6>Dados de contato - Salário</h6>
 							</div>
-							<div class="row">
+							<div class="row mb-4">
 								<div class="col-lg-4">
 									<label for="email" class="form-label">Endereço de e-mail:</label>
-									<input type="email" class="form-control form_item" id="email_membro" name="email_membro">
+									<input type="email" class="form-control form_item" id="email_membro" name="email_membro" placeholder="Digite o e-mail aqui.">
 								</div>
 								<div class="col-lg-4">
-									<label for="nome_usuario" class="form-label">Telefone:</label>
-									<input type="text" class="form-control form_item" id="telefone_membro" name="telefone_membro">
+									<label for="nome_usuario" class="form-label">Telefone Mobile (WhatsApp):</label>
+									<input type="text" class="form-control form_item" id="telefone_membro" name="telefone_membro" placeholder="Digite o telefone aqui.">
 								</div>
 								<div class="col-lg-4">
-									<label for="cargo" class="form-label">Quanto tempo este membro faz parte da igreja?</label>
-									<select class="form-select form_item" id="tempo" name="tempo">
-										<option value="1">Membro Novo</option>
-										<option value="2">De 01 a 03 anos</option>
-										<option value="3">De 03 a 05 anos</option>
-										<option value="4">Mais de 05 anos</option>
-									</select>
+									<label for="nome" class="form-label">Faixa Salarial:</label>
+									<input type="text" class="form-control form_item" id="faixa_salarial" name="faixa_salarial" placeholder="Digite o salário aqui.">
 								</div>
 							</div>
 							<div class="row mt-3">
-								<h6>******</h6>
+								<h6>Outras informações</h6>
 							</div>
-							<div class="row">
+							<div class="row mb-4">
 								<div class="col-lg-4">
 									<label for="cargo" class="form-label">Quanto tempo este membro faz parte da igreja?</label>
 									<select class="form-select form_item" id="tempo" name="tempo">
@@ -122,23 +117,19 @@
 										<option value="Membro novo, ainda não é possível definir.">Membro novo, ainda não é possível definir.</option>
 									</select>
 								</div>
-								<div class="col-lg-4">
-									<label for="nome" class="form-label">Faixa Salarial:</label>
-									<input type="text" class="form-control form_item" id="faixa_salarial" name="faixa_salarial">
-								</div>
 							</div>
 							<div class="row justify-content-end mb-2">
 								<div class="col-lg-1 col-sm-12 mt-3">
 									<button type="submit" class="btn btn-success form-control form_item">Cadastrar</button>
 								</div>
 								<div class="col-lg-1 mt-3">
-									<div class="btn btn-danger form-control form_item" onclick="exibe_form_cad_membro();">Cancelar</div>
+									<div class="btn btn-danger form-control form_item" onclick="esconde_form_cad_membro();">Cancelar</div>
 								</div>
 							</div>
 						</form>
 					</div>	
 				</div>
-				<button id="exibe_form_cad_membro" class="btn btn-success" onclick="esconde_form_cad_membro();">Cadastrar Membro</button>
+				<button id="exibe_form_cad_membro" class="btn btn-success" onclick="exibe_form_cad_membro();">Cadastrar Membro</button>
 			</div>
 		</div>
 	</div>
@@ -146,26 +137,20 @@
 	<script src="../../bootstrap/js/bootstrap.min.js"></script>
 	<script>
 
+
+		
 		function exibe_form_cad_membro()
 		{
 			$('#cadastro_usuario').css('display', 'block');
+			$('#exibe_form_cad_membro').css('display', 'none');
 		}
-
-
-
 
 		
 		function esconde_form_cad_membro()
 		{
 			$('#cadastro_usuario').css('display', 'none');
+			$('#exibe_form_cad_membro').css('display', 'block');
 		}
-
-		
-
-
-
-
-
 
 	</script>
 </body>
