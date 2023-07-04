@@ -61,7 +61,7 @@
 					<!--Início do formulário-->
 					<h3>Cadastro de Membros</h3>
 					<div class="container-fluid">
-						<form class="mt-3" method="POST" action="../ws/ws_cadastrar_usuarios.php">
+						<form  method="POST" name="form_inserir_membros" id="form_inserir_membros">
 							<div class="row mt-3">
 								<h6>Dados Pessoais</h6>
 							</div>
@@ -102,7 +102,7 @@
 							<div class="row mb-4">
 								<div class="col-lg-4">
 									<label for="cargo" class="form-label">Quanto tempo este membro faz parte da igreja?</label>
-									<select class="form-select form_item" id="tempo" name="tempo">
+									<select class="form-select form_item" id="tempo_de_membro" name="tempo_de_membro">
 										<option value="Membro Novo">Membro Novo</option>
 										<option value="De 01 a 03 anos">De 01 a 03 anos</option>
 										<option value="De 03 a 05 anos">De 03 a 05 anos</option>
@@ -136,6 +136,47 @@
 	<!--Script Bootstrap-->
 	<script src="../../bootstrap/js/bootstrap.min.js"></script>
 	<script>
+
+	function inserir_membro()
+	{
+		var nome_membro = $('#nome_membro').val();
+		var cpf_membro = $('#cpf_membro').val();
+		var nascimento_membro = $('#nascimento_membro').val();
+		var email_membro = $('#email_membro').val();
+		var telefone_membro = $('#telefone_membro').val();
+		var faixa_salarial = $('#faixa_salarial').val();
+		var tempo_de_membro = $('#tempo_de_membro').val();
+		var ativo = $('#ativo').val();
+
+		$.ajax({
+			url: 'ws/ws_cadastrar_membros.php',
+			type: 'post',
+			data:{
+				'nome_membro': nome_membro,
+				'cpf_membro': cpf_membro,
+				'nascimento_membro': nascimento_membro,
+				'email_membro': email_membro,
+				'telefone_membro': telefone_membro,
+				'faixa_salarial': faixa_salarial,
+				'tempo_de_membro': tempo_de_membro,
+				'ativo': ativo
+			},
+
+		}).done(function(response){
+			if (response === "success")
+			{
+				window.location.href = 'configuracao_membros.php?s=1'
+			}
+
+			if (response === "error")
+			{
+				window.location.href = 'configuracao_membros.php?s=0'
+			}
+		});
+	}
+
+
+
 
 
 		
