@@ -39,20 +39,12 @@
 				)
 
 			";
-
-			if($conexao->query($sql)){
-
-				echo "success";
-
-			} else {
-
-				echo "error";
-			}
+}
 
 		}
 		catch(Exception $e)
 		{
-			echo "error";
+
 		}
 	}
 ?>

@@ -129,10 +129,41 @@
 						</form>
 					</div>	
 				</div>
-				<button id="exibe_form_cad_membro" class="btn btn-success" onclick="exibe_form_cad_membro();">Cadastrar Membro</button>
+				<div>
+					<button id="exibe_form_cad_membro" class="btn btn-success" onclick="exibe_form_cad_membro();">Cadastrar Membro</button>
+				</div>
+				<div class="container-fluid">
+					<div class="row mt-3">
+						<table id="datatable" class="table table-bordered" cellspacing="0" width="100%">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Nome</th>
+									<th>CPF</th>
+									<th>Nascimento</th>
+									<th>E-mail</th>
+									<th>Telefone</th>
+									<th>Tempo de Igreja</th>
+									<th>Ativo</th>
+									<th>Salário</th>
+									<th>Contribuição Sugerida</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
+
+
+
+
+
+
+
+
+
 	<!--Script Bootstrap-->
 	<script src="../../bootstrap/js/bootstrap.min.js"></script>
 	<script>
@@ -163,14 +194,15 @@
 			},
 
 		}).done(function(response){
+			
 			if (response === "success")
 			{
-				window.location.href = 'configuracao_membros.php?s=1'
+				window.location.href = 'configuracao_membros.php?s=1';
 			}
 
 			if (response === "error")
 			{
-				window.location.href = 'configuracao_membros.php?s=0'
+				window.location.href = 'configuracao_membros.php?s=0';
 			}
 		});
 	}
