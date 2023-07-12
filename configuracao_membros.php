@@ -7,6 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<link rel="shortcut icon" href="img/logo_login_image.png" type="image/x-icon">
 	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+	<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
 	<title>Cadastro de Membros</title>
 </head>
 <body>
@@ -149,6 +151,20 @@
 									<th>Contribuição Sugerida</th>
 								</tr>
 							</thead>
+							<tbody>
+								<tr>
+									<td>Dado 1</td>
+									<td>Dado 2</td>
+									<td>Dado 3</td>
+									<td>Dado 1</td>
+									<td>Dado 2</td>
+									<td>Dado 3</td>
+									<td>Dado 1</td>
+									<td>Dado 2</td>
+									<td>Dado 3</td>
+									<td>Dado 3</td>
+								</tr>
+							</tbody>
 						</table>
 					</div>
 				</div>
@@ -167,6 +183,64 @@
 	<!--Script Bootstrap-->
 	<script src="../../bootstrap/js/bootstrap.min.js"></script>
 	<script>
+
+	$(document).ready(function() {
+		$('#datatable').DataTable({
+			/* fixedHeader: {
+			header: true,
+			headerOffset: $('.header-navbar').outerHeight()
+		}, */		
+		"autoWidth": false,
+		"bLengthChange": false,
+		pageLength: 10,
+		dom: 'Bfrtip',
+		buttons: [
+		  {
+			extend: 'excelHtml5',
+			text: 'Excel',
+			className: 'excel_btn',
+			titleAttr: 'Exportar para Excel',
+			exportOptions: {
+			columns: ':visible'
+			}
+		  }
+		],
+
+
+		"search": {
+		"regex": true
+		},
+		destroy: true,
+		"processing" : false,
+		"paging": true,
+		"searching": false,
+		"bFilter": false,
+		"columnDefs":[
+		   {"visible": false, "targets":0}
+		],
+
+		aaSorting: [[0, "desc"]], 
+		"ajax" : {
+				"url" : "ws/seleciona_membros.php",
+				"type": 'GET',
+				"contentType": "application/json",
+				dataSrc : '',
+				"data": { 
+					'act': 'get_listas',
+					'nome_operacao_min': <?php echo "'$nome_operacao_min'"; ?>
+				} 
+			}
+		,
+		"columns" :  
+		[
+		
+			{"mRender": function ( data, type, row )  
+				{
+					return '<p style="width:20em;" id="id">'+ row.id + '</p>';
+				}
+			},
+		});
+	});
 
 	function inserir_membro()
 	{
