@@ -152,18 +152,6 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>Dado 1</td>
-									<td>Dado 2</td>
-									<td>Dado 3</td>
-									<td>Dado 1</td>
-									<td>Dado 2</td>
-									<td>Dado 3</td>
-									<td>Dado 1</td>
-									<td>Dado 2</td>
-									<td>Dado 3</td>
-									<td>Dado 3</td>
-								</tr>
 							</tbody>
 						</table>
 					</div>
@@ -172,20 +160,14 @@
 		</div>
 	</div>
 
-
-
-
-
-
-
-
-
 	<!--Script Bootstrap-->
 	<script src="../../bootstrap/js/bootstrap.min.js"></script>
 	<script>
 
 	$(document).ready(function() {
-		$('#datatable').DataTable({
+
+
+	$('#datatable').DataTable({
 			/* fixedHeader: {
 			header: true,
 			headerOffset: $('.header-navbar').outerHeight()
@@ -219,27 +201,46 @@
 		   {"visible": false, "targets":0}
 		],
 
-		aaSorting: [[0, "desc"]], 
-		"ajax" : {
-				"url" : "ws/seleciona_membros.php",
-				"type": 'GET',
-				"contentType": "application/json",
-				dataSrc : '',
-				"data": { 
-					'act': 'get_listas',
-					'nome_operacao_min': <?php echo "'$nome_operacao_min'"; ?>
-				} 
-			}
-		,
-		"columns" :  
-		[
-		
-			{"mRender": function ( data, type, row )  
-				{
-					return '<p style="width:20em;" id="id">'+ row.id + '</p>';
-				}
-			},
+		"columns":[
+			{"data": "id"},
+			{"data": "nome_membro"},
+			{"data": "cpf_membro"},
+			{"data": "nascimento_membro"},
+			{"data": "email_membro"},
+			{"data": "telefone_membro"},
+			{"data": "faixa_salarial"},
+			{"data": "tempo_de_membro"},
+			{"data": "ativo"},
+		]
+
 		});
+	});
+
+
+
+	$.ajax({
+		url: 'ws/seleciona_membros.php',
+		dataType: 'json',
+		success: function(data){
+
+			if(data.length > 0){
+
+				$('#datatable').DataTable().clear();
+
+				$('#datatable').DataTable().rows.add(data).draw();
+
+			}else{
+
+				$('#datatable').DataTable().clear().draw();
+				$('#datatable').DataTable().rows.add('<tr><td colspan="3">Nenhum resultado encontrado.</td><tr>').draw();
+
+			}
+		},
+
+		error: function() {
+
+			console.error('Ocorreu um erro ao obter os dados.');
+		}
 	});
 
 	function inserir_membro()
@@ -280,8 +281,6 @@
 			}
 		});
 	}
-
-
 
 
 

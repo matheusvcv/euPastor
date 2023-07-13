@@ -1,25 +1,20 @@
 <?php
-include"../../src/conexao.php";
+include "../src/conexao.php";
 
-$sql = "SELECT * FROM usuarios";
+$sql = "SELECT * FROM lista_membros";
 
-$usuarios = $conexao->query($sql);
+$membros = $conexao->query($sql);
 
-if($usuarios->num_rows > 0){
+if ($membros->num_rows > 0) {
+    $rows_membro = array();
 
-	$usuarios = $dados_usuarios();
+    while ($row_membro = $membros->fetch_assoc()) {
+        $rows_membro[] = $row_membro;
+    }
 
+    $dados_json = json_encode($rows_membro);
 
-	while($row_usuario = $usuarios->fetch_assoc()){
-
-		$rows_usuario[] = $row_usuario;
-	}
-
-	$dados_jason = json_encode($rows_usuario);
-
-	echo $dados_jason;
-	
+    echo $dados_json;
 } else {
-
-	echo "Nenhum resultado encontrado.";
+    echo "Nenhum resultado encontrado.";
 }
