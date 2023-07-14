@@ -7,7 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<link rel="shortcut icon" href="img/logo_login_image.png" type="image/x-icon">
 	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css">
 	<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
 	<title>Cadastro de Membros</title>
 </head>
@@ -134,9 +135,10 @@
 				<div>
 					<button id="exibe_form_cad_membro" class="btn btn-success" onclick="exibe_form_cad_membro();">Cadastrar Membro</button>
 				</div>
-				<div class="container-fluid">
+				<!--Início da DataTable-->
+				<div class="container">
 					<div class="row mt-3">
-						<table id="datatable" class="table table table-striped table-bordered" cellspacing="0" width="100%">
+						<table id="datatable" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 							<thead>
 								<tr>
 									<th>ID</th>
@@ -162,12 +164,13 @@
 
 	<!--Script Bootstrap-->
 	<script src="../../bootstrap/js/bootstrap.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
 	<script>
 
 	$(document).ready(function() {
 
 
-	
+
 
 
 	$('#datatable').DataTable({
