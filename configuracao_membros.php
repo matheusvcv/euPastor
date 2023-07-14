@@ -136,21 +136,21 @@
 					<button id="exibe_form_cad_membro" class="btn btn-success" onclick="exibe_form_cad_membro();">Cadastrar Membro</button>
 				</div>
 				<!--Início da DataTable-->
-				<div class="container">
+				<div class="container-fluid">
 					<div class="row mt-3">
-						<table id="datatable" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+						<table id="datatable" class="table table-striped table-bordered table-hover justify-content-center" cellspacing="0" width="100%">
 							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Nome</th>
-									<th>CPF</th>
-									<th>Nascimento</th>
-									<th>E-mail</th>
-									<th>Telefone</th>
-									<th>Tempo de Igreja</th>
-									<th>Ativo</th>
-									<th>Salário</th>
-									<th>Contribuição Sugerida</th>
+								<tr class="table-dark justify-content-center">
+									<th class="align-middle text-center">ID</th>
+									<th class="align-middle text-center">Nome</th>
+									<th class="align-middle text-center">CPF</th>
+									<th class="align-middle text-center">Nascimento</th>
+									<th class="align-middle text-center">E-mail</th>
+									<th class="align-middle text-center">Telefone</th>
+									<th class="align-middle text-center">Tempo de Igreja</th>
+									<th class="align-middle text-center">Ativo</th>
+									<th class="align-middle text-center">Salário</th>
+									<th class="align-middle text-center">Contribuição Sugerida</th>
 								</tr>
 							</thead>
 							<tbody>
