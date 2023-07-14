@@ -136,7 +136,7 @@
 				</div>
 				<div class="container-fluid">
 					<div class="row mt-3">
-						<table id="datatable" class="table table-bordered" cellspacing="0" width="100%">
+						<table id="datatable" class="table table table-striped table-bordered" cellspacing="0" width="100%">
 							<thead>
 								<tr>
 									<th>ID</th>
@@ -165,6 +165,9 @@
 	<script>
 
 	$(document).ready(function() {
+
+
+	
 
 
 	$('#datatable').DataTable({
