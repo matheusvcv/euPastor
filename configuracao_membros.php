@@ -217,6 +217,15 @@
 			{"data": "faixa_salarial"},
 			{"data": "tempo_de_membro"},
 			{"data": "ativo"},
+			{
+				"data": "faixa_salarial",
+				"render": function(data, type, row, meta){
+					if(type === 'display'){
+						return data / 10;
+					}
+					return data;
+				}
+			}
 		]
 
 		});
