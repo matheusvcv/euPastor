@@ -249,7 +249,16 @@
 
 		"columns":[
 			{"data": "id"},
-			{"data": ""},
+			{
+				"data": "",
+				"render": function (data, type, row, meta){
+					if(type === 'display'){
+						return '<img src="img/update_icon.png">'+'<img src="img/delete_icon.png">';		
+					}
+					
+					return data;
+				}
+			},
 			{"data": "nome_membro"},
 			{"data": "cpf_membro"},
 			{"data": "nascimento_membro"},
