@@ -142,6 +142,7 @@
 							<thead>
 								<tr class="table-dark justify-content-center">
 									<th class="align-middle text-center">ID</th>
+									<th class="align-middle text-center">Ações</th>
 									<th class="align-middle text-center">Nome</th>
 									<th class="align-middle text-center">CPF</th>
 									<th class="align-middle text-center">Nascimento</th>
@@ -166,6 +167,45 @@
 	<script src="../../bootstrap/js/bootstrap.min.js"></script>
 	<script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
 	<script>
+
+	function inserir_membro()
+	{
+		var nome_membro = $('#nome_membro').val();
+		var cpf_membro = $('#cpf_membro').val();
+		var nascimento_membro = $('#nascimento_membro').val();
+		var email_membro = $('#email_membro').val();
+		var telefone_membro = $('#telefone_membro').val();
+		var faixa_salarial = $('#faixa_salarial').val();
+		var tempo_de_membro = $('#tempo_de_membro').val();
+		var ativo = $('#ativo').val();
+
+		$.ajax({
+			url: 'ws/ws_cadastrar_membros.php',
+			type: 'post',
+			data:{
+				'nome_membro': nome_membro,
+				'cpf_membro': cpf_membro,
+				'nascimento_membro': nascimento_membro,
+				'email_membro': email_membro,
+				'telefone_membro': telefone_membro,
+				'faixa_salarial': faixa_salarial,
+				'tempo_de_membro': tempo_de_membro,
+				'ativo': ativo
+			},
+
+		}).done(function(response){
+			
+			if (response === "success")
+			{
+				window.location.href = 'configuracao_membros.php?s=1';
+			}
+
+			if (response === "error")
+			{
+				window.location.href = 'configuracao_membros.php?s=0';
+			}
+		});
+	}
 
 	$(document).ready(function() {
 
@@ -209,6 +249,7 @@
 
 		"columns":[
 			{"data": "id"},
+			{"data": ""},
 			{"data": "nome_membro"},
 			{"data": "cpf_membro"},
 			{"data": "nascimento_membro"},
@@ -258,44 +299,7 @@
 		}
 	});
 
-	function inserir_membro()
-	{
-		var nome_membro = $('#nome_membro').val();
-		var cpf_membro = $('#cpf_membro').val();
-		var nascimento_membro = $('#nascimento_membro').val();
-		var email_membro = $('#email_membro').val();
-		var telefone_membro = $('#telefone_membro').val();
-		var faixa_salarial = $('#faixa_salarial').val();
-		var tempo_de_membro = $('#tempo_de_membro').val();
-		var ativo = $('#ativo').val();
 
-		$.ajax({
-			url: 'ws/ws_cadastrar_membros.php',
-			type: 'post',
-			data:{
-				'nome_membro': nome_membro,
-				'cpf_membro': cpf_membro,
-				'nascimento_membro': nascimento_membro,
-				'email_membro': email_membro,
-				'telefone_membro': telefone_membro,
-				'faixa_salarial': faixa_salarial,
-				'tempo_de_membro': tempo_de_membro,
-				'ativo': ativo
-			},
-
-		}).done(function(response){
-			
-			if (response === "success")
-			{
-				window.location.href = 'configuracao_membros.php?s=1';
-			}
-
-			if (response === "error")
-			{
-				window.location.href = 'configuracao_membros.php?s=0';
-			}
-		});
-	}
 
 
 
