@@ -68,7 +68,7 @@
 							<thead>
 								<tr class="table-dark justify-content-center">
 									<th class="align-middle text-center">ID</th>
-									<th class="align-middle text-center">Ações</th>
+									<th class="align-middle text-center">Ocorrências</th>
 									<th class="align-middle text-center">Nome</th>
 									<th class="align-middle text-center">CPF</th>
 									<th class="align-middle text-center">Nascimento</th>
@@ -142,7 +142,7 @@
 				"data": "",
 				"render": function (data, type, row, meta){
 					if(type === 'display'){
-						return '<img src="img/update_icon.png">'+'<img src="img/delete_icon.png">';		
+						return '<img src="img/file_icon.png">';		
 					}
 					
 					return data;
