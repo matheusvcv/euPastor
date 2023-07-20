@@ -308,10 +308,6 @@
 		}
 	});
 
-
-
-
-
 		
 		function exibe_form_cad_membro()
 		{
