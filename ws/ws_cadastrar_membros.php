@@ -10,6 +10,7 @@
 		$email_membro = $_POST['email_membro'];
 		$telefone_membro = $_POST['telefone_membro'];
 		$faixa_salarial = $_POST['faixa_salarial'];
+		$faixa_salarial = str_replace(',', '.', $faixa_salarial );
 		$tempo_de_membro = $_POST['tempo_de_membro'];
 		$ativo = $_POST['ativo'];
 
