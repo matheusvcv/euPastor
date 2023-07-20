@@ -49,7 +49,7 @@ include "src/protect.php";
       <a class="nav-link barra_item" href="pagina_inicial.php">Página Inicial</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link barra_item" href="#">Lista de Membros</a>
+      <a class="nav-link barra_item" href="lista_membros.php">Lista de Membros</a>
     </li>
     <li class="nav-item">
       <a class="nav-link barra_item" href="pagina_administrativa/views/cadastrar_usuarios.php">Cadastrar Usuários</a>
