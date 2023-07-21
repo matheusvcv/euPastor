@@ -220,6 +220,7 @@
 		}, */		
 		"autoWidth": false,
 		"bLengthChange": false,
+		"scrollX": true,
 		pageLength: 10,
 		dom: 'Bfrtip',
 		buttons: [
@@ -341,7 +342,6 @@
 				}
 			}
 		]
-
 		});
 	});
 
