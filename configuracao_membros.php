@@ -259,7 +259,15 @@
 					return data;
 				}
 			},
-			{"data": "nome_membro"},
+			{
+				"data": "nome_membro",
+				"render": function (data, type, row, meta){
+					if(type === 'display'){
+						return '<input value="'+ data +'" style="text-align: center;">';
+					}
+
+				}
+			},
 			{"data": "cpf_membro"},
 			{"data": "nascimento_membro"},
 			{"data": "email_membro"},
