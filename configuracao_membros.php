@@ -268,13 +268,69 @@
 
 				}
 			},
-			{"data": "cpf_membro"},
-			{"data": "nascimento_membro"},
-			{"data": "email_membro"},
-			{"data": "telefone_membro"},
-			{"data": "faixa_salarial"},
-			{"data": "tempo_de_membro"},
-			{"data": "ativo"},
+			{
+				"data": "cpf_membro",
+				"render": function (data, type, row, meta){
+					if(type === 'display'){
+						return '<input value="'+ data +'" style="text-align: center;">';
+					}
+
+				}
+			},
+			{
+				"data": "nascimento_membro",
+				"render": function (data, type, row, meta){
+					if(type === 'display'){
+						return '<input value="'+ data +'" style="text-align: center;">';
+					}
+
+				}
+			},
+			{
+				"data": "email_membro",
+				"render": function (data, type, row, meta){
+					if(type === 'display'){
+						return '<input value="'+ data +'" style="text-align: center;">';
+					}
+
+				}
+			},
+			{
+				"data": "telefone_membro",
+				"render": function (data, type, row, meta){
+					if(type === 'display'){
+						return '<input value="'+ data +'" style="text-align: center;">';
+					}
+
+				}
+			},
+			{
+				"data": "tempo_de_membro",
+				"render": function (data, type, row, meta){
+					if(type === 'display'){
+						return '<input value="'+ data +'" style="text-align: center;">';
+					}
+
+				}
+			},
+			{
+				"data": "ativo",
+				"render": function (data, type, row, meta){
+					if(type === 'display'){
+						return '<input value="'+ data +'" style="text-align: center;">';
+					}
+
+				}
+			},
+			{
+				"data": "faixa_salarial",
+				"render": function (data, type, row, meta){
+					if(type === 'display'){
+						return '<input value="'+ data +'" style="text-align: center;">';
+					}
+
+				}
+			},
 			{
 				"data": "faixa_salarial",
 				"render": function(data, type, row, meta){
