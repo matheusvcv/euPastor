@@ -336,7 +336,7 @@
 				"data": "faixa_salarial",
 				"render": function(data, type, row, meta){
 					if(type === 'display'){
-						return '<input value="' + data / 10 + '"style="text-align: center;">';
+						return '<input value="' + data / 10 + '"style="text-align: center;" disabled>';
 					}
 					return data;
 				}
