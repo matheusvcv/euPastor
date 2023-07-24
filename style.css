@@ -81,6 +81,16 @@ body{
 	border: solid silver 1px !important;
 }
 
+.icon{
+	width: 19px;
+	height: 19px;
+}
+
+.icon:hover{
+	width: 19px;
+	height: 19px;
+}
+
 #titulo_login {
 	font-size: 3vh;
 }

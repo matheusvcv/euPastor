@@ -208,7 +208,7 @@
 	}
 
 
-	function editar_membros(id)
+	/*function editar_membros(id)
 	{
 		var nome_membro = $('#nome_membro'+id'').val();
 		var cpf_membro = $('#cpf_membro'+id'').val();
@@ -245,7 +245,7 @@
 			}
 		});
 	}
-
+*/
 
 
 
@@ -298,7 +298,7 @@
 				"data": "",
 				"render": function (data, type, row, meta){
 					if(type === 'display'){
-						return '<img src="img/update_icon.png">'+'<img src="img/delete_icon.png">';		
+						return '<a href=""><img src="img/save_icon.svg" class="icon"></a>'+'<a href=""><img src="img/delete_icon.svg" class="icon"></a>';		
 					}
 					
 					return data;
