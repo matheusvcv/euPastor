@@ -208,16 +208,16 @@
 	}
 
 
-	/*function editar_membros(id)
+	function editar_membros(id)
 	{
-		var nome_membro = $('#nome_membro'+id'').val();
-		var cpf_membro = $('#cpf_membro'+id'').val();
-		var nascimento_membro = $('#nascimento_membro'+id'').val();
-		var email_membro = $('#email_membro'+id'').val();
-		var telefone_membro = $('#telefone_membro'+id'').val();
-		var faixa_salarial = $('#faixa_salarial'+id'').val();
-		var tempo_de_membro = $('#tempo_de_membro'+id'').val();
-		var ativo = $('#ativo'+id'').val();
+		var nome_membro = $('#nome_membro' + id).val();
+		var cpf_membro = $('#cpf_membro' + id).val();
+		var nascimento_membro = $('#nascimento_membro' + id).val();
+		var email_membro = $('#email_membro' + id).val();
+		var telefone_membro = $('#telefone_membro' + id).val();
+		var faixa_salarial = $('#faixa_salarial' + id).val();
+		var tempo_de_membro = $('#tempo_de_membro' + id).val();
+		var ativo = $('#ativo' + id).val();
 
 		$.ajax({
 			url: 'ws/ws_editar_membros.php',
@@ -245,7 +245,7 @@
 			}
 		});
 	}
-*/
+
 
 
 
