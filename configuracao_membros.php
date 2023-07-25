@@ -210,6 +210,7 @@
 
 	function editar_membros(id)
 	{
+		var id = $('#id' + id).val();
 		var nome_membro = $('#nome_membro' + id).val();
 		var cpf_membro = $('#cpf_membro' + id).val();
 		var nascimento_membro = $('#nascimento_membro' + id).val();
@@ -223,6 +224,7 @@
 			url: 'ws/ws_editar_membros.php',
 			type: 'post',
 			data:{
+				'id': id,
 				'nome_membro': nome_membro,
 				'cpf_membro': cpf_membro,
 				'nascimento_membro': nascimento_membro,
@@ -298,7 +300,9 @@
 				"data": "",
 				"render": function (data, type, row, meta){
 					if(type === 'display'){
-						return '<a href=""><img src="img/save_icon.svg" class="icon_2"></a>'+'<a href=""><img src="img/delete_icon.svg" class="icon"></a>';		
+						return '<a><img src="img/save_icon.svg" onclick="editar_membros(' + row.id + ')" class="icon_2"></a>'+'<a href=""><img src="img/delete_icon.svg" class="icon"></a>';	
+
+
 					}
 					
 					return data;
@@ -308,7 +312,7 @@
 				"data": "nome_membro",
 				"render": function (data, type, row, meta){
 					if(type === 'display'){
-						return '<input value="'+ data +'" style="text-align: center;">';
+						return '<input id="nome_membro" name="nome_membro" value="'+ data +'" style="text-align: center;">';
 					}
 
 				}
@@ -317,7 +321,7 @@
 				"data": "cpf_membro",
 				"render": function (data, type, row, meta){
 					if(type === 'display'){
-						return '<input value="'+ data +'" style="text-align: center;">';
+						return '<input id="cpf_membro" name="cpf_membro" value="'+ data +'" style="text-align: center;">';
 					}
 
 				}
@@ -326,7 +330,7 @@
 				"data": "nascimento_membro",
 				"render": function (data, type, row, meta){
 					if(type === 'display'){
-						return '<input value="'+ data +'" style="text-align: center;">';
+						return '<input id="nascimento_membro" name="nascimento_membro" value="'+ data +'" style="text-align: center;">';
 					}
 
 				}
@@ -335,7 +339,7 @@
 				"data": "email_membro",
 				"render": function (data, type, row, meta){
 					if(type === 'display'){
-						return '<input value="'+ data +'" style="text-align: center;">';
+						return '<input id="email_membro" name="email_membro" value="'+ data +'" style="text-align: center;">';
 					}
 
 				}
@@ -344,7 +348,7 @@
 				"data": "telefone_membro",
 				"render": function (data, type, row, meta){
 					if(type === 'display'){
-						return '<input value="'+ data +'" style="text-align: center;">';
+						return '<input id="telefone_membro" name="telefone_membro" value="'+ data +'" style="text-align: center;">';
 					}
 
 				}
@@ -353,7 +357,7 @@
 				"data": "tempo_de_membro",
 				"render": function (data, type, row, meta){
 					if(type === 'display'){
-						return '<input value="'+ data +'" style="text-align: center;">';
+						return '<input id="tempo_de_membro" name="tempo_de_membro" value="'+ data +'" style="text-align: center;">';
 					}
 
 				}
@@ -362,7 +366,7 @@
 				"data": "ativo",
 				"render": function (data, type, row, meta){
 					if(type === 'display'){
-						return '<input value="'+ data +'" style="text-align: center;">';
+						return '<input id="ativo" name="ativo" value="'+ data +'" style="text-align: center;">';
 					}
 
 				}
@@ -371,7 +375,7 @@
 				"data": "faixa_salarial",
 				"render": function (data, type, row, meta){
 					if(type === 'display'){
-						return '<input value="'+ data +'" style="text-align: center;">';
+						return '<input id="faixa_salarial" name="faixa_salarial"  value="'+ data +'" style="text-align: center;">';
 					}
 
 				}
