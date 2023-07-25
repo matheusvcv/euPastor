@@ -298,7 +298,7 @@
 				"data": "",
 				"render": function (data, type, row, meta){
 					if(type === 'display'){
-						return '<a href=""><img src="img/save_icon.svg" class="icon"></a>'+'<a href=""><img src="img/delete_icon.svg" class="icon"></a>';		
+						return '<a href=""><img src="img/save_icon.svg" class="icon_2"></a>'+'<a href=""><img src="img/delete_icon.svg" class="icon"></a>';		
 					}
 					
 					return data;

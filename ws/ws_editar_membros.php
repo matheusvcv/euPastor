@@ -2,7 +2,7 @@
 include '../library/libs.php';
 include '../src/conexao.php';
 
-if(isset($_POST['nome_membro']) && $_POST['nome_mebro'] != "")){
+if(isset($_POST['nome_membro']) && $_POST['nome_mebro'] != ""){
 
 	try {
 

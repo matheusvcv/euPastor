@@ -82,13 +82,25 @@ body{
 }
 
 .icon{
-	width: 19px;
-	height: 19px;
+	width: 18px;
+	height: 18px;
 }
 
 .icon:hover{
-	width: 19px;
-	height: 19px;
+	width: 21px;
+	height: 21px;
+	color: red;
+}
+
+.icon_2{
+	width: 16px;
+	height: 16px;
+}
+
+.icon_2:hover{
+	width: 20px;
+	height: 20px;
+	color: red;
 }
 
 #titulo_login {
