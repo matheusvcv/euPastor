@@ -164,7 +164,7 @@
 	</div>
 
 	<!--Script Bootstrap-->
-	<script src="../../bootstrap/js/bootstrap.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
 	<script>
 
@@ -300,6 +300,8 @@
 				"data": "",
 				"render": function (data, type, row, meta){
 					if(type === 'display'){
+
+						 console.log("Row ID:", row.id);
 						return '<a><img src="img/save_icon.svg" onclick="editar_membros(' + row.id + ')" class="icon_2"></a>'+'<a href=""><img src="img/delete_icon.svg" class="icon"></a>';	
 
 
