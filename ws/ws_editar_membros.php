@@ -1,8 +1,15 @@
+
+
 <?php
-include '../library/libs.php';
+
 include '../src/conexao.php';
 
+
+
 if(isset($_POST['nome_membro']) && $_POST['nome_membro'] != ""){
+
+
+	console.log('Peido');
 
 	try {
 
