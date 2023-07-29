@@ -34,6 +34,9 @@ include "src/protect.php";
 		        <li class="nav-item">
 		          <a class="nav-link" href="pagina_inicial.php">Página Inicial</a>
 		        </li>
+             <li class="nav-item">
+              <a class="nav-link" href="">Configuração de Membros</a>
+            </li>
 		        <li class="nav-item">
 		          <a class="nav-link" href="#">Como utilizar o sistema?</a>
 		        </li>
