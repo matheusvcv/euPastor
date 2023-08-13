@@ -207,22 +207,22 @@
 		});
 	}
 
-
 	function editar_membros(id)
 	{
-		var id = $('#id' + id).val();
-		var nome_membro = $('#nome_membro' + id).val();
-		var cpf_membro = $('#cpf_membro' + id).val();
-		var nascimento_membro = $('#nascimento_membro' + id).val();
-		var email_membro = $('#email_membro' + id).val();
-		var telefone_membro = $('#telefone_membro' + id).val();
-		var faixa_salarial = $('#faixa_salarial' + id).val();
-		var tempo_de_membro = $('#tempo_de_membro' + id).val();
-		var ativo = $('#ativo' + id).val();
+		var row = $('#' + id);
+
+		var	nome_membro = row.find('[name="nome_membro"]').val();
+		var	cpf_membro = row.find('[name="nome_membro"]').val();
+		var	nascimento_membro = row.find('[name="nascimento_membro"]').val();
+		var	email_membro = row.find('[name="email_membro"]').val();
+		var	telefone_membro = row.find('[name="telefone_membro"]').val();
+		var	tempo_de_membro = row.find('[name="tempo_de_membro"]').val();
+		var	ativo = row.find('[name="ativo"]').val();
+		var	faixa_salarial = row.find('[name="faixa_salarial"]').val();
 
 		$.ajax({
-			url: 'ws/ws_editar_membros.php',
-			type: 'post',
+			url: '',
+			type: 'POST',
 			data:{
 				'id': id,
 				'nome_membro': nome_membro,
@@ -234,17 +234,19 @@
 				'tempo_de_membro': tempo_de_membro,
 				'ativo': ativo
 			},
-		}).done(function(response){
-			
-			if (response === "success")
-			{
-				window.location.href = 'configuracao_membros.php?s=1';
-			}
-
-			if (response === "error")
-			{
-				window.location.href = 'configuracao_membros.php?s=0';
-			}
+			success: function(response) {
+				row.find('[name="nome_membro"]').val(response.nome_membro);
+				row.find('[name="nome_membro"]').val(response.cpf_membro);
+				row.find('[name="nascimento_membro"]').val(response.nascimento_membro);
+				row.find('[name="email_membro"]').val(response.email_membro);
+				row.find('[name="telefone_membro"]').val(response.telefone_membro);
+				row.find('[name="tempo_de_membro"]').val(response.tempo_de_membro);
+				row.find('[name="ativo"]').val(response.ativo);
+				row.find('[name="faixa_salarial"]').val(response.faixa_salarial);
+			},
+			error: function(xhr, status, error) {
+	            console.error(error);
+        	}
 		});
 	}
 
@@ -253,145 +255,140 @@
 
 
 
+
+
+
 	$(document).ready(function() {
-
-
-
-
-
-	$('#datatable').DataTable({
-			/* fixedHeader: {
-			header: true,
-			headerOffset: $('.header-navbar').outerHeight()
-		}, */		
-		"autoWidth": false,
-		"bLengthChange": false,
-		"scrollX": true,
-		pageLength: 10,
-		dom: 'Bfrtip',
-		buttons: [
-		  {
-			extend: 'excelHtml5',
-			text: 'Excel',
-			className: 'excel_btn',
-			titleAttr: 'Exportar para Excel',
-			exportOptions: {
-			columns: ':visible'
-			}
-		  }
-		],
-
-
-		"search": {
-		"regex": true
-		},
-		destroy: true,
-		"processing" : false,
-		"paging": true,
-		"searching": false,
-		"bFilter": false,
-		"columnDefs":[
-		   {"visible": false, "targets":0}
-		],
-
-		"columns":[
-			{"data": "id"},
-			{
-				"data": "",
-				"render": function (data, type, row, meta){
-					if(type === 'display'){
-
-						 console.log("Row ID:", row.id);
-						return '<a><img src="img/save_icon.svg" onclick="editar_membros(' + row.id + ')" class="icon_2"></a>'+'<a href=""><img src="img/delete_icon.svg" class="icon"></a>';	
-
-
-					}
-					
-					return data;
+		$('#datatable').DataTable({
+				/* fixedHeader: {
+				header: true,
+				headerOffset: $('.header-navbar').outerHeight()
+			}, */		
+			"autoWidth": false,
+			"bLengthChange": false,
+			"scrollX": true,
+			pageLength: 10,
+			dom: 'Bfrtip',
+			buttons: [
+			  {
+				extend: 'excelHtml5',
+				text: 'Excel',
+				className: 'excel_btn',
+				titleAttr: 'Exportar para Excel',
+				exportOptions: {
+				columns: ':visible'
 				}
+			  }
+			],
+
+			"search": {
+			"regex": true
 			},
-			{
-				"data": "nome_membro",
-				"render": function (data, type, row, meta){
-					if(type === 'display'){
-						return '<input id="nome_membro" name="nome_membro" value="'+ data +'" style="text-align: center;">';
-					}
+			destroy: true,
+			"processing" : false,
+			"paging": true,
+			"searching": false,
+			"bFilter": false,
+			"columnDefs":[
+			   {"visible": false, "targets":0}
+			],
 
-				}
-			},
-			{
-				"data": "cpf_membro",
-				"render": function (data, type, row, meta){
-					if(type === 'display'){
-						return '<input id="cpf_membro" name="cpf_membro" value="'+ data +'" style="text-align: center;">';
-					}
+			"columns":[
+				{"data": "id"},
+				{
+					"data": "",
+					"render": function (data, type, row, meta){
+						if(type === 'display'){
 
-				}
-			},
-			{
-				"data": "nascimento_membro",
-				"render": function (data, type, row, meta){
-					if(type === 'display'){
-						return '<input id="nascimento_membro" name="nascimento_membro" value="'+ data +'" style="text-align: center;">';
+							 console.log("Row ID:", row.id);
+							return '<a><img src="img/save_icon.svg" onclick="editar_membros(' + row.id + ')" class="icon_2"></a>'+'<a href=""><img src="img/delete_icon.svg" class="icon"></a>';	
+						}
+						
+						return data;
 					}
+				},
+				{
+					"data": "nome_membro",
+					"render": function (data, type, row, meta){
+						if(type === 'display'){
+							return '<input id="nome_membro" name="nome_membro" value="'+ data +'" style="text-align: center;">';
+						}
 
-				}
-			},
-			{
-				"data": "email_membro",
-				"render": function (data, type, row, meta){
-					if(type === 'display'){
-						return '<input id="email_membro" name="email_membro" value="'+ data +'" style="text-align: center;">';
 					}
+				},
+				{
+					"data": "cpf_membro",
+					"render": function (data, type, row, meta){
+						if(type === 'display'){
+							return '<input id="cpf_membro" name="cpf_membro" value="'+ data +'" style="text-align: center;">';
+						}
 
-				}
-			},
-			{
-				"data": "telefone_membro",
-				"render": function (data, type, row, meta){
-					if(type === 'display'){
-						return '<input id="telefone_membro" name="telefone_membro" value="'+ data +'" style="text-align: center;">';
 					}
+				},
+				{
+					"data": "nascimento_membro",
+					"render": function (data, type, row, meta){
+						if(type === 'display'){
+							return '<input id="nascimento_membro" name="nascimento_membro" value="'+ data +'" style="text-align: center;">';
+						}
 
-				}
-			},
-			{
-				"data": "tempo_de_membro",
-				"render": function (data, type, row, meta){
-					if(type === 'display'){
-						return '<input id="tempo_de_membro" name="tempo_de_membro" value="'+ data +'" style="text-align: center;">';
 					}
+				},
+				{
+					"data": "email_membro",
+					"render": function (data, type, row, meta){
+						if(type === 'display'){
+							return '<input id="email_membro" name="email_membro" value="'+ data +'" style="text-align: center;">';
+						}
 
-				}
-			},
-			{
-				"data": "ativo",
-				"render": function (data, type, row, meta){
-					if(type === 'display'){
-						return '<input id="ativo" name="ativo" value="'+ data +'" style="text-align: center;">';
 					}
+				},
+				{
+					"data": "telefone_membro",
+					"render": function (data, type, row, meta){
+						if(type === 'display'){
+							return '<input id="telefone_membro" name="telefone_membro" value="'+ data +'" style="text-align: center;">';
+						}
 
-				}
-			},
-			{
-				"data": "faixa_salarial",
-				"render": function (data, type, row, meta){
-					if(type === 'display'){
-						return '<input id="faixa_salarial" name="faixa_salarial"  value="'+ data +'" style="text-align: center;">';
 					}
+				},
+				{
+					"data": "tempo_de_membro",
+					"render": function (data, type, row, meta){
+						if(type === 'display'){
+							return '<input id="tempo_de_membro" name="tempo_de_membro" value="'+ data +'" style="text-align: center;">';
+						}
 
-				}
-			},
-			{
-				"data": "faixa_salarial",
-				"render": function(data, type, row, meta){
-					if(type === 'display'){
-						return '<input value="' + data / 10 + '"style="text-align: center;" disabled>';
 					}
-					return data;
+				},
+				{
+					"data": "ativo",
+					"render": function (data, type, row, meta){
+						if(type === 'display'){
+							return '<input id="ativo" name="ativo" value="'+ data +'" style="text-align: center;">';
+						}
+
+					}
+				},
+				{
+					"data": "faixa_salarial",
+					"render": function (data, type, row, meta){
+						if(type === 'display'){
+							return '<input id="faixa_salarial" name="faixa_salarial"  value="'+ data +'" style="text-align: center;">';
+						}
+
+					}
+				},
+				{
+					"data": "faixa_salarial",
+					"render": function(data, type, row, meta){
+						if(type === 'display'){
+							return '<input value="' + data / 10 + '"style="text-align: center;" disabled>';
+						}
+						return data;
+					}
 				}
-			}
-		]
+			]
 		});
 	});
 
