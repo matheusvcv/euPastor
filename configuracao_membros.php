@@ -141,8 +141,8 @@
 						<table id="datatable" class="table table-striped table-bordered table-hover justify-content-center" cellspacing="0" width="100%">
 							<thead>
 								<tr class="table-dark justify-content-center">
-									<th class="align-middle text-center">ID</th>
 									<th class="align-middle text-center">Ações</th>
+									<th class="align-middle text-center">ID</th>
 									<th class="align-middle text-center">Nome</th>
 									<th class="align-middle text-center">CPF</th>
 									<th class="align-middle text-center">Nascimento</th>
@@ -207,7 +207,8 @@
 		});
 	}
 
-	function editar_membros(id)
+
+	/*function editar_membros(id)
 	{
 		var row = $('#' + id);
 
@@ -248,7 +249,7 @@
 	            console.error(error);
         	}
 		});
-	}
+	}*/
 
 
 
@@ -290,23 +291,20 @@
 			"searching": false,
 			"bFilter": false,
 			"columnDefs":[
-			   {"visible": false, "targets":0}
+			   {"visible": true, "targets":0}
 			],
 
 			"columns":[
-				{"data": "id"},
 				{
-					"data": "",
-					"render": function (data, type, row, meta){
-						if(type === 'display'){
-
-							 console.log("Row ID:", row.id);
-							return '<a><img src="img/save_icon.svg" onclick="editar_membros(' + row.id + ')" class="icon_2"></a>'+'<a href=""><img src="img/delete_icon.svg" class="icon"></a>';	
-						}
-						
-						return data;
-					}
+				    "data": "id",
+				    "render": function (data, type, row, meta){
+				        if(type === 'display'){
+				            return '<a><img src="img/save_icon.svg" onclick="editar_membros('+data+')" class="icon_2"></a>'+'<a href=""><img src="img/delete_icon.svg" class="icon"></a>';    
+				        }
+				        return data;
+				    }
 				},
+				{"data": "id"},
 				{
 					"data": "nome_membro",
 					"render": function (data, type, row, meta){
@@ -432,6 +430,49 @@
 			$('#cadastro_usuario').css('display', 'none');
 			$('#exibe_form_cad_membro').css('display', 'block');
 		}
+
+	function editar_membros(id)
+	{
+		alert('teste');
+
+
+		var nome_membro = $('#nome_membro').val();
+		var cpf_membro = $('#cpf_membro').val();
+		var nascimento_membro = $('#nascimento_membro').val();
+		var email_membro = $('#email_membro').val();
+		var telefone_membro = $('#telefone_membro').val();
+		var faixa_salarial = $('#faixa_salarial').val();
+		var tempo_de_membro = $('#tempo_de_membro').val();
+		var ativo = $('#ativo').val();
+
+		$.ajax({
+			url: 'ws/ws_editar_membros.php',
+			type: 'post',
+			data:{
+				'nome_membro': nome_membro,
+				'cpf_membro': cpf_membro,
+				'nascimento_membro': nascimento_membro,
+				'email_membro': email_membro,
+				'telefone_membro': telefone_membro,
+				'faixa_salarial': faixa_salarial,
+				'tempo_de_membro': tempo_de_membro,
+				'ativo': ativo
+			},
+		}).done(function(response) {
+	        if (response.trim() == "success") 
+			{    
+				console.log('Sucesso')
+				window.location.href='configuracao_membros.php?se=1';
+				//$('#datatable').DataTable().ajax.reload();
+	        } 
+	        if (response.trim() == "error")
+			{
+				console.log('error')
+				window.location.href='configuracao_membros.php?ere=1';
+			}
+
+		});
+	}
 
 	</script>
 </body>
