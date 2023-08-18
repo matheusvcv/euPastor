@@ -2,7 +2,7 @@
 include 'ws_libs.php';
 include '../src/conexao.php';
 
-if(isset($_POST['nome_membro']) && $_POST['nome_membro'] != ""){
+if(isset($_POST['id']) && $_POST['id'] != "" && ($_POST['nome_membro']) && $_POST['nome_membro'] != ""){
 
 	try
 	{
@@ -32,7 +32,7 @@ if(isset($_POST['nome_membro']) && $_POST['nome_membro'] != ""){
 		$sql = htmlspecialchars($sql);
 		$sql = str_replace(";", "", $sql);
 
-		if ($conn->query($sql))
+		if ($conexao->query($sql))
 		{
 			echo "success";
 		}
@@ -46,9 +46,5 @@ if(isset($_POST['nome_membro']) && $_POST['nome_membro'] != ""){
 		echo "error";
 	}
 }	
-
-
-
-
 
 ?>

@@ -299,7 +299,7 @@
 				    "data": "id",
 				    "render": function (data, type, row, meta){
 				        if(type === 'display'){
-				            return '<a><img src="img/save_icon.svg" onclick="editar_membros('+data+')" class="icon_2"></a>'+'<a href=""><img src="img/delete_icon.svg" class="icon"></a>';    
+				            return '<a><img src="img/save_icon.svg" onclick="editar_membros('+data+')" class="icon_2"></a>'+'<a href=""><img src="img/delete_icon.svg" class="icon"></a>'; 
 				        }
 				        return data;
 				    }
@@ -309,7 +309,7 @@
 					"data": "nome_membro",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
-							return '<input id="nome_membro" name="nome_membro" value="'+ data +'" style="text-align: center;">';
+							return '<input id="nome_membro_' + row.id + '" name="nome_membro_' + row.id + '" value="'+ data +'" style="text-align: center;">';
 						}
 
 					}
@@ -318,7 +318,7 @@
 					"data": "cpf_membro",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
-							return '<input id="cpf_membro" name="cpf_membro" value="'+ data +'" style="text-align: center;">';
+							return '<input id="cpf_membro_' + row.id + '" name="cpf_membro_' + row.id + '" value="'+ data +'" style="text-align: center;">';
 						}
 
 					}
@@ -327,7 +327,7 @@
 					"data": "nascimento_membro",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
-							return '<input id="nascimento_membro" name="nascimento_membro" value="'+ data +'" style="text-align: center;">';
+							return '<input id="nascimento_membro_' + row.id + '" name="nascimento_membro_' + row.id + '" value="'+ data +'" style="text-align: center;">';
 						}
 
 					}
@@ -336,7 +336,7 @@
 					"data": "email_membro",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
-							return '<input id="email_membro" name="email_membro" value="'+ data +'" style="text-align: center;">';
+							return '<input id="email_membro_' + row.id + '" name="email_membro_' + row.id + '" value="'+ data +'" style="text-align: center;">';
 						}
 
 					}
@@ -345,7 +345,7 @@
 					"data": "telefone_membro",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
-							return '<input id="telefone_membro" name="telefone_membro" value="'+ data +'" style="text-align: center;">';
+							return '<input id="telefone_membro_' + row.id + '" name="telefone_membro_' + row.id + '" value="'+ data +'" style="text-align: center;">';
 						}
 
 					}
@@ -354,7 +354,7 @@
 					"data": "tempo_de_membro",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
-							return '<input id="tempo_de_membro" name="tempo_de_membro" value="'+ data +'" style="text-align: center;">';
+							return '<input id="tempo_de_membro_' + row.id + '" name="tempo_de_membro_' + row.id + '" value="'+ data +'" style="text-align: center;">';
 						}
 
 					}
@@ -363,7 +363,7 @@
 					"data": "ativo",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
-							return '<input id="ativo" name="ativo" value="'+ data +'" style="text-align: center;">';
+							return '<input id="ativo_' + row.id + '" name="ativo_' + row.id + '" value="'+ data +'" style="text-align: center;">';
 						}
 
 					}
@@ -372,7 +372,7 @@
 					"data": "faixa_salarial",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
-							return '<input id="faixa_salarial" name="faixa_salarial"  value="'+ data +'" style="text-align: center;">';
+							return '<input id="faixa_salarial_' + row.id + '" name="faixa_salarial_' + row.id + '"  value="'+ data +'" style="text-align: center;">';
 						}
 
 					}
@@ -381,7 +381,7 @@
 					"data": "faixa_salarial",
 					"render": function(data, type, row, meta){
 						if(type === 'display'){
-							return '<input value="' + data / 10 + '"style="text-align: center;" disabled>';
+							return '<input value="' + data / 10 + '"style="text-align: center;">';
 						}
 						return data;
 					}
@@ -433,22 +433,20 @@
 
 	function editar_membros(id)
 	{
-		alert('teste');
-
-
-		var nome_membro = $('#nome_membro').val();
-		var cpf_membro = $('#cpf_membro').val();
-		var nascimento_membro = $('#nascimento_membro').val();
-		var email_membro = $('#email_membro').val();
-		var telefone_membro = $('#telefone_membro').val();
-		var faixa_salarial = $('#faixa_salarial').val();
-		var tempo_de_membro = $('#tempo_de_membro').val();
-		var ativo = $('#ativo').val();
+		var nome_membro = $('#nome_membro_'+id+'').val();
+		var cpf_membro = $('#cpf_membro_'+id+'').val();
+		var nascimento_membro = $('#nascimento_membro_'+id+'').val();
+		var email_membro = $('#email_membro_'+id+'').val();
+		var telefone_membro = $('#telefone_membro_'+id+'').val();
+		var faixa_salarial = $('#faixa_salarial_'+id+'').val();
+		var tempo_de_membro = $('#tempo_de_membro_'+id+'').val();
+		var ativo = $('#ativo_'+id+'').val();
 
 		$.ajax({
 			url: 'ws/ws_editar_membros.php',
 			type: 'post',
 			data:{
+				'id': id,
 				'nome_membro': nome_membro,
 				'cpf_membro': cpf_membro,
 				'nascimento_membro': nascimento_membro,
@@ -459,9 +457,13 @@
 				'ativo': ativo
 			},
 		}).done(function(response) {
+
+			console.log(response);
+
 	        if (response.trim() == "success") 
 			{    
 				console.log('Sucesso')
+				$('#nome_membro_' + id).val(nome_membro);
 				window.location.href='configuracao_membros.php?se=1';
 				//$('#datatable').DataTable().ajax.reload();
 	        } 
