@@ -3,10 +3,9 @@ include 'ws_libs.php';
 include '../src/conexao.php';
 
 if(isset($_POST['id']) && $_POST['id'] != "" && ($_POST['nome_membro']) && $_POST['nome_membro'] != ""){
-
 	try
 	{
-		$id = $_POST['id'];
+		$id = intval($_POST['id']);
 		$nome_membro = $_POST['nome_membro'];
 		$cpf_membro = $_POST['cpf_membro'];
 		$nascimento_membro = $_POST['nascimento_membro'];

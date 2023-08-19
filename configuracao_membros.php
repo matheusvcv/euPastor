@@ -433,6 +433,8 @@
 
 	function editar_membros(id)
 	{
+		$('#datatable').DataTable().ajax.reload();
+	/*
 		var nome_membro = $('#nome_membro_'+id+'').val();
 		var cpf_membro = $('#cpf_membro_'+id+'').val();
 		var nascimento_membro = $('#nascimento_membro_'+id+'').val();
@@ -474,7 +476,7 @@
 			}
 
 		});
-	}
+	*/}
 
 	</script>
 </body>
