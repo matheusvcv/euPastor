@@ -132,6 +132,7 @@
 						</form>
 					</div>	
 				</div>
+				<!--Botão de exibir o formulário-->
 				<div>
 					<button id="exibe_form_cad_membro" class="btn btn-success" onclick="exibe_form_cad_membro();">Cadastrar Membro</button>
 				</div>
@@ -162,115 +163,72 @@
 			</div>
 		</div>
 	</div>
-
 	<!--Script Bootstrap-->
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
 	<script>
 
-	function inserir_membro()
-	{
-		var nome_membro = $('#nome_membro').val();
-		var cpf_membro = $('#cpf_membro').val();
-		var nascimento_membro = $('#nascimento_membro').val();
-		var email_membro = $('#email_membro').val();
-		var telefone_membro = $('#telefone_membro').val();
-		var faixa_salarial = $('#faixa_salarial').val();
-		var tempo_de_membro = $('#tempo_de_membro').val();
-		var ativo = $('#ativo').val();
+	$(document).ready(function() {
+	    $('#datatable').DataTable({
+	        "autoWidth": false,
+	        "bLengthChange": false,
+	        "scrollX": true,
+	        "pageLength": 10,
+	        "dom": 'Bfrtip',
+	        "buttons": [
+	            {
+	                "extend": 'excelHtml5',
+	                "text": 'Excel',
+	                "className": 'excel_btn',
+	                "titleAttr": 'Exportar para Excel',
+	                "exportOptions": {
+	                    "columns": ':visible'
+	                }
+	            }
+	        ],
+	        "searching": true, 
+	        "columnDefs": [
+	            {"visible": true, "targets": 0}
+	        ],
+	       aaSorting: [[0, "desc"]],
+	        "ajax": {
+	            "url": "ws/seleciona_membros.php",
+				"type": 'GET',
+				"contentType": "application/json",
+	            "dataSrc": "",
+	            "data": { 
 
-		$.ajax({
-			url: 'ws/ws_cadastrar_membros.php',
-			type: 'post',
-			data:{
-				'nome_membro': nome_membro,
-				'cpf_membro': cpf_membro,
-				'nascimento_membro': nascimento_membro,
-				'email_membro': email_membro,
-				'telefone_membro': telefone_membro,
-				'faixa_salarial': faixa_salarial,
-				'tempo_de_membro': tempo_de_membro,
-				'ativo': ativo
-			},
+				} 
+	        },
+	        "columns": [
+	            {
+	                "data": "id",
+	                "render": function(data, type, row, meta) {
+	                    if (type === 'display') {
+	                        return '<a><img src="img/save_icon.svg" onclick="editar_membros(' + data + ')" class="icon_2"></a>' + '<a href=""><img src="img/delete_icon.svg" class="icon"></a>';
+	                    }
+	                    return data;
+	                }
+	            },
+	            {"data": "id"},
+	            {
+	                "data": "nome_membro",
+	                "render": function(data, type, row, meta) {
+	                    if (type === 'display') {
+	                        return '<input id="nome_membro_' + row.id + '" name="nome_membro_' + row.id + '" value="' + data + '" style="text-align: center;">';
+	                    }
+	                }
+	            },
+	            {
+					"data": "cpf_membro",
+					"render": function (data, type, row, meta){
+						if(type === 'display'){
+							return '<input id="cpf_membro_' + row.id + '" name="cpf_membro_' + row.id + '" value="'+ data +'" style="text-align: center;">';
+						}
 
-		}).done(function(response){
-			
-			if (response === "success")
-			{
-				window.location.href = 'configuracao_membros.php?s=1';
-			}
-
-			if (response === "error")
-			{
-				window.location.href = 'configuracao_membros.php?s=0';
-			}
-		});
-	}
-
-
-
-
-$(document).ready(function() {
-    $('#datatable').DataTable({
-        "autoWidth": false,
-        "bLengthChange": false,
-        "scrollX": true,
-        "pageLength": 10,
-        "dom": 'Bfrtip',
-        "buttons": [
-            {
-                "extend": 'excelHtml5',
-                "text": 'Excel',
-                "className": 'excel_btn',
-                "titleAttr": 'Exportar para Excel',
-                "exportOptions": {
-                    "columns": ':visible'
-                }
-            }
-        ],
-        "searching": true, 
-        "columnDefs": [
-            {"visible": true, "targets": 0}
-        ],
-       aaSorting: [[0, "desc"]],
-        "ajax": {
-            "url": "ws/seleciona_membros.php",
-			"type": 'GET',
-			"contentType": "application/json",
-            "dataSrc": "",
-            "data": { 
-
-			} 
-        },
-        "columns": [
-            {
-                "data": "id",
-                "render": function(data, type, row, meta) {
-                    if (type === 'display') {
-                        return '<a><img src="img/save_icon.svg" onclick="editar_membros(' + data + ')" class="icon_2"></a>' + '<a href=""><img src="img/delete_icon.svg" class="icon"></a>';
-                    }
-                    return data;
-                }
-            },
-            {"data": "id"},
-            {
-                "data": "nome_membro",
-                "render": function(data, type, row, meta) {
-                    if (type === 'display') {
-                        return '<input id="nome_membro_' + row.id + '" name="nome_membro_' + row.id + '" value="' + data + '" style="text-align: center;">';
-                    }
-                }
-            },
-            {
-				"data": "cpf_membro",
-				"render": function (data, type, row, meta){
-					if(type === 'display'){
-						return '<input id="cpf_membro_' + row.id + '" name="cpf_membro_' + row.id + '" value="'+ data +'" style="text-align: center;">';
 					}
-
-				}
-			},
-			{
+				},
+				{
 					"data": "nascimento_membro",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
@@ -321,51 +279,36 @@ $(document).ready(function() {
 						if(type === 'display'){
 							return '<input id="faixa_salarial_' + row.id + '" name="faixa_salarial_' + row.id + '"  value="'+ data +'" style="text-align: center;">';
 						}
-
 					}
 				},
 				{
 					"data": "faixa_salarial",
 					"render": function(data, type, row, meta){
 						if(type === 'display'){
-							return '<input value="' + data / 10 + '"style="text-align: center;">';
+							return '<input value="' + data / 10 + '"style="text-align: center;" disabled>';
 						}
 						return data;
 					}
 				}
-        ]
-    });
-});
-
-
-
-
-
-
-
-
-
-
-
-
-	/*function editar_membros(id)
+	        ]
+	    });
+	});
+		
+	function inserir_membro()
 	{
-		var row = $('#' + id);
-
-		var	nome_membro = row.find('[name="nome_membro"]').val();
-		var	cpf_membro = row.find('[name="nome_membro"]').val();
-		var	nascimento_membro = row.find('[name="nascimento_membro"]').val();
-		var	email_membro = row.find('[name="email_membro"]').val();
-		var	telefone_membro = row.find('[name="telefone_membro"]').val();
-		var	tempo_de_membro = row.find('[name="tempo_de_membro"]').val();
-		var	ativo = row.find('[name="ativo"]').val();
-		var	faixa_salarial = row.find('[name="faixa_salarial"]').val();
+		var nome_membro = $('#nome_membro').val();
+		var cpf_membro = $('#cpf_membro').val();
+		var nascimento_membro = $('#nascimento_membro').val();
+		var email_membro = $('#email_membro').val();
+		var telefone_membro = $('#telefone_membro').val();
+		var faixa_salarial = $('#faixa_salarial').val();
+		var tempo_de_membro = $('#tempo_de_membro').val();
+		var ativo = $('#ativo').val();
 
 		$.ajax({
-			url: '',
-			type: 'POST',
+			url: 'ws/ws_cadastrar_membros.php',
+			type: 'post',
 			data:{
-				'id': id,
 				'nome_membro': nome_membro,
 				'cpf_membro': cpf_membro,
 				'nascimento_membro': nascimento_membro,
@@ -375,69 +318,20 @@ $(document).ready(function() {
 				'tempo_de_membro': tempo_de_membro,
 				'ativo': ativo
 			},
-			success: function(response) {
-				row.find('[name="nome_membro"]').val(response.nome_membro);
-				row.find('[name="nome_membro"]').val(response.cpf_membro);
-				row.find('[name="nascimento_membro"]').val(response.nascimento_membro);
-				row.find('[name="email_membro"]').val(response.email_membro);
-				row.find('[name="telefone_membro"]').val(response.telefone_membro);
-				row.find('[name="tempo_de_membro"]').val(response.tempo_de_membro);
-				row.find('[name="ativo"]').val(response.ativo);
-				row.find('[name="faixa_salarial"]').val(response.faixa_salarial);
-			},
-			error: function(xhr, status, error) {
-	            console.error(error);
-        	}
-		});
-	}*/
 
-
-
-
-
-
-
-
-
-
-	$.ajax({
-		url: 'ws/seleciona_membros.php',
-		dataType: 'json',
-		success: function(data){
-
-			if(data.length > 0){
-
-				$('#datatable').DataTable().clear();
-
-				$('#datatable').DataTable().rows.add(data).draw();
-
-			}else{
-
-				$('#datatable').DataTable().clear().draw();
-				$('#datatable').DataTable().rows.add('<tr><td colspan="3">Nenhum resultado encontrado.</td><tr>').draw();
-
+		}).done(function(response){
+			
+			if (response === "success")
+			{
+				window.location.href = 'configuracao_membros.php?s=1';
 			}
-		},
 
-		error: function() {
-
-			console.error('Ocorreu um erro ao obter os dados.');
-		}
-	});
-
-		
-		function exibe_form_cad_membro()
-		{
-			$('#cadastro_usuario').css('display', 'block');
-			$('#exibe_form_cad_membro').css('display', 'none');
-		}
-
-		
-		function esconde_form_cad_membro()
-		{
-			$('#cadastro_usuario').css('display', 'none');
-			$('#exibe_form_cad_membro').css('display', 'block');
-		}
+			if (response === "error")
+			{
+				window.location.href = 'configuracao_membros.php?s=0';
+			}
+		});
+	}
 
 	function editar_membros(id)
 	{
@@ -484,6 +378,18 @@ $(document).ready(function() {
 			}
 
 		});
+	}
+
+	function exibe_form_cad_membro()
+	{
+		$('#cadastro_usuario').css('display', 'block');
+		$('#exibe_form_cad_membro').css('display', 'none');
+	}
+
+	function esconde_form_cad_membro()
+	{
+		$('#cadastro_usuario').css('display', 'none');
+		$('#exibe_form_cad_membro').css('display', 'block');
 	}
 
 	</script>
