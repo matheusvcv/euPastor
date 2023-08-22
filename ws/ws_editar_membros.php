@@ -1,5 +1,5 @@
 <?php
-include 'ws_libs.php';
+include '../library/libs.php';
 include '../src/conexao.php';
 
 if(isset($_POST['id']) && $_POST['id'] != "" && ($_POST['nome_membro']) && $_POST['nome_membro'] != ""){
@@ -28,8 +28,8 @@ if(isset($_POST['id']) && $_POST['id'] != "" && ($_POST['nome_membro']) && $_POS
 			WHERE id = $id
 		";
 
-		$sql = htmlspecialchars($sql);
-		$sql = str_replace(";", "", $sql);
+		/*$sql = htmlspecialchars($sql);
+		$sql = str_replace(";", "", $sql);*/
 
 		if ($conexao->query($sql))
 		{

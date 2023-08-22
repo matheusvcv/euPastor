@@ -208,122 +208,69 @@
 	}
 
 
-	/*function editar_membros(id)
-	{
-		var row = $('#' + id);
-
-		var	nome_membro = row.find('[name="nome_membro"]').val();
-		var	cpf_membro = row.find('[name="nome_membro"]').val();
-		var	nascimento_membro = row.find('[name="nascimento_membro"]').val();
-		var	email_membro = row.find('[name="email_membro"]').val();
-		var	telefone_membro = row.find('[name="telefone_membro"]').val();
-		var	tempo_de_membro = row.find('[name="tempo_de_membro"]').val();
-		var	ativo = row.find('[name="ativo"]').val();
-		var	faixa_salarial = row.find('[name="faixa_salarial"]').val();
-
-		$.ajax({
-			url: '',
-			type: 'POST',
-			data:{
-				'id': id,
-				'nome_membro': nome_membro,
-				'cpf_membro': cpf_membro,
-				'nascimento_membro': nascimento_membro,
-				'email_membro': email_membro,
-				'telefone_membro': telefone_membro,
-				'faixa_salarial': faixa_salarial,
-				'tempo_de_membro': tempo_de_membro,
-				'ativo': ativo
-			},
-			success: function(response) {
-				row.find('[name="nome_membro"]').val(response.nome_membro);
-				row.find('[name="nome_membro"]').val(response.cpf_membro);
-				row.find('[name="nascimento_membro"]').val(response.nascimento_membro);
-				row.find('[name="email_membro"]').val(response.email_membro);
-				row.find('[name="telefone_membro"]').val(response.telefone_membro);
-				row.find('[name="tempo_de_membro"]').val(response.tempo_de_membro);
-				row.find('[name="ativo"]').val(response.ativo);
-				row.find('[name="faixa_salarial"]').val(response.faixa_salarial);
-			},
-			error: function(xhr, status, error) {
-	            console.error(error);
-        	}
-		});
-	}*/
 
 
+$(document).ready(function() {
+    $('#datatable').DataTable({
+        "autoWidth": false,
+        "bLengthChange": false,
+        "scrollX": true,
+        "pageLength": 10,
+        "dom": 'Bfrtip',
+        "buttons": [
+            {
+                "extend": 'excelHtml5',
+                "text": 'Excel',
+                "className": 'excel_btn',
+                "titleAttr": 'Exportar para Excel',
+                "exportOptions": {
+                    "columns": ':visible'
+                }
+            }
+        ],
+        "searching": true, 
+        "columnDefs": [
+            {"visible": true, "targets": 0}
+        ],
+       aaSorting: [[0, "desc"]],
+        "ajax": {
+            "url": "ws/seleciona_membros.php",
+			"type": 'GET',
+			"contentType": "application/json",
+            "dataSrc": "",
+            "data": { 
 
+			} 
+        },
+        "columns": [
+            {
+                "data": "id",
+                "render": function(data, type, row, meta) {
+                    if (type === 'display') {
+                        return '<a><img src="img/save_icon.svg" onclick="editar_membros(' + data + ')" class="icon_2"></a>' + '<a href=""><img src="img/delete_icon.svg" class="icon"></a>';
+                    }
+                    return data;
+                }
+            },
+            {"data": "id"},
+            {
+                "data": "nome_membro",
+                "render": function(data, type, row, meta) {
+                    if (type === 'display') {
+                        return '<input id="nome_membro_' + row.id + '" name="nome_membro_' + row.id + '" value="' + data + '" style="text-align: center;">';
+                    }
+                }
+            },
+            {
+				"data": "cpf_membro",
+				"render": function (data, type, row, meta){
+					if(type === 'display'){
+						return '<input id="cpf_membro_' + row.id + '" name="cpf_membro_' + row.id + '" value="'+ data +'" style="text-align: center;">';
+					}
 
-
-
-
-
-
-	$(document).ready(function() {
-		$('#datatable').DataTable({
-				/* fixedHeader: {
-				header: true,
-				headerOffset: $('.header-navbar').outerHeight()
-			}, */		
-			"autoWidth": false,
-			"bLengthChange": false,
-			"scrollX": true,
-			pageLength: 10,
-			dom: 'Bfrtip',
-			buttons: [
-			  {
-				extend: 'excelHtml5',
-				text: 'Excel',
-				className: 'excel_btn',
-				titleAttr: 'Exportar para Excel',
-				exportOptions: {
-				columns: ':visible'
 				}
-			  }
-			],
-
-			"search": {
-			"regex": true
 			},
-			destroy: true,
-			"processing" : false,
-			"paging": true,
-			"searching": false,
-			"bFilter": false,
-			"columnDefs":[
-			   {"visible": true, "targets":0}
-			],
-
-			"columns":[
-				{
-				    "data": "id",
-				    "render": function (data, type, row, meta){
-				        if(type === 'display'){
-				            return '<a><img src="img/save_icon.svg" onclick="editar_membros('+data+')" class="icon_2"></a>'+'<a href=""><img src="img/delete_icon.svg" class="icon"></a>'; 
-				        }
-				        return data;
-				    }
-				},
-				{"data": "id"},
-				{
-					"data": "nome_membro",
-					"render": function (data, type, row, meta){
-						if(type === 'display'){
-							return '<input id="nome_membro_' + row.id + '" name="nome_membro_' + row.id + '" value="'+ data +'" style="text-align: center;">';
-						}
-
-					}
-				},
-				{
-					"data": "cpf_membro",
-					"render": function (data, type, row, meta){
-						if(type === 'display'){
-							return '<input id="cpf_membro_' + row.id + '" name="cpf_membro_' + row.id + '" value="'+ data +'" style="text-align: center;">';
-						}
-
-					}
-				},
-				{
+			{
 					"data": "nascimento_membro",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
@@ -386,9 +333,70 @@
 						return data;
 					}
 				}
-			]
+        ]
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+	/*function editar_membros(id)
+	{
+		var row = $('#' + id);
+
+		var	nome_membro = row.find('[name="nome_membro"]').val();
+		var	cpf_membro = row.find('[name="nome_membro"]').val();
+		var	nascimento_membro = row.find('[name="nascimento_membro"]').val();
+		var	email_membro = row.find('[name="email_membro"]').val();
+		var	telefone_membro = row.find('[name="telefone_membro"]').val();
+		var	tempo_de_membro = row.find('[name="tempo_de_membro"]').val();
+		var	ativo = row.find('[name="ativo"]').val();
+		var	faixa_salarial = row.find('[name="faixa_salarial"]').val();
+
+		$.ajax({
+			url: '',
+			type: 'POST',
+			data:{
+				'id': id,
+				'nome_membro': nome_membro,
+				'cpf_membro': cpf_membro,
+				'nascimento_membro': nascimento_membro,
+				'email_membro': email_membro,
+				'telefone_membro': telefone_membro,
+				'faixa_salarial': faixa_salarial,
+				'tempo_de_membro': tempo_de_membro,
+				'ativo': ativo
+			},
+			success: function(response) {
+				row.find('[name="nome_membro"]').val(response.nome_membro);
+				row.find('[name="nome_membro"]').val(response.cpf_membro);
+				row.find('[name="nascimento_membro"]').val(response.nascimento_membro);
+				row.find('[name="email_membro"]').val(response.email_membro);
+				row.find('[name="telefone_membro"]').val(response.telefone_membro);
+				row.find('[name="tempo_de_membro"]').val(response.tempo_de_membro);
+				row.find('[name="ativo"]').val(response.ativo);
+				row.find('[name="faixa_salarial"]').val(response.faixa_salarial);
+			},
+			error: function(xhr, status, error) {
+	            console.error(error);
+        	}
 		});
-	});
+	}*/
+
+
+
+
+
+
+
 
 
 
@@ -434,7 +442,7 @@
 	function editar_membros(id)
 	{
 		$('#datatable').DataTable().ajax.reload();
-	/*
+
 		var nome_membro = $('#nome_membro_'+id+'').val();
 		var cpf_membro = $('#cpf_membro_'+id+'').val();
 		var nascimento_membro = $('#nascimento_membro_'+id+'').val();
@@ -460,7 +468,7 @@
 			},
 		}).done(function(response) {
 
-			console.log(response);
+			//console.log(response);
 
 	        if (response.trim() == "success") 
 			{    
@@ -476,7 +484,7 @@
 			}
 
 		});
-	*/}
+	}
 
 	</script>
 </body>
