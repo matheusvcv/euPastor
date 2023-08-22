@@ -362,20 +362,7 @@
 			},
 		}).done(function(response) {
 
-			//console.log(response);
-
-	        if (response.trim() == "success") 
-			{    
-				console.log('Sucesso')
-				$('#nome_membro_' + id).val(nome_membro);
-				window.location.href='configuracao_membros.php?se=1';
-				//$('#datatable').DataTable().ajax.reload();
-	        } 
-	        if (response.trim() == "error")
-			{
-				console.log('error')
-				window.location.href='configuracao_membros.php?ere=1';
-			}
+			$('#datatable').DataTable().ajax.reload();
 
 		});
 	}
