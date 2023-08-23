@@ -188,7 +188,7 @@
 	        ],
 	        "searching": true, 
 	        "columnDefs": [
-	            {"visible": false, "targets": 1}
+	            {"visible": true, "targets": 0}
 	        ],
 	       aaSorting: [[0, "desc"]],
 	        "ajax": {
@@ -205,7 +205,7 @@
 	                "data": "id",
 	                "render": function(data, type, row, meta) {
 	                    if (type === 'display') {
-	                        return '<a><img src="img/save_icon.svg" onclick="editar_membros('+ row.id +')" class="icon_2"></a>' + '<a href=""><img src="img/delete_icon.svg" class="icon"></a>';
+	                        return '<a><img src="img/save_icon.svg" onclick="editar_membros(' + row.id + ')" class="icon_2"></a>' + '<a href=""><img src="img/delete_icon.svg" class="icon"></a>';
 	                    }
 	                    return data;
 	                }
@@ -333,18 +333,24 @@
 		});
 	}
 
-	function editar_membros(id)
+	function editar_membros(id_linha)
 	{
-		$('#datatable').DataTable().ajax.reload();
 
-		var nome_membro = $('#nome_membro_'+id).val();
-		var cpf_membro = $('#cpf_membro_'+id).val();
-		var nascimento_membro = $('#nascimento_membro_'+id).val();
-		var email_membro = $('#email_membro_'+id).val();
-		var telefone_membro = $('#telefone_membro_'+id).val();
-		var faixa_salarial = $('#faixa_salarial_'+id).val();
-		var tempo_de_membro = $('#tempo_de_membro_'+id).val();
-		var ativo = $('#ativo_'+id).val();
+		console.log('Editar membro: id_linha =', id_linha);
+		 console.log('Editar membro: id_linha =', id_linha);
+
+		var table = $('#datatable').DataTable();
+		var rowData = table.row(id_linha).data();
+
+		var id =id_linha;
+		var nome_membro = rowData.nome_membro;
+		var cpf_membro = rowData.cpf_membro;
+		var nascimento_membro = rowData.nascimento_membro;
+		var email_membro = rowData.email_membro;
+		var telefone_membro = rowData.telefone_membro;
+		var faixa_salarial = rowData.faixa_salarial;
+		var tempo_de_membro = rowData.telefone_membro;
+		var ativo = rowData.ativo;
 
 		$.ajax({
 			url: 'ws/ws_editar_membros.php',
