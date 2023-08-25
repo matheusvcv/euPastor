@@ -53,6 +53,9 @@
 			<a class="nav-link barra_item" href="#">Cadastrar Usuários</a>
 		</li>
 		<li class="nav-item">
+			<a class="nav-link" href="configuracao_membros.php">Configuração de Membros</a>
+		</li>
+		<li class="nav-item">
 			<a class="nav-link barra_item">Outro módulo</a>
 		</li>
 	</ul>
