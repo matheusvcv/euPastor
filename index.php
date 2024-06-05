@@ -1,4 +1,5 @@
 <?php
+//Código de inclusão de arquivos.
 include "src/conexao.php";
 include "ws/ws_login.php";
 ?>
