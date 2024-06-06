@@ -1,6 +1,6 @@
 <?php
 //Código de inclusão de arquivos.
-include "src/conexao.php";
+include "src/conexao.php"; //Inclui o arquivo que faz a conexão com o banco de dados.
 include "ws/ws_login.php";
 ?>
 <!Doctype html>
