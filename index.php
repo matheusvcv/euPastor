@@ -2,20 +2,8 @@
 //Código de inclusão de arquivos.
 include "src/conexao.php"; //Inclui o arquivo que faz a conexão com o banco de dados.
 include "ws/ws_login.php"; //Inclui o arquivo que verifica as credenciais no BDD, e se elas forem válidas inicia uma sessão.
+include "view/head.html"; //Inclui o arquivo que adiciona que contém as informações do head html.
 ?>
-<!Doctype html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-	<link rel="shortcut icon" href="img/logo_login_image.png" type="image/x-icon">
-	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
-	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css" rel="stylesheet">
-	<title>Login</title>
-</head>
 <body class="body_index">
 	<div class="container-fluid p-5 mt-4">
 		<div class="row">
