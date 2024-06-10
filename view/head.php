@@ -1,3 +1,6 @@
+<?php
+	include "controller/gerador_titulo.php";
+?>
 <!Doctype html>
 <html>
 <head>
@@ -9,6 +12,6 @@
 	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css" rel="stylesheet">
-	<title>Login</title>
+	<title><?php echo $titulo ?></title>
 </head>
 </html>

@@ -1,17 +1,8 @@
+<?php
+include "view/head_lista_membros.php";
+?>
 <!Doctype html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-	<link rel="shortcut icon" href="img/logo_login_image.png" type="image/x-icon">
-	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css">
-	<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
-	<title>Lista de Membros</title>
-</head>
 <body>
 <!--Início da NavBar-->
 	<nav class="navbar navbar-dark bg-dark">
