@@ -1,4 +1,5 @@
 <?php
+
 	$nome_arquivo = $_SERVER['REQUEST_URI'];
 	$fim_nome_arquivo = strpos($nome_arquivo, ".php");
 	$titulo_da_pagina = substr($nome_arquivo, 10, $fim_nome_arquivo);
@@ -9,5 +10,13 @@
 		$titulo = "login";
 	}elseif ($titulo_da_pagina === "pagina_inicial.php") {
 		$titulo = "Página Inicial";
+	}elseif ($titulo_da_pagina === "index.php") {
+		$titulo = "Página Inicial";
+	}elseif ($titulo_da_pagina === "index.php?err=1") {
+		$titulo = "Página Inicial";
 	}
+
 ?>
+
+
+
