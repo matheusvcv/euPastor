@@ -14,8 +14,9 @@
 		$titulo = "Página Inicial";
 	}elseif ($titulo_da_pagina === "index.php?err=1") {
 		$titulo = "Página Inicial";
+	}elseif ($titulo_da_pagina === "pagina_inicial.php?usuar") {
+		$titulo = "Página Inicial";
 	}
-
 ?>
 
 
