@@ -23,10 +23,16 @@ include"../../src/conexao.php";//Inclui o arquivo que faz conexão com o banco d
            exit();
         }
 
+        $statement = $conexao->prepare("INSERT INTO usuarios(nome, telefone, nascimento, email, nome_usuario, senha, igreja, cargo, perfil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");//Prepara a consulta SQL mas sem os valores ainda.
+        $statement->bind_param("ssssssssi", $nome, $telefone, $nascimento, $email, $nome_usuario, $senha_crip, $igreja, $cargo, $perfil);//Função que vincula os valores das váriaveis às interrogações.
 
-		$conexao->query("INSERT INTO usuarios(nome, telefone, nascimento, email, nome_usuario, senha, igreja, cargo, perfil) VALUES ('$nome','$telefone','$nascimento','$email','$nome_usuario','$senha_crip','$igreja','$cargo','$perfil')");//Executa uma cnsulta Insert para adicionar os dados no BDD. A senha salva é criptografada para garantir uma maior segurança.
+        if($statement->execute()){
+        	header("Location:../../pagina_inicial.php?usuario_cadastrado=1");
+        } else {
 
-		header("Location:../../pagina_inicial.php?usuario_cadastrado=1");//Redireciona para a página inicial com um parâmetro na URL indicando sucesso.
+        	echo "Erro ao cadastrar usuário: " . $statement->error;
+        	header("Location:../../pagina_inicial.php?usuario_cadastrado=0"); 
+        }
 
 	} else {//Se o Post email não foi enviado exibe falha e redireiona para a página inicial com uma mensagem de erro.
 		

@@ -104,7 +104,7 @@
 							</div>
 							<div class="col-lg-4">
 								<label for="cargo" class="form-label">Cargo:</label>
-								<select class="form-select form_item" id="perfil" name="perfil">
+								<select class="form-select form_item" id="perfil" name="cargo">
 									<option value="1">Pastor</option>
 									<option value="2">Presbítero</option>
 									<option value="3">Auxiliar</option>
