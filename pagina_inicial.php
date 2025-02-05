@@ -45,10 +45,13 @@ include "view/head.php"
       <a class="nav-link barra_item" href="lista_membros.php">Lista de Membros</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link barra_item" href="pagina_administrativa/views/cadastrar_usuarios.php">Cadastrar Usuários</a>
+      <a class="nav-link barra_item">Escola Biblica Dominical</a>
     </li>
     <li class="nav-item">
       <a class="nav-link barra_item" href="configuracao_membros.php">Configuração de Membros</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link barra_item" href="pagina_administrativa/views/cadastrar_usuarios.php">Cadastrar Usuários</a>
     </li>
     <li class="nav-item">
       <a class="nav-link barra_item">Outro módulo</a>

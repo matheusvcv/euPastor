@@ -80,85 +80,83 @@ include "view/head_lista_membros.php";
 		</div>
 	</div>
 
-	<!--Script Bootstrap-->
-	<script src="../../bootstrap/js/bootstrap.min.js"></script>
-	<script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
+	<script src="../../bootstrap/js/bootstrap.min.js"></script><!--Carrega o Bootstrap-->
+	<script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script><!--Carrega a Biblioteca Datatables-->
+	<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script><!--Carrega biblioteca para os botões-->
+	<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js"></script><!--Carrega biblioteca para os botões-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script><!--Biblioteca para exportação da lista para Excel-->
+	<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script><!--Biblioteca para exportação da lista para Excel-->
+
 	<script>
 
-	
+	$(document).ready(function() {//Define que quando o documento for carregado, a tabela será configurada.
 
-	$(document).ready(function() {
-
-
-
-
-
-	$('#datatable').DataTable({
-			/* fixedHeader: {
-			header: true,
-			headerOffset: $('.header-navbar').outerHeight()
-		}, */		
-		"autoWidth": false,
-		"bLengthChange": false,
-		pageLength: 10,
-		dom: 'Bfrtip',
-		buttons: [
-		  {
-			extend: 'excelHtml5',
-			text: 'Excel',
-			className: 'excel_btn',
-			titleAttr: 'Exportar para Excel',
-			exportOptions: {
-			columns: ':visible'
-			}
-		  }
-		],
-
-
-		"search": {
-		"regex": true
-		},
-		destroy: true,
-		"processing" : false,
-		"paging": true,
-		"searching": false,
-		"bFilter": false,
-		"columnDefs":[
-		   {"visible": false, "targets":0}
-		],
-
-		"columns":[
-			{"data": "id"},
-			{
-				"data": "",
-				"render": function (data, type, row, meta){
-					if(type === 'display'){
-						return '<img src="img/file_icon.png">';		
-					}
-					
-					return data;
+		$('#datatable').DataTable({//Inicia a tabela
+				/* fixedHeader: {
+				header: true,
+				headerOffset: $('.header-navbar').outerHeight()
+			}, */		
+			"autoWidth": false,//Desativa a largura automática das colunas.
+			"bLengthChange": false,//Remove a opção de alterar o número de intens por página.
+			pageLength: 10,//Define 10 itens por página.
+			dom: 'Bfrtip',//Define o Layout para incluir botões.
+			buttons: [
+			  {
+				extend: 'excelHtml5',
+				text: 'Excel',
+				className: 'excel_btn',
+				titleAttr: 'Exportar para Excel',
+				exportOptions: {
+				columns: ':visible'
 				}
+			  }
+			],
+
+
+			"search": {
+			"regex": true
 			},
-			{"data": "nome_membro"},
-			{"data": "cpf_membro"},
-			{"data": "nascimento_membro"},
-			{"data": "email_membro"},
-			{"data": "telefone_membro"},
-			{"data": "faixa_salarial"},
-			{"data": "tempo_de_membro"},
-			{"data": "ativo"},
-			{
-				"data": "faixa_salarial",
-				"render": function(data, type, row, meta){
-					if(type === 'display'){
-						return data / 10;
-					}
-					return data;
-				}
-			}
-		]
+			destroy: true,
+			"processing" : false,
+			"paging": true,
+			"searching": false,
+			"bFilter": false,
+			"columnDefs":[
+			   {"visible": false, "targets":0}
+			],
 
-		});
+			"columns":[
+				{"data": "id"},
+				{
+					"data": "",
+					"render": function (data, type, row, meta){
+						if(type === 'display'){
+							return '<img src="img/file_icon.png">';		
+						}
+						
+						return data;
+					}
+				},
+				{"data": "nome_membro"},
+				{"data": "cpf_membro"},
+				{"data": "nascimento_membro"},
+				{"data": "email_membro"},
+				{"data": "telefone_membro"},
+				{"data": "faixa_salarial"},
+				{"data": "tempo_de_membro"},
+				{"data": "ativo"},
+				{
+					"data": "faixa_salarial",
+					"render": function(data, type, row, meta){
+						if(type === 'display'){
+							return data / 10;
+						}
+						return data;
+					}
+				}
+			]
+
+			});
 	});
 
 
