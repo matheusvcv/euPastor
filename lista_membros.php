@@ -104,7 +104,7 @@ include "view/head_lista_membros.php";
 			  {
 				extend: 'excelHtml5',
 				text: 'Excel',
-				className: 'excel_btn',
+				className: 'btn btn-success',
 				titleAttr: 'Exportar para Excel',
 				exportOptions: {
 				columns: ':visible'
@@ -144,9 +144,9 @@ include "view/head_lista_membros.php";
 				{"data": "nascimento_membro"},//Recebe o dado que ajax retorna direto do json
 				{"data": "email_membro"},//Recebe o dado que ajax retorna direto do json
 				{"data": "telefone_membro"},//Recebe o dado que ajax retorna direto do json
-				{"data": "faixa_salarial"},//Recebe o dado que ajax retorna direto do json
 				{"data": "tempo_de_membro"},//Recebe o dado que ajax retorna direto do json
 				{"data": "ativo"},//Recebe o dado que ajax retorna direto do json
+				{"data": "faixa_salarial"},//Recebe o dado que ajax retorna direto do json
 				{
 					"data": "faixa_salarial",//Altera o valor da faixa salarial antes de exibir na tabela
 					"render": function(data, type, row, meta){
@@ -166,6 +166,8 @@ include "view/head_lista_membros.php";
 		dataType: 'json',//Define que o formato do dado vai ser json
 		success: function(data){//Define que a função será realizada quando a requisição for concluida com sucesso
 
+			console.log(data);
+
 			if(data.length > 0){//Verifica se o array 'data' contém dados
 
 				$('#datatable').DataTable().clear();//Recebe a datable e limpa os dados antes de inserir os novos
@@ -176,13 +178,10 @@ include "view/head_lista_membros.php";
 
 				$('#datatable').DataTable().clear().draw();//Limpa a tabela
 				$('#datatable').DataTable().rows.add('<tr><td colspan="3">Nenhum resultado encontrado.</td><tr>').draw();//Exibe mensagem quando não houver resultados
-
 			}
 		},
 
 		error: function() {//Função executada caso haja um erro na requisição Ajax
-
-			console.error('Ocorreu um erro ao obter os dados.');//Exibe uma mesagem de erro no console do navegador
 		}
 	});
 
