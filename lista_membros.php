@@ -59,7 +59,7 @@ include "view/head_lista_membros.php";
 							<thead>
 								<tr class="table-dark justify-content-center">
 									<th class="align-middle text-center">ID</th>
-									<th class="align-middle text-center">Ocorrências</th>
+									<th class="align-middle text-center">Perfil</th>
 									<th class="align-middle text-center">Nome</th>
 									<th class="align-middle text-center">CPF</th>
 									<th class="align-middle text-center">Nascimento</th>
@@ -89,18 +89,18 @@ include "view/head_lista_membros.php";
 
 	<script>
 
-	$(document).ready(function() {//Define que quando o documento for carregado, a tabela será configurada.
+	$(document).ready(function() {//Define que quando o documento for carregado, a tabela será configurada
 
 		$('#datatable').DataTable({//Inicia a tabela
 				/* fixedHeader: {
 				header: true,
 				headerOffset: $('.header-navbar').outerHeight()
 			}, */		
-			"autoWidth": false,//Desativa a largura automática das colunas.
-			"bLengthChange": false,//Remove a opção de alterar o número de intens por página.
-			pageLength: 10,//Define 10 itens por página.
-			dom: 'Bfrtip',//Define o Layout para incluir botões.
-			buttons: [
+			"autoWidth": false,//Desativa a largura automática das colunas
+			"bLengthChange": false,//Remove a opção de alterar o número de intens por página
+			pageLength: 10,//Define 10 itens por página
+			dom: 'Bfrtip',//Define o Layout para incluir botões
+			buttons: [//Adiciona um botão que exportaos dados da tabela para um arquivo Excel
 			  {
 				extend: 'excelHtml5',
 				text: 'Excel',
@@ -112,41 +112,43 @@ include "view/head_lista_membros.php";
 			  }
 			],
 
-
 			"search": {
-			"regex": true
+			"regex": true//Permite busca com expressões regulares
 			},
-			destroy: true,
-			"processing" : false,
-			"paging": true,
-			"searching": false,
-			"bFilter": false,
-			"columnDefs":[
-			   {"visible": false, "targets":0}
+			"destroy": true,//Garante que a tabela pode ser recriada sem erros
+			"processing" : false,//Não exibe indicador de carregamento de dados
+			"paging": true,//Habilita a paginação
+			"searching": true,//Habilita Barra de Pesquisa
+			"bFilter": false,//Desativa filtro automáticos
+			"columnDefs":[//Oculta a primeira coluna
+			   {"visible": false, "targets":0},
+			   {"className": "icone", "targets":1}
 			],
 
+			//Definição das colunas
+
 			"columns":[
-				{"data": "id"},
+				{"data": "id"},//Recebe o dado que ajax retorna direto do json
 				{
-					"data": "",
-					"render": function (data, type, row, meta){
+					"data": "",//Define que o que será exibido nessa coluna não está no banco de dados e não utiliza json
+					"render": function (data, type, row, meta){//Altera o que será exibido na tela quando o tipo de exibição for Display.
 						if(type === 'display'){
-							return '<img src="img/file_icon.png">';		
+							return '<div style="display: flex; justify-content: center; align-items: center; height: 100% ">'+'<img src="img/profile_icon.png" align="center">'+'</div>';//Exibe a imagem.
 						}
 						
 						return data;
 					}
 				},
-				{"data": "nome_membro"},
-				{"data": "cpf_membro"},
-				{"data": "nascimento_membro"},
-				{"data": "email_membro"},
-				{"data": "telefone_membro"},
-				{"data": "faixa_salarial"},
-				{"data": "tempo_de_membro"},
-				{"data": "ativo"},
+				{"data": "nome_membro"},//Recebe o dado que ajax retorna direto do json
+				{"data": "cpf_membro"},//Recebe o dado que ajax retorna direto do json
+				{"data": "nascimento_membro"},//Recebe o dado que ajax retorna direto do json
+				{"data": "email_membro"},//Recebe o dado que ajax retorna direto do json
+				{"data": "telefone_membro"},//Recebe o dado que ajax retorna direto do json
+				{"data": "faixa_salarial"},//Recebe o dado que ajax retorna direto do json
+				{"data": "tempo_de_membro"},//Recebe o dado que ajax retorna direto do json
+				{"data": "ativo"},//Recebe o dado que ajax retorna direto do json
 				{
-					"data": "faixa_salarial",
+					"data": "faixa_salarial",//Altera o valor da faixa salarial antes de exibir na tabela
 					"render": function(data, type, row, meta){
 						if(type === 'display'){
 							return data / 10;
@@ -159,33 +161,30 @@ include "view/head_lista_membros.php";
 			});
 	});
 
+	$.ajax({//Inicia a requisição ajax utilizando jQuery para buscar dados no servidor
+		url: 'ws/seleciona_membros.php',//Define o endereço do script PHP que vai retornar os arquivos em formato Json
+		dataType: 'json',//Define que o formato do dado vai ser json
+		success: function(data){//Define que a função será realizada quando a requisição for concluida com sucesso
 
+			if(data.length > 0){//Verifica se o array 'data' contém dados
 
-	$.ajax({
-		url: 'ws/seleciona_membros.php',
-		dataType: 'json',
-		success: function(data){
+				$('#datatable').DataTable().clear();//Recebe a datable e limpa os dados antes de inserir os novos
 
-			if(data.length > 0){
-
-				$('#datatable').DataTable().clear();
-
-				$('#datatable').DataTable().rows.add(data).draw();
+				$('#datatable').DataTable().rows.add(data).draw();//Adiciona linhas na tabela com os dados recebidos
 
 			}else{
 
-				$('#datatable').DataTable().clear().draw();
-				$('#datatable').DataTable().rows.add('<tr><td colspan="3">Nenhum resultado encontrado.</td><tr>').draw();
+				$('#datatable').DataTable().clear().draw();//Limpa a tabela
+				$('#datatable').DataTable().rows.add('<tr><td colspan="3">Nenhum resultado encontrado.</td><tr>').draw();//Exibe mensagem quando não houver resultados
 
 			}
 		},
 
-		error: function() {
+		error: function() {//Função executada caso haja um erro na requisição Ajax
 
-			console.error('Ocorreu um erro ao obter os dados.');
+			console.error('Ocorreu um erro ao obter os dados.');//Exibe uma mesagem de erro no console do navegador
 		}
 	});
-
 
 	</script>
 </body>
