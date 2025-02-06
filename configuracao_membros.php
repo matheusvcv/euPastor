@@ -211,7 +211,7 @@
 	                "data": "id",
 	                "render": function(data, type, row, meta) {
 	                    if (type === 'display') {
-	                        return '<a><img src="img/save_icon.svg" onclick="editar_membros('+ row.id +')" class="icon_2"></a>' + '<a href=""><img src="img/delete_icon.svg" class="icon"></a>';
+	                        return '<a><img src="img/save_icon.svg" onclick="editar_membros('+ row.id +')" class="icon_2"></a>' + '<a href=""><img src="img/delete_icon.svg" onclick="deletar_membro('+ row.id +')" class="icon"></a>';
 	                    }
 	                    return data;
 	                }
@@ -371,6 +371,21 @@
 			$('#datatable').DataTable().ajax.reload();
 
 		});
+	}
+
+	function deletar_membro(id)
+	{
+		var membro = $('#nome_membro_'+id+'').val();
+		$.ajax({
+			url: 'ws/ws_deletar_membros.php',
+			type: 'post',
+			data:{
+				'id': id
+			},
+		}).done(function(response) {
+			$('#datatable').DataTable().ajax.reload();
+		});
+
 	}
 
 	function exibe_form_cad_membro()

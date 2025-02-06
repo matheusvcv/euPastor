@@ -33,11 +33,11 @@ if(isset($_POST['id']) && $_POST['id'] != "" && ($_POST['nome_membro']) && $_POS
 
 		if ($conexao->query($sql))
 		{
-			echo "success";
+			echo "Success";
 		}
 		else
 		{
-			echo "error";
+			echo "Error";
 		}
 	}
 	catch(Exception $e)
