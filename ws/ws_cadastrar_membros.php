@@ -30,7 +30,7 @@
 				VALUES (
 					'$nome_membro',
 					'$cpf_membro',
-					$nascimento_membro,
+					'$nascimento_membro',
 					'$email_membro',
 					'$telefone_membro',
 					$faixa_salarial,

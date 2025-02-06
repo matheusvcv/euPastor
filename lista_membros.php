@@ -113,7 +113,7 @@ include "view/head_lista_membros.php";
 			],
 
 			"search": {
-			"regex": true//Permite busca com expressões regulares
+				"regex": true//Permite busca com expressões regulares
 			},
 			"destroy": true,//Garante que a tabela pode ser recriada sem erros
 			"processing" : false,//Não exibe indicador de carregamento de dados

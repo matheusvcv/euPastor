@@ -189,7 +189,10 @@
 	                }
 	            }
 	        ],
-	        "searching": true, 
+	        "search": {
+				"regex": false
+			},
+	        "searching": false, 
 	        "columnDefs": [
 	            {"visible": false, "targets": 1}
 	        ],
