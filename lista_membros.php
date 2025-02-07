@@ -137,13 +137,13 @@ include "view/head_lista_membros.php";
 			"columns":[
 				{"data": "id"},//Recebe o dado que ajax retorna direto do json
 				{
-					"data": "",//Define que o que será exibido nessa coluna não está no banco de dados e não utiliza json
+					"data": null,//Define que o que será exibido nessa coluna não está no banco de dados e não utiliza json
 					"render": function (data, type, row, meta){//Altera o que será exibido na tela quando o tipo de exibição for Display.
 						if(type === 'display'){
 							return '<div style="display: flex; justify-content: center; align-items: center; height: 100% ">'+'<img src="img/profile_icon.png" align="center">'+'</div>';//Exibe a imagem.
 						}
 						
-						return data;
+						return "";
 					}
 				},
 				{"data": "nome_membro"},//Recebe o dado que ajax retorna direto do json

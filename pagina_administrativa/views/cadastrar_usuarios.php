@@ -128,10 +128,10 @@
 						</div>
 
 						<div class="row justify-content-end mb-2">
-							<div class="col-lg-1 col-sm-12 mt-3">
+							<div class="col-lg-1 col-sm-12 mt-3" style="min-width: 120px;">
 								<button type="submit" class="btn btn-success form-control form_item">Cadastrar</button>
 							</div>
-							<div class="col-lg-1 mt-3">
+							<div class="col-lg-1 mt-3" style="min-width: 120px;">
 								<a href="../../pagina_inicial.php?usuario_cadastrado=2"><div class="btn btn-danger form-control form_item">Cancelar</div></a>
 							</div>
 						</div>
