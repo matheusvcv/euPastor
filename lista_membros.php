@@ -38,10 +38,17 @@ include "view/head_lista_membros.php";
 			<a class="nav-link barra_item" href="pagina_inicial.php">Página Inicial</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link barra_item" href="#">Lista de Membros</a>
+			<a class="nav-link barra_item" href="lista_membros.php">Lista de Membros</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link barra_item" href="#">Cadastrar Usuários</a>
+			<a class="nav-link barra_item" href="escola_biblica_dominical.php">Escola Biblica Dominical</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link barra_item" href="configuracao_membros.php">Configuração de Membros</a>
+		</li>
+		<li class="nav-item">
+		<li class="nav-item">
+			<a class="nav-link barra_item" href="pagina_administrativa/views/cadastrar_usuarios.php">Cadastrar Usuários</a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link barra_item">Outro módulo</a>

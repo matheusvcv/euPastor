@@ -45,7 +45,7 @@ include "view/head.php"
       <a class="nav-link barra_item" href="lista_membros.php">Lista de Membros</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link barra_item">Escola Biblica Dominical</a>
+      <a class="nav-link barra_item" href="escola_biblica_dominical.php">Escola Biblica Dominical</a>
     </li>
     <li class="nav-item">
       <a class="nav-link barra_item" href="configuracao_membros.php">Configuração de Membros</a>
