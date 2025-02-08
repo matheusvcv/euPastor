@@ -8,7 +8,7 @@ include "view/head_lista_membros.php";
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"><img src="img/logo_login_branca_image.png" style="margin-right: 1.5vh;" alt="Logo" width="30" height="29" class="d-inline-block align-text-top">MyChurch</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation" style="color: pink;">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
@@ -172,8 +172,6 @@ include "view/head_lista_membros.php";
 		url: 'ws/seleciona_membros.php',//Define o endereço do script PHP que vai retornar os arquivos em formato Json
 		dataType: 'json',//Define que o formato do dado vai ser json
 		success: function(data){//Define que a função será realizada quando a requisição for concluida com sucesso
-
-			console.log(data);
 
 			if(data.length > 0){//Verifica se o array 'data' contém dados
 

@@ -28,7 +28,7 @@
 				<div class="offcanvas-body">
 					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 						<li class="nav-item">
-							<a class="nav-link active botao_sair" aria-current="page" href="../../logout.php">SAIR</a>
+							<a class="nav-link active botao_sair" aria-current="page" href="logout.php">SAIR</a>
 						<li class="nav-item">
 							<a class="nav-link" href="pagina_inicial.php">Página Inicial</a>
 						</li>
@@ -44,7 +44,7 @@
 	<!--Barra de Navegação entre módulos-->
   <ul class="nav mb-2 barra_nav">
     <li class="nav-item">
-      <a class="nav-link barra_item" href="../../pagina_inicial.php">Página Inicial</a>
+      <a class="nav-link barra_item" href="pagina_inicial.php">Página Inicial</a>
     </li>
     <li class="nav-item">
       <a class="nav-link barra_item" href="lista_membros.php">Lista de Membros</a>
@@ -148,8 +148,8 @@
 						<table id="datatable" class="table table-striped table-bordered table-hover justify-content-center" cellspacing="0" width="100%">
 							<thead>
 								<tr class="table-dark justify-content-center">
-									<th class="align-middle text-center">Ações</th>
 									<th class="align-middle text-center">ID</th>
+									<th class="align-middle text-center">Ações</th>
 									<th class="align-middle text-center">Nome</th>
 									<th class="align-middle text-center">CPF</th>
 									<th class="align-middle text-center">Nascimento</th>
@@ -197,7 +197,7 @@
 			},
 	        "searching": false, 
 	        "columnDefs": [
-	            {"visible": false, "targets": 1}
+	            {"visible": false, "targets": 0}
 	        ],
 	       aaSorting: [[0, "desc"]],
 	        "ajax": {
@@ -205,11 +205,12 @@
 				"type": 'GET',
 				"contentType": "application/json",
 	            "dataSrc": "",
-	            "data": { 
+            "data": { 
 
-				} 
+				},
 	        },
 	        "columns": [
+	            {"data": "id"},
 	            {
 	                "data": "id",
 	                "render": function(data, type, row, meta) {
@@ -219,9 +220,9 @@
 	                    return data;
 	                }
 	            },
-	            {"data": "id"},
 	            {
 	                "data": "nome_membro",
+	                "defaultContent": "",
 	                "render": function(data, type, row, meta) {
 	                    if (type === 'display') {
 	                        return '<input id="nome_membro_' + row.id + '" name="nome_membro_' + row.id + '" value="' + data + '" style="text-align: center;">';
@@ -230,6 +231,7 @@
 	            },
 	            {
 					"data": "cpf_membro",
+					"defaultContent": "",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
 							return '<input id="cpf_membro_' + row.id + '" name="cpf_membro_' + row.id + '" value="'+ data +'" style="text-align: center;">';
@@ -239,6 +241,7 @@
 				},
 				{
 					"data": "nascimento_membro",
+					"defaultContent": "",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
 							return '<input id="nascimento_membro_' + row.id + '" name="nascimento_membro_' + row.id + '" value="'+ data +'" style="text-align: center;">';
@@ -248,6 +251,7 @@
 				},
 				{
 					"data": "email_membro",
+					"defaultContent": "",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
 							return '<input id="email_membro_' + row.id + '" name="email_membro_' + row.id + '" value="'+ data +'" style="text-align: center;">';
@@ -257,6 +261,7 @@
 				},
 				{
 					"data": "telefone_membro",
+					"defaultContent": "",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
 							return '<input id="telefone_membro_' + row.id + '" name="telefone_membro_' + row.id + '" value="'+ data +'" style="text-align: center;">';
@@ -266,6 +271,7 @@
 				},
 				{
 					"data": "tempo_de_membro",
+					"defaultContent": "",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
 							return '<input id="tempo_de_membro_' + row.id + '" name="tempo_de_membro_' + row.id + '" value="'+ data +'" style="text-align: center;">';
@@ -275,6 +281,7 @@
 				},
 				{
 					"data": "ativo",
+					"defaultContent": "",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
 							return '<input id="ativo_' + row.id + '" name="ativo_' + row.id + '" value="'+ data +'" style="text-align: center;">';
@@ -284,6 +291,7 @@
 				},
 				{
 					"data": "faixa_salarial",
+					"defaultContent": "",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
 							return '<input id="faixa_salarial_' + row.id + '" name="faixa_salarial_' + row.id + '"  value="'+ data +'" style="text-align: center;">';
@@ -292,6 +300,7 @@
 				},
 				{
 					"data": "faixa_salarial",
+					"defaultContent": "",
 					"render": function(data, type, row, meta){
 						if(type === 'display'){
 							return '<input value="' + data / 10 + '"style="text-align: center;" disabled>';
@@ -302,7 +311,7 @@
 	        ]
 	    });
 	});
-		
+
 	function inserir_membro()
 	{
 		var nome_membro = $('#nome_membro').val();
