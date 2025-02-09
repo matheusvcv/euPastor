@@ -18,7 +18,10 @@
 		$titulo = "Página Inicial";
 	}elseif ($titulo_da_pagina === "") {
 		$titulo = "Página Inicial";
+	}elseif ($titulo_da_pagina === "escola_biblica_dominical.php") {
+		$titulo = "Escola Dominical";
 	}
+
 ?>
 
 
