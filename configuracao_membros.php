@@ -42,26 +42,26 @@
 		</div>
 	</nav>
 	<!--Barra de Navegação entre módulos-->
-  <ul class="nav mb-2 barra_nav">
-    <li class="nav-item">
-      <a class="nav-link barra_item" href="pagina_inicial.php">Página Inicial</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link barra_item" href="lista_membros.php">Lista de Membros</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link barra_item" href="escola_biblica_dominical.php">Escola Biblica Dominical</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link barra_item" href="configuracao_membros.php">Configuração de Membros</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link barra_item" href="pagina_administrativa/views/cadastrar_usuarios.php">Cadastrar Usuários</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link barra_item">Outro módulo</a>
-    </li>
-  </ul>
+	<ul class="nav mb-2 barra_nav">
+		<li class="nav-item">
+			<a class="nav-link barra_item" href="pagina_inicial.php">Página Inicial</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link barra_item" href="lista_membros.php">Lista de Membros</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link barra_item" href="escola_biblica_dominical.php">Escola Biblica Dominical</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link barra_item" href="configuracao_membros.php">Configuração de Membros</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link barra_item" href="pagina_administrativa/views/cadastrar_usuarios.php">Cadastrar Usuários</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link barra_item">Outro módulo</a>
+		</li>
+	</ul>
 	<!--Início do Corpo da página.-->
 	<div class="card card_body m-3">
 		<div class="card-content collapse show">
