@@ -57,5 +57,6 @@ include "view/head.php"
       <a class="nav-link barra_item">Outro módulo</a>
     </li>
   </ul>
+  <script src="bootstrap/js/bootstrap.min.js"></script><!--Carrega o Bootstrap-->
 </body>
 </html>
