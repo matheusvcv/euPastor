@@ -58,7 +58,7 @@ include "view/head_lista_membros.php";
 	<div class="card card_body m-3">
 		<div class="card-content collapse show">
 			<div class="card-body card-dashboard">
-
+				 <h3>Lista de Membros</h3>
 				<!--Início da DataTable-->
 				<div class="container-fluid">
 					<div class="row mt-3">
@@ -106,7 +106,7 @@ include "view/head_lista_membros.php";
 			"autoWidth": false,//Desativa a largura automática das colunas
 			"bLengthChange": false,//Remove a opção de alterar o número de intens por página
 			pageLength: 10,//Define 10 itens por página
-			dom: 'Bfrtip',//Define o Layout para incluir botões
+			dom: '<"d-flex justify-content-between align-items-center"lfB>rtip',//Define o Layout para incluir botões
 			buttons: [//Adiciona um botão que exportaos dados da tabela para um arquivo Excel
 			  {
 				extend: 'excelHtml5',

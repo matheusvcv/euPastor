@@ -66,6 +66,7 @@
 	<div class="card card_body m-3">
 		<div class="card-content collapse show">
 			<div class="card-body card-dashboard">
+			<h3>Configuração de Membros</h3>
 				<div id="cadastro_usuario" name="cadastro_usuario">
 					<!--Início do formulário-->
 					<h3>Cadastro de Membros</h3>
@@ -138,13 +139,13 @@
 						</form>
 					</div>	
 				</div>
-				<!--Botão de exibir o formulário-->
-				<div>
-					<button id="exibe_form_cad_membro" class="btn btn-success" onclick="exibe_form_cad_membro();">Cadastrar Membro</button>
-				</div>
 				<!--Início da DataTable-->
 				<div class="container-fluid">
 					<div class="row mt-3">
+						<!--Botão de exibir o formulário-->
+						<div>
+							<button id="exibe_form_cad_membro" class="btn btn-success" onclick="exibe_form_cad_membro();">Cadastrar Membro</button>
+						</div>
 						<table id="datatable" class="table table-striped table-bordered table-hover justify-content-center" cellspacing="0" width="100%">
 							<thead>
 								<tr class="table-dark justify-content-center">
