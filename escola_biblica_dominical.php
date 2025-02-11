@@ -66,58 +66,55 @@ include "view/head.php";
     <div class="card-body card-dashboard">
       <h3>Escola Bíblica Dominical</h3>
       <div class="container-fluid">
-        <div class="row mt-3">
-          <h6>Turmas:</h6>
-        </div>
-        <!-- Links -->
+        <!-- Cards -->
         <div class="container">
           <div class="row g-3">
             <div class="col-12 col-md-6 col-lg-3 mb-4">
-                <div class="card shadow-lg rounded-3 border-0 text-center transition-card">
+                <div class="card shadow-lg rounded-3 border-1 border-dark text-center transition-card">
                   <img src="img/criancas.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Turma Infantil</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 class="card-title card-title-style">Departamento Infantil</h5>
+                  <p class="card-text card-text-style">Turmas para crianças de 3 a 7 anos, com histórias, músicas e atividades bíblicas interativas.</p>
                   <a href="#" class="btn btn-dark">Abrir Turmas</a>
                 </div>
               </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3 mb-4">
-              <div class="card shadow-lg rounded-3 border-0 text-center transition-card">
+              <div class="card shadow-lg rounded-3 border-1 border-dark text-center transition-card">
                 <img src="img/juniores.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                <h5 class="card-title">Turma Juniores</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title card-title-style">Juniores</h5>
+                <p class="card-text card-text-style">Para crianças de 8 a 11 anos, com estudos dinâmicos, desafios e aprendizado prático da Bíblia.</p>
                 <a href="#" class="btn btn-dark">Abrir Turmas</a>
               </div>
               </div>
             </div>
              <div class="col-12 col-md-6 col-lg-3 mb-4">
-                <div class="card shadow-lg rounded-3 border-0 text-center transition-card">
+                <div class="card shadow-lg rounded-3 border-1 border-dark text-center transition-card card-style">
                   <img src="img/adolescentes.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Turma Adolescentes</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 class="card-title card-title-style">Adolescentes</h5>
+                  <p class="card-text card-text-style">Jovens de 12 a 17 anos, aprendendo a aplicar princípios bíblicos aos desafios diários.</p>
                   <a href="#" class="btn btn-dark">Abrir Turmas</a>
                 </div>
               </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3 mb-4">
-              <div class="card shadow-lg rounded-3 border-0 text-center transition-card">
+              <div class="card shadow-lg rounded-3 border-1 border-dark text-center transition-card card-style">
                 <img src="img/jovens.png" class="card-img-top" alt="...">
                   <div class="card-body">
-                    <h5 class="card-title">Turma Jovens</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title card-title-style">Jovens</h5>
+                    <p class="card-text card-text-style">Destinado a jovens de 18 a 25 anos, com estudos bíblicos, debates e fortalecimento da fé.</p>
                     <a href="#" class="btn btn-dark">Abrir Turmas</a>
                   </div>
               </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3 mb-4">
-              <div class="card shadow-lg rounded-3 border-0 text-center transition-card">
+              <div class="card shadow-lg rounded-3 border-1 border-dark text-center transition-card card-style">
                 <img src="img/adultos.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Turma Adultos</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 class="card-title card-title-style">Adultos</h5>
+                  <p class="card-text card-text-style">Pessoas acima de 25 anos, com reflexões profundas e aplicação prática dos ensinamentos bíblicos.</p>
                   <a href="#" class="btn btn-dark">Abrir Turmas</a>
                 </div>
               </div>
