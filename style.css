@@ -5,7 +5,7 @@ body{
 }
 
 .body_index{
-	background-image: url(img/bg_image.jpg);
+	background-image: url(img/bg_image3.jpg);
 	background-position: top left;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -111,4 +111,14 @@ body{
 
 #cadastro_usuario {
 	display: none;
+}
+
+
+.transition-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.transition-card:hover {
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho do card */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao passar o mouse */
 }

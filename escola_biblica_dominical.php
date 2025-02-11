@@ -1,9 +1,12 @@
 <?php
 include "src/protect.php";
-include "view/head.php"
+include "view/head.php";
 ?>
 <!Doctype html>
 <html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
 <body>
 <!--Início da NavBar-->
 <nav class="navbar navbar-dark bg-dark">
@@ -21,15 +24,15 @@ include "view/head.php"
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
             <a class="nav-link active botao_sair" aria-current="page" href="logout.php">SAIR</a>
-		        <li class="nav-item">
-		          <a class="nav-link" href="pagina_inicial.php">Página Inicial</a>
-		        </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pagina_inicial.php">Página Inicial</a>
+            </li>
              <li class="nav-item">
               <a class="nav-link" href="configuracao_membros.php">Configuração de Membros</a>
             </li>
-		        <li class="nav-item">
-		          <a class="nav-link" href="#">Como utilizar o sistema?</a>
-		        </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Como utilizar o sistema?</a>
+            </li>
           </li>
         </ul>
       </div>
@@ -67,84 +70,60 @@ include "view/head.php"
           <h6>Turmas:</h6>
         </div>
         <!-- Links -->
-        <section class="container-fluid" id="links" style="margin-bottom: 60px;">
-          <div class="row justify-content-center">
-            <article class="card card-largura p-0 m-3 col-12 col-md-3">
-              <div class="barra">
-                <h5 class="card-title card-titulo" style="padding: 5px 15px; padding-bottom: 0px">Turma Infantil</h5>
+        <div class="container">
+          <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="card shadow-lg rounded-3 border-0 text-center transition-card">
+                  <img src="img/criancas.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Turma Infantil</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-dark">Abrir Turmas</a>
+                </div>
               </div>
-              <div class="card-body">
-                <img src="img/call.png" style="padding-bottom: 10px;">
-                <p class="card-text card-texto" style="padding-bottom: 5px;">Portal para abertura e consulta de chamados para colaboradores.</p>
-                <a href="link_modelo.html" target="blank" class="btn botao-cor-especial" >Clique Aqui</a>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+              <div class="card shadow-lg rounded-3 border-0 text-center transition-card">
+                <img src="img/juniores.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Turma Juniores</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-dark">Abrir Turmas</a>
               </div>
-            </article>
-            <article class="card card-largura p-0 m-3 col-12 col-md-3">
-              <div class="barra">
-                <h5 class="card-title card-titulo" style="padding: 5px 15px; padding-bottom: 0px">Turma Dos Juniores</h5>
               </div>
-              <div class="card-body">
-                <img src="img/boleto.png" style="padding-bottom: 10px;">
-                <p class="card-text card-texto" style="padding-bottom: 5px;">Retire aqui seus boletos e faturas para a realizaçao do pagamento.</p>
-                <a href="link_modelo.html" target="blank" class="btn botao-cor-especial">Clique Aqui</a>
+            </div>
+             <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="card shadow-lg rounded-3 border-0 text-center transition-card">
+                  <img src="img/adolescentes.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Turma Adolescentes</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-dark">Abrir Turmas</a>
+                </div>
               </div>
-            </article>
-            <article class="card card-largura p-0 m-3 col-12 col-md-3">
-              <div class="barra">
-                <h5 class="card-title card-titulo" style="padding: 5px 15px; padding-bottom: 0px">Turma dos Adolescentes</h5>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+              <div class="card shadow-lg rounded-3 border-0 text-center transition-card">
+                <img src="img/jovens.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Turma Jovens</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-dark">Abrir Turmas</a>
+                  </div>
               </div>
-              <div class="card-body">
-                <img src="img/bill.png" style="padding-bottom: 10px;">
-                <p class="card-text card-texto" style="padding-bottom: 5px;">Sistema de gestão de demandas que facilita a comunicação entre as áreas.</p>
-                <a href="link_modelo.html" target="blank" class="btn botao-cor-especial">Clique Aqui</a>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+              <div class="card shadow-lg rounded-3 border-0 text-center transition-card">
+                <img src="img/adultos.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Turma Adultos</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-dark">Abrir Turmas</a>
+                </div>
               </div>
-            </article>
-            <article class="card card-largura p-0 m-3 col-12 col-md-3">
-              <div class="barra">
-                <h5 class="card-title card-titulo" style="padding: 5px 15px; padding-bottom: 0px">Turma dos Jovens</h5>
-              </div>
-              <div class="card-body">
-                <img src="img/cac.png" style="padding-bottom: 10px;">
-                <p class="card-text card-texto" style="padding-bottom: 5px;">Portal para abertura de chamados e consultas para equipamentos.</p>
-                <a href="link_modelo.html" target="blank" class="btn botao-cor-especial">Clique Aqui</a>
-              </div>
-            </article>
-            <article class="card card-largura p-0 m-3 col-12 col-md-3">
-              <div class="barra">
-                <h5 class="card-title card-titulo" style="padding: 5px 15px; padding-bottom: 0px">Turma dos Adultos</h5>
-              </div>
-              <div class="card-body">
-                <img src="img/store.png" style="padding-bottom: 10px;">
-                <p class="card-text card-texto" style="padding-bottom: 5px;">Conheça a nossa loja, e todos os suprimentos que fornecemos.</p>
-                <a href="link_modelo.html" target="blank" class="btn botao-cor-especial">Clique Aqui</a>
-              </div>
-            </article>  
-            <article class="card card-largura p-0 m-3 col-12 col-md-3">
-              <div class="barra">
-                <h5 class="card-title card-titulo" style="padding: 5px 15px; padding-bottom: 0px">Turma Extra</h5>
-              </div>
-              <div class="card-body">
-                <img src="img/mail.png" style="padding-bottom: 10px;">
-                <p class="card-text card-texto" style="padding-bottom: 5px;">A nossa empresa fornece sistemas de correspondência e entrega de pacotes.</p>
-                <a href="link_modelo.html" target="blank" class="btn botao-cor-especial">Clique Aqui</a>
-              </div>
-            </article>
+            </div>
           </div>
-        </section>
-      </div>  
-    </div>
-  </div>
-</div>
-  <!--Script Bootstrap-->
-  <script src="../../bootstrap/js/bootstrap.min.js"></script>
-</body>
-  
-  
-  
-  <footer class="footer footer-text">
-    <a class="text-light" href="#" style="text-decoration: none;">Portal Serviços</a>
-  </footer>
-
-  <script src="bootstrap/js/bootstrap.min.js"></script><!--Carrega o Bootstrap-->
+        </div>
+<script src="bootstrap/js/bootstrap.min.js"></script><!--Carrega o Bootstrap-->
 </body>
 </html>
