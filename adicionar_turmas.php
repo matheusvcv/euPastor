@@ -90,6 +90,10 @@ include "view/head.php";
                   <label for="telefone" class="form-label">Professor:</label>
                   <input type="text" class="form-control form_item" id="professor" name="professor" placeholder="Professor">
                 </div>
+                <div class="col-lg-4">
+                  <label for="telefone" class="form-label">Nome da turma:</label>
+                  <input type="text" class="form-control form_item" id="nome_turma" name="nome_turma" placeholder="Nome da Turma">
+                </div>
               </div>
               <div class="row justify-content-end mb-2">
                 <div class="col-lg-1 col-sm-12 mt-3" style="min-width: 120px;">

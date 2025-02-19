@@ -20,6 +20,8 @@
 		$titulo = "Página Inicial";
 	}elseif ($titulo_da_pagina === "escola_biblica_dominical.php") {
 		$titulo = "Escola Dominical";
+	}elseif ($titulo_da_pagina === "adicionar_turmas.php") {
+		$titulo = "Adicionar Turmas";
 	}
 
 ?>
