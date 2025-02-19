@@ -71,7 +71,7 @@ include "view/head.php";
               <button id="exibe_form_inserir_turma" class="btn btn-success" onclick="exibe_turmas();">Inserir Turma</button> 
             </div>
 
-            <form  method="POST" name="inserir_turma" id="inserir_turma" style="display:none;">
+            <form  method="POST" action="ws/ws_adicionar_turmas.php" name="inserir_turma" id="inserir_turma" style="display:none;">
               <div class="row mt-3">
                 <h6>Inserir Turma</h6>
               </div>
