@@ -1,6 +1,12 @@
 <?php
 include "src/protect.php";
 include "view/head.php";
+include "src/conexao.php";
+
+$membros = $conexao->query("SELECT id, nome_membro FROM lista_membros");
+$turmas = $conexao->query("SELECT id, nome_turma FROM turmas");
+
+
 ?>
 <!Doctype html>
 <html>
@@ -116,18 +122,26 @@ include "view/head.php";
           <div>
             <button id="exibe_matricular_aluno" class="btn btn-success" onclick="exibe_form_matricular_aluno();">Realizar Matrícula</button> 
           </div>
-          <form  method="POST" action="" name="matricular_aluno" id="matricular_aluno" style="display:none;">
+          <form  method="POST" action="ws/ws_seleciona_membros_turmas.php" name="matricular_aluno" id="matricular_aluno" style="display:none;">
             <div class="row mt-3">
               <h6>Inserir Turma</h6>
             </div>
               <div class="row mb-4">
                 <div class="col-lg-4">
                   <label for="telefone" class="form-label">Aluno:</label>
-                  <input type="text" class="form-control form_item" id="Aluno" name="Aluno" placeholder="Aluno">
+                  <select class="form-select form_item" name="membro_id" required>
+                    <?php while($membro = $membros->fetch_assoc()): ?>
+                      <option value="<?php echo $membro['id'] ?>"><?php echo $membro['nome_membro']; ?></option>
+                    <?php endwhile; ?>
+                  </select>
                 </div>
                 <div class="col-lg-4">
                   <label for="telefone" class="form-label">Turma:</label>
-                  <input type="text" class="form-control form_item" id="turma" name="turma" placeholder="Turma">
+                  <select class="form-select form_item" name="turma_id" required>
+                    <?php while($turma = $turmas->fetch_assoc()): ?>
+                      <option value="<?php echo $turma['id'] ?>"><?php echo $turma['nome_turma']; ?></option>
+                    <?php endwhile; ?>
+                  </select>
                 </div>
               </div>
               <div class="row justify-content-end mb-2">
@@ -144,6 +158,9 @@ include "view/head.php";
     </div>
   </div>
 
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 <script type="text/javascript">
   
   function exibe_turmas()
