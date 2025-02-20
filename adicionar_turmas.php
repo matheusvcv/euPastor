@@ -61,16 +61,15 @@ include "view/head.php";
     </li>
   </ul>
   <!--Corpo da página-->
-<div class="card card_body m-3">
-  <div class="card-content collapse show">
-    <div class="card-body card-dashboard">
-      <h3>Escola Bíblica Dominical</h3>
+  <!--Inserir Nova Turma-->
+  <div class="card card_body m-3">
+    <div class="card-content collapse show">
+      <div class="card-body card-dashboard">
+        <h3>Inserir Nova Turma</h3>
           <div class="container-fluid m-3">
-
             <div>
               <button id="exibe_form_inserir_turma" class="btn btn-success" onclick="exibe_turmas();">Inserir Turma</button> 
             </div>
-
             <form  method="POST" action="ws/ws_adicionar_turmas.php" name="inserir_turma" id="inserir_turma" style="display:none;">
               <div class="row mt-3">
                 <h6>Inserir Turma</h6>
@@ -100,25 +99,53 @@ include "view/head.php";
                   <button type="submit" class="btn btn-success form-control form_item" onclick="inserir_membro();">Cadastrar</button>
                 </div>
                 <div class="col-lg-1 mt-3" style="min-width: 120px;">
-                  <div class="btn btn-danger form-control form_item" onclick="esconde_form_cad_membro();">Cancelar</div>
+                  <div class="btn btn-danger form-control form_item" onclick="esconde_turmas();">Cancelar</div>
                 </div>
               </div>
-            </form>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Realizar Matrícula-->
+  <div class="card card_body m-3">
+    <div class="card-content collapse show">
+      <div class="card-body card-dashboard">
+        <h3>Realizar Matrícula</h3>
+        <div class="container-fluid m-3">
+          <div>
+            <button id="exibe_matricular_aluno" class="btn btn-success" onclick="exibe_form_matricular_aluno();">Realizar Matrícula</button> 
           </div>
+          <form  method="POST" action="" name="matricular_aluno" id="matricular_aluno" style="display:none;">
+            <div class="row mt-3">
+              <h6>Inserir Turma</h6>
+            </div>
+              <div class="row mb-4">
+                <div class="col-lg-4">
+                  <label for="telefone" class="form-label">Aluno:</label>
+                  <input type="text" class="form-control form_item" id="Aluno" name="Aluno" placeholder="Aluno">
+                </div>
+                <div class="col-lg-4">
+                  <label for="telefone" class="form-label">Turma:</label>
+                  <input type="text" class="form-control form_item" id="turma" name="turma" placeholder="Turma">
+                </div>
+              </div>
+              <div class="row justify-content-end mb-2">
+                <div class="col-lg-1 col-sm-12 mt-3" style="min-width: 120px;">
+                  <button type="submit" class="btn btn-success form-control form_item" onclick="inserir_membro();">Cadastrar</button>
+                </div>
+                <div class="col-lg-1 mt-3" style="min-width: 120px;">
+                  <div class="btn btn-danger form-control form_item" onclick="esconde_form_matricular_aluno();">Cancelar</div>
+                </div>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <script type="text/javascript">
   
-  function exibe_form_inserir_turma()
-  {
-    $('#inserir_turma').css('display', 'block');
-    $('#exibe_form_inserir_turma').css('display', 'none');
-  }
-
-  function esconde_form_cad_membro()
-  {
-    $('#inserir_turma').css('display', 'none');
-    $('#exibe_form_inserir_turma').css('display', 'block');
-  }
-
   function exibe_turmas()
   {
     $('#inserir_turma').css('display', 'block');
@@ -129,6 +156,18 @@ include "view/head.php";
   {
     $('#inserir_turma').css('display', 'none');
     $('#exibe_form_inserir_turma').css('display', 'block');
+  }
+
+  function exibe_form_matricular_aluno()
+  {
+    $('#matricular_aluno').css('display', 'block');
+    $('#exibe_matricular_aluno').css('display', 'none');
+  }
+
+  function esconde_form_matricular_aluno()
+  {
+    $('#matricular_aluno').css('display', 'none');
+    $('#exibe_matricular_aluno').css('display', 'block');
   }
 
 </script>

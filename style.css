@@ -1,1 +1,154 @@
-Desenvolvida estrutura condicional para alterar o título da página de adicionar turmas. Adicionado o campo "Nome da Turma" no formulário de inserção e n BDD.
+@charset "UTF-8";
+
+body{
+	background-color: #F5F5F5 !important;
+}
+
+.body_index{
+	background-image: url(img/bg_image.jpg);
+	background-position: top left;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.bg_login {
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 10px !important;
+}
+
+.bg_login:hover {
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 10px !important;
+	border-radius: 15px !important;
+}
+
+.container_login {
+	border: solid #4F4F4F 1px; 
+	border-radius: 15px !important;
+}
+
+.botao_login {
+	background-color: 	#000000 !important;
+}
+
+.botao_login:hover {
+	background-color: #363636 !important;
+}
+
+.letra_escura{
+	color: 	#000000;
+	font-weight: bold;
+}
+
+.esqueci_minha_senha{
+	color: 	#000000;
+	text-decoration: none;
+}
+
+.esqueci_minha_senha:hover {
+	color: 	blue;
+}
+
+.botao_sair:hover{
+	font-weight: bold !important;
+}
+
+.card_body{
+	background-color: #FFFFFF !important;
+}
+
+.barra_nav{
+	background-color: #FFFFFF;
+	border: solid #A9A9A9 1px;
+}
+
+.barra_item{
+	color: black !important;
+	font-weight: bold !important;
+}
+
+.barra_item:hover{
+	color: #FFFFFF !important;
+	background-color: #212529 !important;
+
+}
+
+.form_item{
+	border: solid #212529 1px !important;
+}
+
+.form_item:hover{
+	border: solid silver 1px !important;
+}
+
+.icon{
+	width: 18px;
+	height: 18px;
+}
+
+.icon:hover{
+	width: 21px;
+	height: 21px;
+	color: red;
+}
+
+.icon_2{
+	width: 16px;
+	height: 16px;
+	margin-right: 1vh;
+	pointer
+}
+
+.icon_2:hover{
+	width: 20px;
+	height: 20px;
+	color: red;
+}
+
+#titulo_login {
+	font-size: 3vh;
+}
+
+#cadastro_usuario {
+	display: none;
+}
+
+
+.transition-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.transition-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-style {
+	padding: 1px;
+}
+
+.card-img-top {
+  border-radius: 8px;
+}
+
+.card-title-style {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.card-text {
+	display: flex; 
+	align-items: center;
+	justify-content: center;
+	text-align: justify;
+	text-align-last: left;
+	min-height: 5rem;
+	max-height: 6rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
+	line-height: 1.4; 
+}
