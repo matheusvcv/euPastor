@@ -6,7 +6,6 @@ include "src/conexao.php";
 $membros = $conexao->query("SELECT id, nome_membro FROM lista_membros");
 $turmas = $conexao->query("SELECT id, nome_turma FROM turmas");
 
-
 ?>
 <!Doctype html>
 <html>
@@ -122,7 +121,7 @@ $turmas = $conexao->query("SELECT id, nome_turma FROM turmas");
           <div>
             <button id="exibe_matricular_aluno" class="btn btn-success" onclick="exibe_form_matricular_aluno();">Realizar Matrícula</button> 
           </div>
-          <form  method="POST" action="ws/ws_seleciona_membros_turmas.php" name="matricular_aluno" id="matricular_aluno" style="display:none;">
+          <form  method="POST" action="ws/ws_processa_matricula.php" name="matricular_aluno" id="matricular_aluno" style="display:none;">
             <div class="row mt-3">
               <h6>Inserir Turma</h6>
             </div>
