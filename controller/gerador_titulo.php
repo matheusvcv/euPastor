@@ -24,7 +24,10 @@
 		$titulo = "Adicionar Turmas";
 	}elseif ($titulo_da_pagina === "adicionar_turmas.php?turma") {
 		$titulo = "Adicionar Turmas";
+	}elseif ($titulo_da_pagina === "exibir_turmas.php?depar") {
+		$titulo = "Turmas";
 	}
+
 ?>
 
 
