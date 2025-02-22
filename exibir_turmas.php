@@ -71,24 +71,27 @@ if(!isset($_GET['departamento'])){
       <a class="nav-link barra_item">Outro módulo</a>
     </li>
   </ul>
+	<!--Início do Corpo da página.-->
+	<div class="card card_body m-3">
+		<div class="card-content collapse show">
+			<div class="card-body card-dashboard">
+				<!--Início do formulário-->
+				<h3>Departamento <?php echo ucfirst($departamento); ?></h3>
+				<div class="container-fluid">
+					<div class="row mt-3">
+						<h6>Turmas:</h6>
+					</div>
+					<div class="card" style="width: 18rem;">
+					  <ul class="list-group list-group-flush">
+					  	<?php while($turmas = $resultado_turmas->fetch_assoc()) { ?>
+					    <li class="list-group-item"><a href=""><?php echo $turmas['nome_turma']; } ?></a></li>
+					  </ul>
+					</div>	
+				</div>
+			</div>	
+		</div>
+	</div>
 
-
-
-
-
-
-
-
-
-
-  <div class="card card_body m-3">
-  <div class="card-content collapse show">
-    <div class="card-body card-dashboard">
-        <h3>Departamento <?php echo $departamento; ?></h3>
-      </div>
-    </div>
-  </div>
-
-<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
