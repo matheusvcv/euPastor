@@ -1,4 +1,6 @@
-<!Doctype html>
+<?php
+include "src/protect.php";
+?>
 <html>
 <head>
 	<meta charset="utf-8">

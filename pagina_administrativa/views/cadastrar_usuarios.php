@@ -1,3 +1,6 @@
+<?php
+include "src/protect.php";
+?>
 <!Doctype html>
 <html>
 <head>
