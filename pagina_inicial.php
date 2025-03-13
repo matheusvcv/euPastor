@@ -57,6 +57,8 @@ include "view/head.php"
       <a class="nav-link barra_item">Outro módulo</a>
     </li>
   </ul>
+
+  <h1>Título Teste</h1>
   <script src="bootstrap/js/bootstrap.min.js"></script>
 	<script>
     //Alerta de Usuário Cadastrado com sucesso.
