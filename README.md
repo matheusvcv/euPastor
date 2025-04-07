@@ -8,7 +8,7 @@
 
 O **MyChurch WebSystem** é um sistema de administração de igrejas que oferece diversos módulos para facilitar o gerenciamento de atividades religiosas. Seu objetivo é ajudar líderes religiosos a lidarem com suas responsabilidades de forma mais ágil, segura e eficiente.
 
-## 📦 Módulos disponíveis
+## Módulos disponíveis
 
 ### Escola Bíblica Dominical
 Sistema voltado para o ensino religioso, dividido em departamentos que podem conter uma ou mais turmas. Os professores têm acesso ao sistema e podem:
@@ -39,10 +39,10 @@ Módulo destinado à criação de acessos ao sistema. O administrador preenche u
 
 O sistema possui um login seguro, com as seguintes proteções:
 
-- ✔️ Validação de campos obrigatórios
-- ✔️ Proteção contra SQL Injection
-- ✔️ Uso da função `password_verify()` para comparação de senhas hash
-- ✔️ Uso de sessões para armazenar os dados do usuário autenticado
+- Validação de campos obrigatórios
+- Proteção contra SQL Injection
+- Uso da função `password_verify()` para comparação de senhas hash
+- Uso de sessões para armazenar os dados do usuário autenticado
 
 ---
 
@@ -54,3 +54,11 @@ O sistema possui um login seguro, com as seguintes proteções:
 - MySQL (banco de dados)
 - HTML
 - CSS
+
+![image](https://github.com/user-attachments/assets/67ebbb72-bfa2-41fb-91ef-a58f1d1145e7)
+
+![image](https://github.com/user-attachments/assets/ad6885a0-c1b6-4f27-8ae9-ad3091e85ded)
+
+![image](https://github.com/user-attachments/assets/1c0ccfc5-f933-490d-9f46-0c8eec037ad8)
+
+![image](https://github.com/user-attachments/assets/4d34bcd9-b827-4ae9-b2b9-afcc7a979b21)
