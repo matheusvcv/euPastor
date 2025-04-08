@@ -1,5 +1,5 @@
 <?php
-include "src/protect.php";
+include "../../src/protect.php";
 ?>
 <!Doctype html>
 <html>
