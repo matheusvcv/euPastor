@@ -84,7 +84,7 @@ if(!isset($_GET['departamento'])){
 					<div class="card" style="width: 18rem;">
 					  <ul class="list-group list-group-flush">
 					  	<?php while($turmas = $resultado_turmas->fetch_assoc()) { ?>
-					    <li class="list-group-item"><a href=""><?php echo $turmas['nome_turma']; } ?></a></li>
+					    <li class="list-group-item"><a href="turma.php?id=<?php echo $turmas['id'];  ?>"><?php echo $turmas['nome_turma']; } ?></a></li>
 					  </ul>
 					</div>	
 				</div>
