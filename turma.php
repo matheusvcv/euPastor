@@ -15,11 +15,6 @@ $stm_turma->execute();//Executa a query preparada
 $resultado_turma = $stm_turma->get_result();//Recupera o resultado da execução da query como um  objeto do tipo mysqli_result
 $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em um array associativo e atribiu como valor da variável $turma.
 
-//Busca alunos matriculados
-$stm_alunos = $conexao->prepare("SELECT lista_membros.id, lista_membros.nome_membro FROM lista_membros INNER JOIN turma_alunos ON lista_membros.id = turma_alunos.membro_id WHERE turma_alunos.turma_id = ?");//Consulta preparada que retorna os dados onde o id da tabela membros, e o membro_id da tabela tuma_alunos são o mesmo.
-$stm_alunos-> bind_param("i", $turma_id);//Associa o valor da variável ao paceholder da consulta
-$stm_alunos-> execute();//Executa a query preparada
-$resultado_alunos = $stm_alunos->get_result();//Recupera o resultado da execução da query como um  objeto do tipo mysqli_result
 ?>
 <!Doctype html>
 <html>
@@ -110,6 +105,84 @@ $resultado_alunos = $stm_alunos->get_result();//Recupera o resultado da execuç�
 			</div>
 		</div>
 	</div>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script><!--Carrega a Biblioteca Datatables-->
+	<script src="bootstrap/js/bootstrap.min.js"></script><!--Carrega o Bootstrap-->
+
+	<script>
+
+	$(document).ready(function() {//Define que quando o documento for carregado, a tabela será configurada
+
+		$('#datatable').DataTable({//Inicia a tabela
+				/* fixedHeader: {
+				header: true,
+				headerOffset: $('.header-navbar').outerHeight()
+			}, */		
+			"autoWidth": false,//Desativa a largura automática das colunas
+			"bLengthChange": false,//Remove a opção de alterar o número de intens por página
+			pageLength: 10,//Define 10 itens por página
+			dom: '<"d-flex justify-content-between align-items-center"lfB>rtip',//Define o Layout para incluir botões
+			/*buttons: [//Adiciona um botão que exportaos dados da tabela para um arquivo Excel
+			  {
+				extend: 'excelHtml5',
+				text: 'Excel',
+				className: 'btn btn-success',
+				titleAttr: 'Exportar para Excel',
+				exportOptions: {
+				columns: ':visible'
+				}
+			  }
+			],*/
+
+			"search": {
+				"regex": true//Permite busca com expressões regulares
+			},
+			"destroy": true,//Garante que a tabela pode ser recriada sem erros
+			"processing" : false,//Não exibe indicador de carregamento de dados
+			"paging": true,//Habilita a paginação
+			"searching": true,//Habilita Barra de Pesquisa
+			"bFilter": false,//Desativa filtro automáticos
+			"columnDefs":[//Oculta a primeira coluna
+			   {"visible": false, "targets":0},
+			   {"className": "icone", "targets":1}
+			],
+
+			//Definição das colunas
+
+			"columns":[
+				{"data": "id"},//Recebe o dado que ajax retorna direto do json
+				{"data": "nome_membro"},//Recebe o dado que ajax retorna direto do json
+				{"data": null, "defaultContent": "", "orderable": false},
+			]
+
+			});
+	});
+
+	$.ajax({//Inicia a requisição ajax utilizando jQuery para buscar dados no servidor
+		url: 'ws/seleciona_alunos.php?id=<?php echo $turma_id; ?>',//Define o endereço do script PHP que vai retornar os arquivos em formato Json
+		dataType: 'json',//Define que o formato do dado vai ser json
+		success: function(data){//Define que a função será realizada quando a requisição for concluida com sucesso
+
+			console.log(data); 
+
+			if(data.length > 0){//Verifica se o array 'data' contém dados
+
+				$('#datatable').DataTable().clear();//Recebe a datable e limpa os dados antes de inserir os novos
+
+				$('#datatable').DataTable().rows.add(data).draw();//Adiciona linhas na tabela com os dados recebidos
+
+			}else{
+
+				$('#datatable').DataTable().clear().draw();//Limpa a tabela
+				$('#datatable tbody').html('<tr><td colspan="3" class="text-center">Nenhum resultado encontrado.</td></tr>');//Exibe mensagem quando não houver resultados
+			}
+		},
+
+		error: function() {//Função executada caso haja um erro na requisição Ajax
+		}
+	});
+
+
+</script>
 </body>
 </html>
