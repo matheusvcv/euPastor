@@ -91,6 +91,22 @@ $resultado_alunos = $stm_alunos->get_result();//Recupera o resultado da execuç�
 		<div class="card-content collapse show">
 			<div class="card-body card-dashboard">
 				<h3>Turma: <?php echo htmlspecialchars($turma['nome_turma']); ?></h3>
+				<!--Início da DataTable-->
+				<div class="container-fluid">
+					<div class="row mt-3">
+						<table id="datatable" class="table table-striped table-bordered table-hover justify-content-center" cellspacing="0" width="100%">
+							<thead>
+								<tr class="table-dark justify-content-center">
+									<th class="align-middle text-center">ID</th>
+									<th class="align-middle text-center">Aluno</th>
+									<th class="align-middle text-center">Frequência</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
