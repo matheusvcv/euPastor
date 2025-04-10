@@ -177,7 +177,7 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 			]
 
 			});
-	});
+	
 
 	$.ajax({//Inicia a requisição ajax utilizando jQuery para buscar dados no servidor
 		url: 'ws/seleciona_alunos.php?id=<?php echo $turma_id; ?>',//Define o endereço do script PHP que vai retornar os arquivos em formato Json
@@ -204,97 +204,100 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 	});
 
 
-	$('#botao_chamada').on('click', function() {
-		$.ajax({
-			url: 'ws/seleciona_alunos.php?id=<?php echo $turma_id; ?>',
-			dataType: 'json',
-			success: function(alunos) {
-				if(alunos.length === 0){
-					Swal.fire('Sem alunos', 'Nenhum aluno encontrado para esta turma.', 'info');
-					return;
-				}
-
-				let checkboxes = '';
-				alunos.forEach(aluno=>{
-					checkboxes += `
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="aluno_${aluno.id}" name="presenca" value="${aluno.id}" checked>
-							<label class="form-check-label" for="aluno_${aluno.id}">
-								${aluno.nome_membro}
-							</label>
-						</div>
-
-					`;
-				});
-
-				const htmlForm = `
-					<form id="form_chamada">
-						<div class="mb-3">
-							<label for="dataAula" class="form-label">Data da Aula</label>
-							<input type="date" class="form-control" id="dataAula" name="data" value="${new Date().toISOString().split('T')[0]}" required>
-						</div>
-						<div class="mb-3">
-							<label for="temaAula" class="form-label">Tema da Aula</label>
-							<input type="text" class="form-control" id="temaAula" name="tema" required>
-						</div>
-						<div class="mb-3">
-							<label class="form-label">Alunos Presentes:</label>
-							${checkboxes}
-						</div>
-					</form>
-
-				`;
-
-				Swal.fire({
-					title: 'Realizar Chamada',
-					html: htmlForm,
-					width: '600px',
-					showCancelButton: true,
-					confirmButtonText: 'Salvar Chamada',
-					focusConfirm: false,
-					preConfirm: () => {
-						const data = $('#dataAula').val();
-						const tema = $('#temaAula').val();
-						const presentes = [];
-
-						$('input[name="presenca"]:checked').each(function() {
-							presentes.push($(this).val());
-						});
-
-						if(!data || !tema || presentes.length === 0){
-							Swal.showValidationMessage('Preencha todos os campos e marque pelo menos um aluno presente.');
-							return false;
-						}
-
-						return {data, tema, presentes};
-					}
-				}).then(result => {
-					$.ajax({
-						url:'ws/registrar_chamada.php',
-						method: 'POST',
-						data: {
-							turma_id: <?php echo $turma_id; ?>,
-							data: result.value.data,
-							tema: result.value.tema,
-							presentes: result.value.presentes
-						},
-						success: function(res) {
-							Swal.fire('Chamada registrada!', '', 'success');
-						},
-						error: function(){
-							Swal.fire('Erro', 'Não foi possível registrar a chamada.', 'error');
-						}
-					});
-				}
-			)};
-	},
-
-	error: function() {
-		Swal.fire('Erro', 'Não foi possível carregar os alunos.', 'error');
-	}
 
 	});
+
+
+
+	$('#botao_chamada').on('click', function() {
+	$.ajax({
+		url: 'ws/seleciona_alunos.php?id=<?php echo $turma_id; ?>',
+		dataType: 'json',
+		success: function(alunos) {
+			if(alunos.length === 0){
+				Swal.fire('Sem alunos', 'Nenhum aluno encontrado para esta turma.', 'info');
+				return;
+			}
+
+			let checkboxes = '';
+			alunos.forEach(aluno => {
+				checkboxes += `
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" id="aluno_${aluno.id}" name="presenca" value="${aluno.id}" checked>
+						<label class="form-check-label" for="aluno_${aluno.id}">
+							${aluno.nome_membro}
+						</label>
+					</div>
+				`;
+			});
+
+			const htmlForm = `
+				<form id="form_chamada">
+					<div class="mb-3">
+						<label for="dataAula" class="form-label">Data da Aula</label>
+						<input type="date" class="form-control" id="dataAula" name="data" value="${new Date().toISOString().split('T')[0]}" required>
+					</div>
+					<div class="mb-3">
+						<label for="temaAula" class="form-label">Tema da Aula</label>
+						<input type="text" class="form-control" id="temaAula" name="tema" required>
+					</div>
+					<div class="mb-3">
+						<label class="form-label">Alunos Presentes:</label>
+						${checkboxes}
+					</div>
+				</form>
+			`;
+
+			Swal.fire({
+				title: 'Realizar Chamada',
+				html: htmlForm,
+				width: '600px',
+				showCancelButton: true,
+				confirmButtonText: 'Salvar Chamada',
+				focusConfirm: false,
+				preConfirm: () => {
+					const data = $('#dataAula').val();
+					const tema = $('#temaAula').val();
+					const presentes = [];
+
+					$('input[name="presenca"]:checked').each(function() {
+						presentes.push($(this).val());
+					});
+
+					if (!data || !tema || presentes.length === 0) {
+						Swal.showValidationMessage('Preencha todos os campos e marque pelo menos um aluno presente.');
+						return false;
+					}
+
+					return { data, tema, presentes };
+				}
+			}).then(result => {
+				if (!result.isConfirmed) return;
+
+				$.ajax({
+					url: 'ws/registrar_chamada.php',
+					method: 'POST',
+					data: {
+						turma_id: <?php echo $turma_id; ?>,
+						data: result.value.data,
+						tema: result.value.tema,
+						presentes: result.value.presentes
+					},
+					success: function(res) {
+						Swal.fire('Chamada registrada!', '', 'success');
+					},
+					error: function() {
+						Swal.fire('Erro', 'Não foi possível registrar a chamada.', 'error');
+					}
+				});
+			});
+		},
+		error: function() { // ← ESTE BLOCO AQUI
+			Swal.fire('Erro', 'Não foi possível carregar os alunos.', 'error');
+		}
+	});
 });
+
 
 </script>
 </body>
