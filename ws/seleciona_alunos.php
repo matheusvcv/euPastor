@@ -13,7 +13,7 @@ if (!isset($_GET['id'])) {
 $turma_id = $_GET['id'];
 
 // Prepara a consulta para buscar alunos da turma
-$stm_alunos = $conexao->prepare("SELECT lista_membros.id, lista_membros.nome_membro FROM lista_membros INNER JOIN turma_alunos ON lista_membros.id = turma_alunos.membro_id WHERE turma_alunos.turma_id = ?
+$stm_alunos = $conexao->prepare("SELECT lista_membros.id, lista_membros.nascimento_membro, lista_membros.nome_membro, lista_membros.ativo FROM lista_membros INNER JOIN turma_alunos ON lista_membros.id = turma_alunos.membro_id WHERE turma_alunos.turma_id = ?
 ");
 
 $stm_alunos->bind_param("i", $turma_id);

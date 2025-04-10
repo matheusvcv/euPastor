@@ -27,7 +27,7 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css" rel="stylesheet">
-	<title>Login</title>
+	<title>Turmas</title>
 </head>
 <body>
 <!--Início da NavBar-->
@@ -93,8 +93,9 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 							<thead>
 								<tr class="table-dark justify-content-center">
 									<th class="align-middle text-center">ID</th>
-									<th class="align-middle text-center">Aluno</th>
-									<th class="align-middle text-center">Frequência</th>
+									<th class="align-middle text-center">Alunos</th>
+									<th class="align-middle text-center">Idade</th>
+									<th class="align-middle text-center">Ativo</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -139,8 +140,8 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 			},
 			"destroy": true,//Garante que a tabela pode ser recriada sem erros
 			"processing" : false,//Não exibe indicador de carregamento de dados
-			"paging": true,//Habilita a paginação
-			"searching": true,//Habilita Barra de Pesquisa
+			"paging": false,//Habilita a paginação
+			"searching": false,//Habilita Barra de Pesquisa
 			"bFilter": false,//Desativa filtro automáticos
 			"columnDefs":[//Oculta a primeira coluna
 			   {"visible": false, "targets":0},
@@ -152,7 +153,24 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 			"columns":[
 				{"data": "id"},//Recebe o dado que ajax retorna direto do json
 				{"data": "nome_membro"},//Recebe o dado que ajax retorna direto do json
-				{"data": null, "defaultContent": "", "orderable": false},
+				{
+					"data": "nascimento_membro",
+					"render": function(data, type, row){
+						if(type === 'display' && data){
+							const nascimento = new Date(data);
+							const hoje = new Date();
+							let idade = hoje.getFullYear() - nascimento.getFullYear();
+							const mes = hoje.getMonth() - nascimento.getMonth();
+							if(mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())){
+								idade--;
+							}
+							return idade + " anos de idade";
+						}
+
+						return data;
+					}
+				},
+				{"data": "ativo"},//Recebe o status de atividade
 			]
 
 			});
