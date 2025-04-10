@@ -85,10 +85,13 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 	<div class="card card_body m-3">
 		<div class="card-content collapse show">
 			<div class="card-body card-dashboard">
-				<h3>Turma: <?php echo htmlspecialchars($turma['nome_turma']); ?></h3>
+				<h3><?php echo htmlspecialchars($turma['nome_turma']); ?></h3>
 				<!--Início da DataTable-->
 				<div class="container-fluid">
 					<div class="row mt-3">
+						<div class="mb-1">
+							<button id="botao_chamada" class="btn btn-success">Realizar Chamada</button> 
+						</div>
 						<table id="datatable" class="table table-striped table-bordered table-hover justify-content-center" cellspacing="0" width="100%">
 							<thead>
 								<tr class="table-dark justify-content-center">
@@ -155,12 +158,12 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 				{"data": "nome_membro"},//Recebe o dado que ajax retorna direto do json
 				{
 					"data": "nascimento_membro",
-					"render": function(data, type, row){
+					"render": function(data, type, row){//Função que permite personalizar o conteúdo da tabela
 						if(type === 'display' && data){
-							const nascimento = new Date(data);
-							const hoje = new Date();
-							let idade = hoje.getFullYear() - nascimento.getFullYear();
-							const mes = hoje.getMonth() - nascimento.getMonth();
+							const nascimento = new Date(data);//Converte uma string em um objeto Date para poder calcular.
+							const hoje = new Date();//Cria um objeto date com a data e hora atuais
+							let idade = hoje.getFullYear() - nascimento.getFullYear();//Calula a idade aproximada com base somente nos anos.
+							const mes = hoje.getMonth() - nascimento.getMonth();//Calcula diferença entre o mes atual e o de nascimento.
 							if(mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())){
 								idade--;
 							}
@@ -200,6 +203,98 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 		}
 	});
 
+
+	$('#botao_chamada').on('click', function() {
+		$.ajax({
+			url: 'ws/seleciona_alunos.php?id=<?php echo $turma_id; ?>',
+			dataType: 'json',
+			success: function(alunos) {
+				if(alunos.length === 0){
+					Swal.fire('Sem alunos', 'Nenhum aluno encontrado para esta turma.', 'info');
+					return;
+				}
+
+				let checkboxes = '';
+				alunos.forEach(aluno=>{
+					checkboxes += `
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="aluno_${aluno.id}" name="presenca" value="${aluno.id}" checked>
+							<label class="form-check-label" for="aluno_${aluno.id}">
+								${aluno.nome_membro}
+							</label>
+						</div>
+
+					`;
+				});
+
+				const htmlForm = `
+					<form id="form_chamada">
+						<div class="mb-3">
+							<label for="dataAula" class="form-label">Data da Aula</label>
+							<input type="date" class="form-control" id="dataAula" name="data" value="${new Date().toISOString().split('T')[0]}" required>
+						</div>
+						<div class="mb-3">
+							<label for="temaAula" class="form-label">Tema da Aula</label>
+							<input type="text" class="form-control" id="temaAula" name="tema" required>
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Alunos Presentes:</label>
+							${checkboxes}
+						</div>
+					</form>
+
+				`;
+
+				Swal.fire({
+					title: 'Realizar Chamada',
+					html: htmlForm,
+					width: '600px',
+					showCancelButton: true,
+					confirmButtonText: 'Salvar Chamada',
+					focusConfirm: false,
+					preConfirm: () => {
+						const data = $('#dataAula').val();
+						const tema = $('#temaAula').val();
+						const presentes = [];
+
+						$('input[name="presenca"]:checked').each(function() {
+							presentes.push($(this).val());
+						});
+
+						if(!data || !tema || presentes.length === 0){
+							Swal.showValidationMessage('Preencha todos os campos e marque pelo menos um aluno presente.');
+							return false;
+						}
+
+						return {data, tema, presentes};
+					}
+				}).then(result => {
+					$.ajax({
+						url:'ws/registrar_chamada.php',
+						method: 'POST',
+						data: {
+							turma_id: <?php echo $turma_id; ?>,
+							data: result.value.data,
+							tema: result.value.tema,
+							presentes: result.value.presentes
+						},
+						success: function(res) {
+							Swal.fire('Chamada registrada!', '', 'success');
+						},
+						error: function(){
+							Swal.fire('Erro', 'Não foi possível registrar a chamada.', 'error');
+						}
+					});
+				}
+			)};
+	},
+
+	error: function() {
+		Swal.fire('Erro', 'Não foi possível carregar os alunos.', 'error');
+	}
+
+	});
+});
 
 </script>
 </body>
