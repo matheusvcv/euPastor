@@ -16,7 +16,7 @@ $presentes = $_POST['presentes'];
 foreach($presentes as $membro_id){
 	$statement = $conexao->prepare("INSERT INTO chamadas (turma_id, membro_id, data_chamada, tema_aula, presente) VALUES (?, ?, ?, ?, 1)");
 	$statement->bind_param("iiss", $tuma_id, $membro_id, $data, $tema);
-	$stmt->execute();
+	$statement->execute();
 }
 
 echo json_encode(['sucesso' => true]);
