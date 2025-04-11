@@ -259,9 +259,13 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 					const data = $('#dataAula').val();
 					const tema = $('#temaAula').val();
 					const presentes = [];
+					const todos = [];
 
-					$('input[name="presenca"]:checked').each(function() {
-						presentes.push($(this).val());
+					$('input[name="presenca"]').each(function() {
+						todos.push($(this).val());
+						if ($(this).is(':checked')) {
+							presentes.push($(this).val());
+						}
 					});
 
 					if (!data || !tema || presentes.length === 0) {
@@ -269,7 +273,7 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 						return false;
 					}
 
-					return { data, tema, presentes };
+					return {data, tema, presentes, todos};
 				}
 			}).then(result => {
 				if (!result.isConfirmed) return;
@@ -281,9 +285,11 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 						turma_id: <?php echo $turma_id; ?>,
 						data: result.value.data,
 						tema: result.value.tema,
-						presentes: result.value.presentes
+						presentes: result.value.presentes,
+						todos: result.value.todos
 					},
 					success: function(res) {
+						console.log(res);
 						Swal.fire('Chamada registrada!', '', 'success');
 					},
 					error: function() {
