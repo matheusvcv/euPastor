@@ -179,131 +179,123 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 			});
 	
 
-	$.ajax({//Inicia a requisição ajax utilizando jQuery para buscar dados no servidor
-		url: 'ws/seleciona_alunos.php?id=<?php echo $turma_id; ?>',//Define o endereço do script PHP que vai retornar os arquivos em formato Json
-		dataType: 'json',//Define que o formato do dado vai ser json
-		success: function(data){//Define que a função será realizada quando a requisição for concluida com sucesso
+			$.ajax({//Inicia a requisição ajax utilizando jQuery para buscar dados no servidor
+				url: 'ws/seleciona_alunos.php?id=<?php echo $turma_id; ?>',//Define o endereço do script PHP que vai retornar os arquivos em formato Json
+				dataType: 'json',//Define que o formato do dado vai ser json
+				success: function(data){//Define que a função será realizada quando a requisição for concluida com sucesso
 
-			console.log(data); 
+					if(data.length > 0){//Verifica se o array 'data' contém dados
 
-			if(data.length > 0){//Verifica se o array 'data' contém dados
+						$('#datatable').DataTable().clear();//Recebe a datable e limpa os dados antes de inserir os novos
 
-				$('#datatable').DataTable().clear();//Recebe a datable e limpa os dados antes de inserir os novos
+						$('#datatable').DataTable().rows.add(data).draw();//Adiciona linhas na tabela com os dados recebidos
 
-				$('#datatable').DataTable().rows.add(data).draw();//Adiciona linhas na tabela com os dados recebidos
+					}else{
 
-			}else{
+						$('#datatable').DataTable().clear().draw();//Limpa a tabela
+						$('#datatable tbody').html('<tr><td colspan="3" class="text-center">Nenhum resultado encontrado.</td></tr>');//Exibe mensagem quando não houver resultados
+					}
+				},
 
-				$('#datatable').DataTable().clear().draw();//Limpa a tabela
-				$('#datatable tbody').html('<tr><td colspan="3" class="text-center">Nenhum resultado encontrado.</td></tr>');//Exibe mensagem quando não houver resultados
-			}
-		},
-
-		error: function() {//Função executada caso haja um erro na requisição Ajax
-		}
-	});
-
-
-
-	});
-
-
-
-	$('#botao_chamada').on('click', function() {
-	$.ajax({
-		url: 'ws/seleciona_alunos.php?id=<?php echo $turma_id; ?>',
-		dataType: 'json',
-		success: function(alunos) {
-			if(alunos.length === 0){
-				Swal.fire('Sem alunos', 'Nenhum aluno encontrado para esta turma.', 'info');
-				return;
-			}
-
-			let checkboxes = '';
-			alunos.forEach(aluno => {
-				checkboxes += `
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" id="aluno_${aluno.id}" name="presenca" value="${aluno.id}" checked>
-						<label class="form-check-label" for="aluno_${aluno.id}">
-							${aluno.nome_membro}
-						</label>
-					</div>
-				`;
+				error: function() {//Função executada caso haja um erro na requisição Ajax
+				}
 			});
 
-			const htmlForm = `
-				<form id="form_chamada">
-					<div class="mb-3">
-						<label for="dataAula" class="form-label">Data da Aula</label>
-						<input type="date" class="form-control" id="dataAula" name="data" value="${new Date().toISOString().split('T')[0]}" required>
-					</div>
-					<div class="mb-3">
-						<label for="temaAula" class="form-label">Tema da Aula</label>
-						<input type="text" class="form-control" id="temaAula" name="tema" required>
-					</div>
-					<div class="mb-3">
-						<label class="form-label">Alunos Presentes:</label>
-						${checkboxes}
-					</div>
-				</form>
-			`;
+		});
 
-			Swal.fire({
-				title: 'Realizar Chamada',
-				html: htmlForm,
-				width: '600px',
-				showCancelButton: true,
-				confirmButtonText: 'Salvar Chamada',
-				focusConfirm: false,
-				preConfirm: () => {
-					const data = $('#dataAula').val();
-					const tema = $('#temaAula').val();
-					const presentes = [];
-					const todos = [];
+		$('#botao_chamada').on('click', function() {//Inicia a função quando o #botao_chamada for pressionado
+			$.ajax({//Inicia a requisiçõ Ajax
+				url: 'ws/seleciona_alunos.php?id=<?php echo $turma_id; ?>',//Envia uma requisição GET para o arquivo PHP passando um parâmetro pela URL.
+				dataType: 'json',//Especifica que a resposta esperada é um Json
+				success: function(alunos) {//Ececuta a função se a requisição. O parâmetro alunos cotém os dados retornados do servidor.
+					if(alunos.length === 0){
+						Swal.fire('Sem alunos', 'Nenhum aluno encontrado para esta turma.', 'info');
+						return;
+					}
 
-					$('input[name="presenca"]').each(function() {
-						todos.push($(this).val());
-						if ($(this).is(':checked')) {
-							presentes.push($(this).val());
-						}
+					let checkboxes = '';
+					alunos.forEach(aluno => {
+						checkboxes += `
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="aluno_${aluno.id}" name="presenca" value="${aluno.id}" checked>
+								<label class="form-check-label" for="aluno_${aluno.id}">
+									${aluno.nome_membro}
+								</label>
+							</div>
+						`;
 					});
 
-					if (!data || !tema || presentes.length === 0) {
-						Swal.showValidationMessage('Preencha todos os campos e marque pelo menos um aluno presente.');
-						return false;
-					}
+					const htmlForm = `
+						<form id="form_chamada">
+							<div class="mb-3">
+								<label for="dataAula" class="form-label">Data da Aula</label>
+								<input type="date" class="form-control" id="dataAula" name="data" value="${new Date().toISOString().split('T')[0]}" required>
+							</div>
+							<div class="mb-3">
+								<label for="temaAula" class="form-label">Tema da Aula</label>
+								<input type="text" class="form-control" id="temaAula" name="tema" required>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Alunos Presentes:</label>
+								${checkboxes}
+							</div>
+						</form>
+					`;
 
-					return {data, tema, presentes, todos};
+					Swal.fire({
+						title: 'Realizar Chamada',
+						html: htmlForm,
+						width: '600px',
+						showCancelButton: true,
+						confirmButtonText: 'Salvar Chamada',
+						focusConfirm: false,
+						preConfirm: () => {
+							const data = $('#dataAula').val();
+							const tema = $('#temaAula').val();
+							const presentes = [];
+							const todos = [];
+
+							$('input[name="presenca"]').each(function() {
+								todos.push($(this).val());
+								if ($(this).is(':checked')) {
+									presentes.push($(this).val());
+								}
+							});
+
+							if (!data || !tema || presentes.length === 0) {
+								Swal.showValidationMessage('Preencha todos os campos e marque pelo menos um aluno presente.');
+								return false;
+							}
+
+							return {data, tema, presentes, todos};
+						}
+					}).then(result => {
+						if (!result.isConfirmed) return;
+
+						$.ajax({
+							url: 'ws/registrar_chamada.php',
+							method: 'POST',
+							data: {
+								turma_id: <?php echo $turma_id; ?>,
+								data: result.value.data,
+								tema: result.value.tema,
+								presentes: result.value.presentes,
+								todos: result.value.todos
+							},
+							success: function(res) {
+								Swal.fire('Chamada registrada!', '', 'success');
+							},
+							error: function() {
+								Swal.fire('Erro', 'Não foi possível registrar a chamada.', 'error');
+							}
+						});
+					});
+				},
+				error: function() { // ← ESTE BLOCO AQUI
+					Swal.fire('Erro', 'Não foi possível carregar os alunos.', 'error');
 				}
-			}).then(result => {
-				if (!result.isConfirmed) return;
-
-				$.ajax({
-					url: 'ws/registrar_chamada.php',
-					method: 'POST',
-					data: {
-						turma_id: <?php echo $turma_id; ?>,
-						data: result.value.data,
-						tema: result.value.tema,
-						presentes: result.value.presentes,
-						todos: result.value.todos
-					},
-					success: function(res) {
-						console.log(res);
-						Swal.fire('Chamada registrada!', '', 'success');
-					},
-					error: function() {
-						Swal.fire('Erro', 'Não foi possível registrar a chamada.', 'error');
-					}
-				});
 			});
-		},
-		error: function() { // ← ESTE BLOCO AQUI
-			Swal.fire('Erro', 'Não foi possível carregar os alunos.', 'error');
-		}
-	});
-});
-
+		});
 
 </script>
 </body>
