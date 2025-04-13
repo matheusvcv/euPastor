@@ -208,16 +208,16 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 				url: 'ws/seleciona_alunos.php?id=<?php echo $turma_id; ?>',//Envia uma requisição GET para o arquivo PHP passando um parâmetro pela URL.
 				dataType: 'json',//Especifica que a resposta esperada é um Json
 				success: function(alunos) {//Ececuta a função se a requisição. O parâmetro alunos cotém os dados retornados do servidor.
-					if(alunos.length === 0){
+					if(alunos.length === 0){//Se o array alunos for retornado vazio, mostrar um alerta com SweetAlert encerra a execução.
 						Swal.fire('Sem alunos', 'Nenhum aluno encontrado para esta turma.', 'info');
 						return;
 					}
 
-					let checkboxes = '';
+					let checkboxes = '';//Inicializa uma string que vai guardar os checkboxes dos alunos.
 					alunos.forEach(aluno => {
 						checkboxes += `
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" id="aluno_${aluno.id}" name="presenca" value="${aluno.id}" checked>
+								<input class="form-check-input" type="checkbox" id="aluno_${aluno.id}" name="presenca" value="${aluno.id}">
 								<label class="form-check-label" for="aluno_${aluno.id}">
 									${aluno.nome_membro}
 								</label>
