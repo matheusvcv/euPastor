@@ -126,17 +126,6 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 			"bLengthChange": false,//Remove a opção de alterar o número de intens por página
 			pageLength: 10,//Define 10 itens por página
 			dom: '<"d-flex justify-content-between align-items-center"lfB>rtip',//Define o Layout para incluir botões
-			/*buttons: [//Adiciona um botão que exportaos dados da tabela para um arquivo Excel
-			  {
-				extend: 'excelHtml5',
-				text: 'Excel',
-				className: 'btn btn-success',
-				titleAttr: 'Exportar para Excel',
-				exportOptions: {
-				columns: ':visible'
-				}
-			  }
-			],*/
 
 			"search": {
 				"regex": true//Permite busca com expressões regulares
@@ -167,7 +156,7 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 							if(mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())){
 								idade--;
 							}
-							return idade + " anos de idade";
+							return idade + " anos de idade";//Retorna a variavel idade e o texto.
 						}
 
 						return data;
@@ -214,7 +203,7 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 					}
 
 					let checkboxes = '';//Inicializa uma string que vai guardar os checkboxes dos alunos.
-					alunos.forEach(aluno => {
+					alunos.forEach(aluno => {//Para cada aluno, cria um checkbox e exibe o nome;
 						checkboxes += `
 						  <div class="form-check d-flex align-items-center justify-content-center mb-2">
 						    <input class="form-check-input me-2" type="checkbox" id="aluno_${aluno.id}" name="presenca" value="${aluno.id}" style="border: solid 1px;">
@@ -241,9 +230,9 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 								${checkboxes}
 							</div>
 						</form>
-					`;
+					`;//Cria uma estrutura HTML com o formulário da chamada;
 
-					Swal.fire({
+					Swal.fire({//Abre um modal com o formulário criado acima;
 						title: 'Realizar',
 						html: htmlForm,
 						width: '600px',
@@ -257,7 +246,7 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
   	  					actions: 'swal2-buttons-spacing' 
  						},
 						focusConfirm: false,
-						preConfirm: () => {
+						preConfirm: () => {//Executa quando o usuário clica em registrar;
 							const data = $('#dataAula').val();
 							const tema = $('#temaAula').val();
 							const presentes = [];
