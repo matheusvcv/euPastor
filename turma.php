@@ -243,11 +243,15 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 					`;
 
 					Swal.fire({
-						title: 'Realizar Chamada',
+						title: 'Realizar',
 						html: htmlForm,
 						width: '600px',
+						confirmButtonClass: "btn btn-success",
+						cancelButtonClass: "btn btn-danger",
+						buttonsStyling: false,
 						showCancelButton: true,
-						confirmButtonText: 'Salvar Chamada',
+						cancelButtonText: 'Cancelar',
+						confirmButtonText: 'Salvar',
 						focusConfirm: false,
 						preConfirm: () => {
 							const data = $('#dataAula').val();
