@@ -216,13 +216,14 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 					let checkboxes = '';//Inicializa uma string que vai guardar os checkboxes dos alunos.
 					alunos.forEach(aluno => {
 						checkboxes += `
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" id="aluno_${aluno.id}" name="presenca" value="${aluno.id}">
-								<label class="form-check-label" for="aluno_${aluno.id}">
-									${aluno.nome_membro}
-								</label>
-							</div>
+						  <div class="form-check d-flex align-items-center justify-content-center mb-2">
+						    <input class="form-check-input me-2" type="checkbox" id="aluno_${aluno.id}" name="presenca" value="${aluno.id}" style="border: solid 1px;">
+						    <label class="form-check-label mb-0" for="aluno_${aluno.id}">
+						      ${aluno.nome_membro}
+						    </label>
+						  </div>
 						`;
+
 					});
 
 					const htmlForm = `
@@ -251,7 +252,10 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 						buttonsStyling: false,
 						showCancelButton: true,
 						cancelButtonText: 'Cancelar',
-						confirmButtonText: 'Salvar',
+						confirmButtonText: 'Registrar',
+						customClass: {
+  	  					actions: 'swal2-buttons-spacing' 
+ 						},
 						focusConfirm: false,
 						preConfirm: () => {
 							const data = $('#dataAula').val();
@@ -295,7 +299,7 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 						});
 					});
 				},
-				error: function() { // ← ESTE BLOCO AQUI
+				error: function() { 
 					Swal.fire('Erro', 'Não foi possível carregar os alunos.', 'error');
 				}
 			});

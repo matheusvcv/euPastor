@@ -152,3 +152,13 @@ body{
 	white-space: normal;
 	line-height: 1.4; 
 }
+
+.swal2-buttons-spacing {
+  display: flex !important;
+  gap: 15px !important; /* Ajuste conforme necessário */
+  justify-content: center;
+}
+
+.checkbox_custom{
+	border: solid 1px black;
+}
