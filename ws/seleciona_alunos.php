@@ -1,10 +1,7 @@
 <?php
-// Garante que o conteúdo seja retornado como JSON com charset UTF-8
 header('Content-Type: application/json; charset=utf-8');
+include "../src/conexao.php";
 
-include "../src/conexao.php"; // Conexão com o banco de dados
-
-// Verifica se o parâmetro "id" foi recebido
 if (!isset($_GET['id'])) {
     echo json_encode(['erro' => 'ID da turma não especificado.']);
     exit;
@@ -12,20 +9,34 @@ if (!isset($_GET['id'])) {
 
 $turma_id = $_GET['id'];
 
-// Prepara a consulta para buscar alunos da turma
-$stm_alunos = $conexao->prepare("SELECT lista_membros.id, lista_membros.nascimento_membro, lista_membros.nome_membro, lista_membros.ativo FROM lista_membros INNER JOIN turma_alunos ON lista_membros.id = turma_alunos.membro_id WHERE turma_alunos.turma_id = ?
-");
+// Consulta os alunos com total de presenças e faltas
+$query = "
+    SELECT 
+        lm.id,
+        lm.nome_membro,
+        lm.nascimento_membro,
+        lm.ativo,
+        COALESCE(SUM(CASE WHEN c.presente = 1 THEN 1 ELSE 0 END), 0) AS presencas,
+        COALESCE(SUM(CASE WHEN c.presente = 0 THEN 1 ELSE 0 END), 0) AS faltas
+    FROM lista_membros lm
+    INNER JOIN turma_alunos ta ON lm.id = ta.membro_id
+    LEFT JOIN chamadas c ON c.membro_id = lm.id AND c.turma_id = ?
+    WHERE ta.turma_id = ?
+    GROUP BY lm.id, lm.nome_membro, lm.nascimento_membro, lm.ativo
+";
 
-$stm_alunos->bind_param("i", $turma_id);
-$stm_alunos->execute();
-$resultado_alunos = $stm_alunos->get_result();
+$stmt = $conexao->prepare($query);
+$stmt->bind_param("ii", $turma_id, $turma_id);
+$stmt->execute();
+$result = $stmt->get_result();
 
-$rows_alunos = [];
+$alunos = [];
 
-while ($row_alunos = $resultado_alunos->fetch_assoc()) {
-    $rows_alunos[] = $row_alunos;
+while ($row = $result->fetch_assoc()) {
+    $total_chamadas = $row['presencas'] + $row['faltas'];
+    $frequencia = $total_chamadas > 0 ? round(($row['presencas'] / $total_chamadas) * 100) : 0;
+    $row['frequencia'] = $frequencia;
+    $alunos[] = $row;
 }
 
-// Retorna os dados como JSON, mesmo que vazio
-echo json_encode($rows_alunos, JSON_UNESCAPED_UNICODE);
-?>
+echo json_encode($alunos, JSON_UNESCAPED_UNICODE);
