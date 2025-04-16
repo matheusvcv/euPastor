@@ -100,6 +100,7 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 									<th class="align-middle text-center">Idade</th>
 									<th class="align-middle text-center">Presenças</th>
 									<th class="align-middle text-center">Faltas</th>
+									<th class="align-middle text-center">Frequência</th>
 									<th class="align-middle text-center">Ativo</th>
 								</tr>
 							</thead>
@@ -166,6 +167,16 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 				},
 				{"data": "presencas"},
 				{"data": "faltas"},
+				{
+					"data": "frequencia",
+					"render": function(data, type, row){
+						if(type === 'display' && data != null){
+							return data + "%";
+						}
+
+						return data;
+					}
+				},
 				{"data": "ativo"},//Recebe o status de atividade
 			]
 
