@@ -155,10 +155,24 @@ body{
 
 .swal2-buttons-spacing {
   display: flex !important;
-  gap: 15px !important; /* Ajuste conforme necessário */
+  gap: 15px !important;
   justify-content: center;
 }
 
 .checkbox_custom{
 	border: solid 1px black;
+}
+
+.lista{
+	text-decoration: none;
+	color: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.lista:hover {
+	color: #FFFAFA !important;
+	background-color: #000000;
+	text-transform: uppercase;
 }
