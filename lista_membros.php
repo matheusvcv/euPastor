@@ -141,7 +141,7 @@ include "src/protect.php";
 					"data": null,//Define que o que será exibido nessa coluna não está no banco de dados e não utiliza json
 					"render": function (data, type, row, meta){//Altera o que será exibido na tela quando o tipo de exibição for Display.
 						if(type === 'display'){
-							return '<div style="display: flex; justify-content: center; align-items: center; height: 100% ">'+'<img src="img/profile_icon.png" align="center">'+'</div>';//Exibe a imagem.
+							return '<div style="display: flex; justify-content: center; align-items: center; height: 100% ">'+'<a href="perfil_membro.php?id='+ row.id +'">'+'<img src="img/profile_icon.png" align="center">'+'</a>'+'</div>';//Exibe icone de perfil na coluna perfil.
 						}
 						
 						return "";

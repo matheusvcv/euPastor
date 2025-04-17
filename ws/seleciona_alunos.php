@@ -28,11 +28,11 @@ $sql = "
 $stmt = $conexao->prepare($sql);//Prepara a query de maneira segura contra SQL Injection.
 $stmt->bind_param("ii", $turma_id, $turma_id);//Passa os dois parametros da query com o valor de $turma_id.
 $stmt->execute();//Executa a query.
-$result = $stmt->get_result();//Armazena o resultado da query.
+$resultado = $stmt->get_result();//Armazena o resultado da query.
 
 $alunos = [];//Inicia um array vazio.
 
-while ($row = $result->fetch_assoc()) {//loop que verifica cada aluno retornado no resultado.
+while ($row = $resultado->fetch_assoc()) {//loop que verifica cada aluno retornado no resultado.
     $total_chamadas = $row['presencas'] + $row['faltas'];//Calcula o total de chamadas.
     $frequencia = $total_chamadas > 0 ? round(($row['presencas'] / $total_chamadas) * 100) : 0;//Calcula a frequencia em porcetagem.
     $row['frequencia'] = $frequencia;
