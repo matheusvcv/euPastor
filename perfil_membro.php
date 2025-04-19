@@ -5,6 +5,7 @@ include "src/protect.php";
 <!Doctype html>
 <html>
 <body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!--Início da NavBar-->
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
@@ -60,128 +61,40 @@ include "src/protect.php";
 		<div class="card-content collapse show">
 			<div class="card-body card-dashboard">
 			<h3>Perfil</h3>
-			<!--Início da DataTable-->
-			<div class="container-fluid">
-				<div class="row mt-3">
-					<table id="datatable" class="table table-striped table-bordered table-hover justify-content-center" cellspacing="0" width="100%">
-						<thead>
-							<tr class="table-dark justify-content-center">
-								<th class="align-middle text-center">ID</th>
-								<th class="align-middle text-center">Nome</th>
-								<th class="align-middle text-center">CPF</th>
-								<th class="align-middle text-center">Nascimento</th>
-								<th class="align-middle text-center">E-mail</th>
-								<th class="align-middle text-center">Telefone</th>
-								<th class="align-middle text-center">Tempo de Igreja</th>
-								<th class="align-middle text-center">Ativo</th>
-								<th class="align-middle text-center">Salário</th>
-								<th class="align-middle text-center">Contribuição Sugerida</th>
-							</tr>
-						</thead>
-						<tbody>
-						</tbody>
-					</table>
-				</div>
+			<div class="container mt-4" id="perfil_membro">
+				<h5>Informações Pessoais:</h5>
+					<p><strong>Nome: </strong><span id="nome"></span></p>	
 			</div>
 			</div>
 		</div>
 	</div>
 
-	<script src="bootstrap/js/bootstrap.min.js"></script><!--Carrega o Bootstrap-->
-	<script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script><!--Carrega a Biblioteca Datatables-->
-	<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script><!--Carrega biblioteca para os botões-->
-	<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js"></script><!--Carrega biblioteca para os botões-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script><!--Biblioteca para exportação da lista para Excel-->
-	<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script><!--Biblioteca para exportação da lista para Excel-->
-
-<script>
+	<script>
 
 	$(document).ready(function() {//Define que quando o documento for carregado, a tabela será configurada
+		$.ajax({//Inicia a requisição ajax utilizando jQuery para buscar dados no servidor
+			url: 'ws/seleciona_membro_individual.php?id=' + <?php echo $_GET['id']; ?>,//Define o endereço do script PHP que vai retornar os arquivos em formato Json
+			dataType: 'json',//Define que o formato do dado vai ser json
+			success: function(data){//Define que a função será realizada quando a requisição for concluida com sucesso
 
-	$('#datatable').DataTable({//Inicia a tabela
-			/* fixedHeader: {
-			header: true,
-			headerOffset: $('.header-navbar').outerHeight()
-		}, */		
-		"autoWidth": false,//Desativa a largura automática das colunas
-		"bLengthChange": false,//Remove a opção de alterar o número de intens por página
-		pageLength: 1,//Define 10 itens por página
-		dom: '<"d-flex justify-content-between align-items-center"lfB>rtip',//Define o Layout para incluir botões
-		buttons: [//Adiciona um botão que exportaos dados da tabela para um arquivo Excel
-		  {
-			extend: 'excelHtml5',
-			text: 'Excel',
-			className: 'btn btn-success',
-			titleAttr: 'Exportar para Excel',
-			exportOptions: {
-			columns: ':visible'
-			}
-		  }
-		],
+				if(data && !data.erro){
 
-		"search": {
-			"regex": false//Permite busca com expressões regulares
-		},
-		"destroy": true,//Garante que a tabela pode ser recriada sem erros
-		"processing" : false,//Não exibe indicador de carregamento de dados
-		"paging": true,//Habilita a paginação
-		"searching": true,//Habilita Barra de Pesquisa
-		"bFilter": false,//Desativa filtro automáticos
-		"columnDefs":[//Oculta a primeira coluna
-		   {"visible": false, "targets":0},
-		   {"className": "icone", "targets":1}
-		],
+					console.log(data);
 
-		//Definição das colunas
+					$('#nome').text(data.nome_membro);
 
-		"columns":[
-			{"data": "id"},//Recebe o dado que ajax retorna direto do json
-			{"data": "nome_membro"},//Recebe o dado que ajax retorna direto do json
-			{"data": "cpf_membro"},//Recebe o dado que ajax retorna direto do json
-			{"data": "nascimento_membro"},//Recebe o dado que ajax retorna direto do json
-			{"data": "email_membro"},//Recebe o dado que ajax retorna direto do json
-			{"data": "telefone_membro"},//Recebe o dado que ajax retorna direto do json
-			{"data": "tempo_de_membro"},//Recebe o dado que ajax retorna direto do json
-			{"data": "ativo"},//Recebe o dado que ajax retorna direto do json
-			{"data": "faixa_salarial"},//Recebe o dado que ajax retorna direto do json
-			{
-				"data": "faixa_salarial",//Altera o valor da faixa salarial antes de exibir na tabela
-				"render": function(data, type, row, meta){
-					if(type === 'display'){
-						return data / 10;
-					}
-					return data;
+					/*$('#datatable').DataTable().clear();//Recebe a datable e limpa os dados antes de inserir os novos
+
+					$('#datatable').DataTable().rows.add([data]).draw();//Adiciona linhas na tabela com os dados recebidos*/
+
+				}else{
 				}
-			}
-		]
+			},
 
+			error: function() {//Função executada caso haja um erro na requisição Ajax
+			}
 		});
 	});
-
-	$.ajax({//Inicia a requisição ajax utilizando jQuery para buscar dados no servidor
-		url: 'ws/seleciona_membro_individual.php?id=' + <?php echo $_GET['id']; ?>,//Define o endereço do script PHP que vai retornar os arquivos em formato Json
-		dataType: 'json',//Define que o formato do dado vai ser json
-		success: function(data){//Define que a função será realizada quando a requisição for concluida com sucesso
-
-			if(data && !data.erro){
-
-				$('#datatable').DataTable().clear();//Recebe a datable e limpa os dados antes de inserir os novos
-
-				$('#datatable').DataTable().rows.add([data]).draw();//Adiciona linhas na tabela com os dados recebidos
-
-			}else{
-
-				$('#datatable').DataTable().clear().draw();//Limpa a tabela
-				$('#datatable').DataTable().rows.add('<tr><td colspan="3">Nenhum resultado encontrado.</td><tr>').draw();//Exibe mensagem quando não houver resultados
-			}
-		},
-
-		error: function() {//Função executada caso haja um erro na requisição Ajax
-		}
-	});
-
-
-</script>
-
+	</script>
 </body>
 </html>
