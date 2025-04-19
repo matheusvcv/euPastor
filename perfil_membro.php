@@ -63,7 +63,15 @@ include "src/protect.php";
 			<h3>Perfil</h3>
 			<div class="container mt-4" id="perfil_membro">
 				<h5>Informações Pessoais:</h5>
-					<p><strong>Nome: </strong><span id="nome"></span></p>	
+					<p><strong>Nome: </strong><span id="nome_membro"></span></p>
+					<p><strong>CPF: </strong><span id="cpf_membro"></span></p>
+					<p><strong>Data de Nascimento: </strong><span id="nascimento_membro"></span></p>
+					<p><strong>E-mail: </strong><span id="email_membro"></span></p>
+					<p><strong>Telefone: </strong><span id="telefone_membro"></span></p>
+					<p><strong>Tempo de Igreja: </strong><span id="tempo_de_membro"></span></p>
+					<p><strong>Ativo: </strong><span id="ativo"></span></p>
+					<p><strong>Salário: </strong><span id="faixa_salarial"></span></p>
+					<p><strong>Contribuição Sugerida: </strong><span id="contribuicao_sugerida"></span></p>
 			</div>
 			</div>
 		</div>
@@ -79,18 +87,21 @@ include "src/protect.php";
 
 				if(data && !data.erro){
 
-					console.log(data);
-
-					$('#nome').text(data.nome_membro);
-
-					/*$('#datatable').DataTable().clear();//Recebe a datable e limpa os dados antes de inserir os novos
-
-					$('#datatable').DataTable().rows.add([data]).draw();//Adiciona linhas na tabela com os dados recebidos*/
+					$('#nome_membro').text(data.nome_membro);
+					$('#cpf_membro').text(data.cpf_membro);
+					$('#nascimento_membro').text(data.nascimento_membro);
+					$('#email_membro').text(data.email_membro);
+					$('#telefone_membro').text(data.telefone_membro);
+					$('#tempo_de_membro').text(data.tempo_de_membro);
+					$('#ativo').text(data.ativo);
+					$('#faixa_salarial').text(data.faixa_salarial.toFixed(2));
+					let faixa_salarial = parseFloat(data.faixa_salarial);
+					let contribuicao_sugerida = faixa_salarial/10;
+					$('#contribuicao_sugerida').text(contribuicao_sugerida.toFixed(2));
 
 				}else{
 				}
 			},
-
 			error: function() {//Função executada caso haja um erro na requisição Ajax
 			}
 		});
