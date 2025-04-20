@@ -113,6 +113,9 @@ body{
 	display: none;
 }
 
+#inserir_ocorrencia {
+	display: none;
+}
 
 .transition-card {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;

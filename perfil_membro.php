@@ -83,12 +83,73 @@ include "src/protect.php";
 				</div>
 				<div class="row mt-4 mb-4">
 					<h3>Ocorrências:</h3>
-				<div class="col mt-2">
-					<button type="button" class="btn btn-success">Inserir</button>
-					<button type="button" class="btn btn-success">Consultar</button>
+					<div class="col-12 col-sm-6 col-lg-2 mt-2">
+						<button type="button" class="btn btn-success w-100" id="exibe_form_inserir_ocorrencia" onclick="exibe_form_inserir_ocorrencia();">Inserir Ocorrência</button>
+					</div>
+					<div class="col-12 col-sm-6 col-lg-2 mt-2">
+						<button id="btn-consultar" name="btn-consultar"  type="button" class="btn btn-success w-100">Consultar Ocorrências</button>
+					</div>
 				</div>
+
+<!--Início do formulário-->
+<div id="inserir_ocorrencia" name="inserir_ocorrencia" style="display: none;">
+	<h3>Inserir Ocorrência</h3>
+	<div class="container-fluid">
+		<form method="POST" name="form_inserir_ocorrencia" id="form_inserir_ocorrencia">
+			<div class="row mt-3">
+				<h6>Informações</h6>
+			</div>
+
+			<div class="row mb-4">
+				<div class="col-lg-4">
+					<label for="titulo_ocorrencia" class="form-label">Título:</label>
+					<input type="text" class="form-control form_item" id="titulo_ocorrencia" name="titulo_ocorrencia" placeholder="Digite o Título aqui.">
+				</div>
+				<div class="col-lg-4">
+					<label for="texto_ocorrencia" class="form-label">Ocorrência:</label>
+					<input type="text" class="form-control form_item" id="texto_ocorrencia" name="texto_ocorrencia" placeholder="Digite a Ocorrência aqui.">
 				</div>
 			</div>
+
+			<div class="row justify-content-end mb-2">
+				<div class="col-lg-1 col-sm-12 mt-3" style="min-width: 120px;">
+					<button type="submit" class="btn btn-success form-control form_item" onclick="inserir_membro();">Cadastrar</button>
+				</div>
+				<div class="col-lg-1 mt-3" style="min-width: 120px;">
+					<div class="btn btn-danger form-control form_item" onclick="esconde_form_cad_membro();">Cancelar</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div
+
+
+
+
+
+			
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 		</div>
@@ -123,6 +184,13 @@ include "src/protect.php";
 			}
 		});
 	});
+
+	function exibe_form_inserir_ocorrencia()
+	{
+		$('#inserir_ocorrencia').css('display', 'block');
+		$('#exibe_form_inserir_ocorrencia').css('display', 'none');
+		$('#btn-consultar').css('display', 'none');	
+	}
 	</script>
 </body>
 </html>
