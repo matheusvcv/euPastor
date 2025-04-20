@@ -60,23 +60,40 @@ include "src/protect.php";
 	<div class="card card_body m-3">
 		<div class="card-content collapse show">
 			<div class="card-body card-dashboard">
-			<h3>Perfil</h3>
-			<div class="container mt-4" id="perfil_membro">
-				<h5>Informações Pessoais:</h5>
-					<p><strong>Nome: </strong><span id="nome_membro"></span></p>
-					<p><strong>CPF: </strong><span id="cpf_membro"></span></p>
-					<p><strong>Data de Nascimento: </strong><span id="nascimento_membro"></span></p>
-					<p><strong>E-mail: </strong><span id="email_membro"></span></p>
-					<p><strong>Telefone: </strong><span id="telefone_membro"></span></p>
-					<p><strong>Tempo de Igreja: </strong><span id="tempo_de_membro"></span></p>
-					<p><strong>Ativo: </strong><span id="ativo"></span></p>
-					<p><strong>Salário: </strong><span id="faixa_salarial"></span></p>
-					<p><strong>Contribuição Sugerida: </strong><span id="contribuicao_sugerida"></span></p>
+				
+			<h3>Informações Pessoais:</h3>
+
+			<div class="container-fluid">
+				<div class="row mt-4" id="perfil_membro">
+					<div class="col-12 col-sm-6 col-lg-4">
+						<p><strong>Nome: </strong><span id="nome_membro"></span></p>
+						<p><strong>CPF: </strong><span id="cpf_membro"></span></p>
+						<p><strong>Data de Nascimento: </strong><span id="nascimento_membro"></span></p>
+					</div>
+					<div class="col-12 col-sm-6 col-lg-4">
+						<p><strong>E-mail: </strong><span id="email_membro"></span></p>
+						<p><strong>Telefone: </strong><span id="telefone_membro"></span></p>
+						<p><strong>Tempo de Igreja: </strong><span id="tempo_de_membro"></span></p>
+					</div>
+					<div class="col-12 col-sm-6 col-lg-4">
+						<p><strong>Ativo: </strong><span id="ativo"></span></p>
+						<p><strong>Salário: </strong><span id="faixa_salarial"></span></p>
+						<p><strong>Contribuição Sugerida: </strong><span id="contribuicao_sugerida"></span></p>
+					</div>
+				</div>
+				<div class="row mt-4 mb-4">
+					<h3>Ocorrências:</h3>
+				<div class="col mt-2">
+					<button type="button" class="btn btn-success">Inserir</button>
+					<button type="button" class="btn btn-success">Consultar</button>
+				</div>
+				</div>
 			</div>
-			</div>
+
+
 		</div>
 	</div>
-
+	<script src="bootstrap/js/bootstrap.min.js"></script><!--Carrega o Bootstrap-->
 	<script>
 
 	$(document).ready(function() {//Define que quando o documento for carregado, a tabela será configurada
