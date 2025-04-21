@@ -98,20 +98,20 @@ include "src/protect.php";
 
 							<div class="row mb-4">
 								<div class="col-lg-6">
-									<label for="titulo_ocorrencia" class="form-label">Título:</label>
-									<input type="text" class="form-control form_item" id="titulo_ocorrencia" name="titulo_ocorrencia" placeholder="Digite o Título aqui.">
+									<label for="titulo" class="form-label">Título:</label>
+									<input type="text" class="form-control form_item" id="titulo" name="titulo" placeholder="Digite o Título aqui.">
 								</div>
 							</div>
 							<div class="row mb-4">
 								<div class="col-lg-6">
-									<label for="texto_ocorrencia" class="form-label">Ocorrência:</label>
-									<textarea class="form-control form_item" id="texto_ocorrencia" name="texto_ocorrencia" placeholder="Digite a Ocorrência aqui."></textarea>
+									<label for="ocorrencia" class="form-label">Ocorrência:</label>
+									<textarea class="form-control form_item" id="ocorrencia" name="ocorrencia" placeholder="Digite a Ocorrência aqui."></textarea>
 								</div>
 							</div>
 
 							<div class="row justify-content-end mb-2">
 								<div class="col-lg-1 col-sm-12 mt-3" style="min-width: 120px;">
-									<button type="submit" class="btn btn-success form-control form_item" onclick="inserir_membro();">Cadastrar</button>
+									<button type="submit" class="btn btn-success form-control form_item" onclick="inserir_ocorrencia();">Cadastrar</button>
 								</div>
 								<div class="col-lg-1 mt-3" style="min-width: 120px;">
 									<div class="btn btn-danger form-control form_item" onclick="cancela_exibe_form_inserir_ocorrencia();">Cancelar</div>
@@ -168,6 +168,33 @@ include "src/protect.php";
 		$('#inserir_ocorrencia').css('display', 'none');
 		$('#exibe_form_inserir_ocorrencia').css('display', 'block');
 		$('#btn-consultar').css('display', 'block');	
+	}
+
+	function inserir_ocorrencia()
+	{
+		var id_membro = <?php echo $_GET['id']; ?>;
+		var titulo = $('#titulo').val();
+		var ocorrencia = $('#ocorrencia').val();
+
+		$.ajax({
+			url: 'ws/inserir_ocorrencia.php',
+			type: 'post',
+			data:{
+				'id_membro': id_membro,
+				'titulo': titulo,
+				'ocorrencia': ocorrencia
+			},
+
+		}).done(function(response){
+			if(response === "success")
+			{
+				window.location.href = 'perfil_membro.php?s=1';
+			}
+			if(response === "error")
+			{
+				window.location.href = 'perfil_membro.php?s=1';
+			}
+		});
 	}
 
 	</script>
