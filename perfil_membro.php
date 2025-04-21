@@ -21,13 +21,13 @@ include "src/protect.php";
 				<div class="offcanvas-body">
 					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 						<li class="nav-item">
-							<a class="nav-link active botao_sair" aria-current="page" href="../../logout.php">SAIR</a>
+							<a class="nav-link active botao_sair" aria-current="page" href="logout.php">SAIR</a>
+						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="pagina_inicial.php">Página Inicial</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">Como utilizar o sistema?</a>
-						</li>
 						</li>
 					</ul>
 				</div>
@@ -49,7 +49,6 @@ include "src/protect.php";
 			<a class="nav-link barra_item" href="configuracao_membros.php">Configuração de Membros</a>
 		</li>
 		<li class="nav-item">
-		<li class="nav-item">
 			<a class="nav-link barra_item" href="pagina_administrativa/views/cadastrar_usuarios.php">Cadastrar Usuários</a>
 		</li>
 		<li class="nav-item">
@@ -59,10 +58,8 @@ include "src/protect.php";
 	<!--Início do Corpo da página.-->
 	<div class="card card_body m-3">
 		<div class="card-content collapse show">
-			<div class="card-body card-dashboard">
-				
+			<div class="card-body card-dashboard">	
 			<h3>Informações Pessoais:</h3>
-
 			<div class="container-fluid">
 				<div class="row mt-4" id="perfil_membro">
 					<div class="col-12 col-sm-6 col-lg-4">
@@ -90,70 +87,44 @@ include "src/protect.php";
 						<button id="btn-consultar" name="btn-consultar"  type="button" class="btn btn-success w-100">Consultar Ocorrências</button>
 					</div>
 				</div>
+				<!--Início do formulário-->
+				<div id="inserir_ocorrencia" name="inserir_ocorrencia" style="display: none;">
+					<h3>Inserir Ocorrência</h3>
+					<div class="container-fluid">
+						<form method="POST" name="form_inserir_ocorrencia" id="form_inserir_ocorrencia">
+							<div class="row mt-3">
+								<h6>Informações</h6>
+							</div>
 
-<!--Início do formulário-->
-<div id="inserir_ocorrencia" name="inserir_ocorrencia" style="display: none;">
-	<h3>Inserir Ocorrência</h3>
-	<div class="container-fluid">
-		<form method="POST" name="form_inserir_ocorrencia" id="form_inserir_ocorrencia">
-			<div class="row mt-3">
-				<h6>Informações</h6>
-			</div>
+							<div class="row mb-4">
+								<div class="col-lg-6">
+									<label for="titulo_ocorrencia" class="form-label">Título:</label>
+									<input type="text" class="form-control form_item" id="titulo_ocorrencia" name="titulo_ocorrencia" placeholder="Digite o Título aqui.">
+								</div>
+							</div>
+							<div class="row mb-4">
+								<div class="col-lg-6">
+									<label for="texto_ocorrencia" class="form-label">Ocorrência:</label>
+									<textarea class="form-control form_item" id="texto_ocorrencia" name="texto_ocorrencia" placeholder="Digite a Ocorrência aqui."></textarea>
+								</div>
+							</div>
 
-			<div class="row mb-4">
-				<div class="col-lg-4">
-					<label for="titulo_ocorrencia" class="form-label">Título:</label>
-					<input type="text" class="form-control form_item" id="titulo_ocorrencia" name="titulo_ocorrencia" placeholder="Digite o Título aqui.">
-				</div>
-				<div class="col-lg-4">
-					<label for="texto_ocorrencia" class="form-label">Ocorrência:</label>
-					<input type="text" class="form-control form_item" id="texto_ocorrencia" name="texto_ocorrencia" placeholder="Digite a Ocorrência aqui.">
-				</div>
-			</div>
-
-			<div class="row justify-content-end mb-2">
-				<div class="col-lg-1 col-sm-12 mt-3" style="min-width: 120px;">
-					<button type="submit" class="btn btn-success form-control form_item" onclick="inserir_membro();">Cadastrar</button>
-				</div>
-				<div class="col-lg-1 mt-3" style="min-width: 120px;">
-					<div class="btn btn-danger form-control form_item" onclick="esconde_form_cad_membro();">Cancelar</div>
+							<div class="row justify-content-end mb-2">
+								<div class="col-lg-1 col-sm-12 mt-3" style="min-width: 120px;">
+									<button type="submit" class="btn btn-success form-control form_item" onclick="inserir_membro();">Cadastrar</button>
+								</div>
+								<div class="col-lg-1 mt-3" style="min-width: 120px;">
+									<div class="btn btn-danger form-control form_item" onclick="cancela_exibe_form_inserir_ocorrencia();">Cancelar</div>
+								</div>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
-		</form>
+		</div>	
 	</div>
-</div
 
 
-
-
-
-			
-
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		</div>
-	</div>
 	<script src="bootstrap/js/bootstrap.min.js"></script><!--Carrega o Bootstrap-->
 	<script>
 
@@ -191,6 +162,14 @@ include "src/protect.php";
 		$('#exibe_form_inserir_ocorrencia').css('display', 'none');
 		$('#btn-consultar').css('display', 'none');	
 	}
+
+		function cancela_exibe_form_inserir_ocorrencia()
+	{
+		$('#inserir_ocorrencia').css('display', 'none');
+		$('#exibe_form_inserir_ocorrencia').css('display', 'block');
+		$('#btn-consultar').css('display', 'block');	
+	}
+
 	</script>
 </body>
 </html>
