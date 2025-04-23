@@ -1,9 +1,16 @@
 <?php
-include "view/head_lista_membros.php";
+//include "view/head_lista_membros.php";
 include "src/protect.php";
 ?>
 <!Doctype html>
 <html>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="shortcut icon" href="img/logo_login_image.png" type="image/x-icon">
+	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+	<title>Perfil</title>
 <body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!--Início da NavBar-->
@@ -120,10 +127,23 @@ include "src/protect.php";
 						</form>
 					</div>
 				</div>
+				<!--Final do formulário-->
+				<!--Iinicio das Ocorrências-->
+				<div id="ocorrencias" name="ocorrencias" style="display: block;">
+					<h3>Ocorrências</h3>
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col">
+								<p><strong>Data de Registro: </strong><span id="data_registro"></span></p>
+								<p><strong>Título: </strong><span id="titulo"></span></p>
+								<p><strong>Ocorrência: </strong><span id="ocorrencia"></span></p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>	
 	</div>
-
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css" rel="stylesheet">
 	<script src="bootstrap/js/bootstrap.min.js"></script><!--Carrega o Bootstrap-->
@@ -164,14 +184,14 @@ include "src/protect.php";
 		$('#btn-consultar').css('display', 'none');	
 	}
 
-		function cancela_exibe_form_inserir_ocorrencia()
+	function cancela_exibe_form_inserir_ocorrencia()
 	{
 		$('#inserir_ocorrencia').css('display', 'none');
 		$('#exibe_form_inserir_ocorrencia').css('display', 'block');
 		$('#btn-consultar').css('display', 'block');	
 	}
 
-		function inserir_ocorrencia()
+	function inserir_ocorrencia()
 	{
 		var id_membro = <?php echo $_GET['id']; ?>;
 		var titulo = $('#titulo').val();
@@ -187,6 +207,7 @@ include "src/protect.php";
 			},
 
 		}).done(function(response){
+			console.log(response);
 			if(response === "success")
 			{
 				Swal.fire({

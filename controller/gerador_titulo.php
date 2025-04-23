@@ -27,7 +27,6 @@
 	}elseif ($titulo_da_pagina === "exibir_turmas.php?depar") {
 		$titulo = "Turmas";
 	}
-
 ?>
 
 

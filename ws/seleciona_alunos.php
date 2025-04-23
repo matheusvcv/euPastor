@@ -40,3 +40,5 @@ while ($row = $resultado->fetch_assoc()) {//loop que verifica cada aluno retorna
 }
 
 echo json_encode($alunos, JSON_UNESCAPED_UNICODE);//Retorna o array de alunos como um Json e evita problemas com caracteres acentuados utilizando o SON_UNESCAPED_UNICODE.
+
+?>

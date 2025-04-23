@@ -1,5 +1,4 @@
 <?php
-	//include '../library/libs_perfil_membro.php';
 	include '../src/conexao.php';
 
 	if (isset($_POST['id_membro']) && $_POST['id_membro'] != "") {

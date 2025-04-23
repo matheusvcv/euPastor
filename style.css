@@ -113,6 +113,13 @@ body{
 	display: none;
 }
 
+#inserir_ocorrencia {
+	display: none;
+}
+
+#texto_ocorrencia{
+	height: 30vh !important;
+}
 
 .transition-card {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
