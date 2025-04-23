@@ -4,6 +4,7 @@ include "src/protect.php";
 ?>
 <!Doctype html>
 <html>
+<head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
@@ -11,8 +12,8 @@ include "src/protect.php";
 	<link rel="shortcut icon" href="img/logo_login_image.png" type="image/x-icon">
 	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 	<title>Perfil</title>
+</head>
 <body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!--Início da NavBar-->
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
@@ -91,7 +92,7 @@ include "src/protect.php";
 						<button type="button" class="btn btn-success w-100" id="exibe_form_inserir_ocorrencia" onclick="exibe_form_inserir_ocorrencia();">Inserir Ocorrência</button>
 					</div>
 					<div class="col-12 col-sm-6 col-lg-2 mt-2">
-						<button id="btn-consultar" name="btn-consultar"  type="button" class="btn btn-success w-100">Consultar Ocorrências</button>
+						<button id="btn-consultar" name="btn-consultar" type="button" class="btn btn-success w-100" onclick="exibir_ocorrências()">Consultar Ocorrências</button>
 					</div>
 				</div>
 				<!--Início do formulário-->
@@ -106,13 +107,13 @@ include "src/protect.php";
 							<div class="row mb-4">
 								<div class="col-lg-6">
 									<label for="titulo" class="form-label">Título:</label>
-									<input type="text" class="form-control form_item" id="titulo" name="titulo" placeholder="Digite o Título aqui.">
+									<input type="text" class="form-control form_item" id="titulo" name="titulo" placeholder="Digite o Título aqui." required>
 								</div>
 							</div>
 							<div class="row mb-4">
 								<div class="col-lg-6">
 									<label for="ocorrencia" class="form-label">Ocorrência:</label>
-									<textarea class="form-control form_item" id="ocorrencia" name="ocorrencia" placeholder="Digite a Ocorrência aqui."></textarea>
+									<textarea class="form-control form_item" id="ocorrencia" name="ocorrencia" placeholder="Digite a Ocorrência aqui." required></textarea>
 								</div>
 							</div>
 
@@ -129,17 +130,8 @@ include "src/protect.php";
 				</div>
 				<!--Final do formulário-->
 				<!--Iinicio das Ocorrências-->
-				<div id="ocorrencias" name="ocorrencias" style="display: block;">
-					<h3>Ocorrências</h3>
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col">
-								<p><strong>Data de Registro: </strong><span id="data_registro"></span></p>
-								<p><strong>Título: </strong><span id="titulo"></span></p>
-								<p><strong>Ocorrência: </strong><span id="ocorrencia"></span></p>
-							</div>
-						</div>
-					</div>
+				<div id="lista_ocorrencias" name="lista_ocorrencias" style="display: block;">
+
 				</div>
 			</div>
 		</div>	
@@ -149,12 +141,11 @@ include "src/protect.php";
 	<script src="bootstrap/js/bootstrap.min.js"></script><!--Carrega o Bootstrap-->
 	<script>
 
-	$(document).ready(function() {//Define que quando o documento for carregado, a tabela será configurada
+	$(document).ready(function() {//Define que quando o documento for carregado, os dados serão carregados.
 		$.ajax({//Inicia a requisição ajax utilizando jQuery para buscar dados no servidor
 			url: 'ws/seleciona_membro_individual.php?id=' + <?php echo $_GET['id']; ?>,//Define o endereço do script PHP que vai retornar os arquivos em formato Json
 			dataType: 'json',//Define que o formato do dado vai ser json
 			success: function(data){//Define que a função será realizada quando a requisição for concluida com sucesso
-
 				if(data && !data.erro){
 
 					$('#nome_membro').text(data.nome_membro);
@@ -165,14 +156,17 @@ include "src/protect.php";
 					$('#tempo_de_membro').text(data.tempo_de_membro);
 					$('#ativo').text(data.ativo);
 					$('#faixa_salarial').text(data.faixa_salarial.toFixed(2));
-					let faixa_salarial = parseFloat(data.faixa_salarial);
-					let contribuicao_sugerida = faixa_salarial/10;
-					$('#contribuicao_sugerida').text(contribuicao_sugerida.toFixed(2));
+					let faixa_salarial = parseFloat(data.faixa_salarial) || 0;
+					$('#faixa_salarial').text(faixa_salarial.toFixed(2));
+					$('#contribuicao_sugerida').text((faixa_salarial / 10).toFixed(2));
+
+
 
 				}else{
 				}
 			},
 			error: function() {//Função executada caso haja um erro na requisição Ajax
+				console.error("Erro ao carregar os dados do membro.", data);
 			}
 		});
 	});
@@ -233,6 +227,42 @@ include "src/protect.php";
 		});
 	}
 
+
+	function exibir_ocorrências()
+	{
+		$.ajax({
+			url: 'ws/seleciona_ocorrencias.php?id=' + <?php echo $_GET['id']; ?>,
+			dataType: 'json',
+			success: function(data){
+				if(data && !data.erro){
+					$('#lista_ocorrencias').empty();
+
+				data.forEach(function(ocorrencia){
+
+					let bloco_ocorrencia = `
+						<div class="col-12 mb-3">
+							<div class="border rounded p-3 bg-light">
+								<p><strong>Data de Registro: </strong>${ocorrencia.data_registro}</p>
+								<p><strong>Título: </strong>${ocorrencia.titulo}</p>
+								<p><strong>Ocorrência: </strong>${ocorrencia.ocorrencia}</p>
+							</div>
+						</div>
+					`;
+
+					$('#lista_ocorrencias').append(bloco_ocorrencia);
+				});
+
+				} else {
+					$('#lista_ocorrencias').html(`<p class="text-danger"><strong>Nenhuma ocorrência encontrada.</strong></p>`);
+				}
+				},
+				error: function(xhr, status, error){
+					console.error("Erro ao carregar ocorrências:", error);
+				}
+			});
+
+
+	}
 	</script>
 </body>
 </html>
