@@ -92,7 +92,7 @@ include "src/protect.php";
 						<button type="button" class="btn btn-success w-100" id="exibe_form_inserir_ocorrencia" onclick="exibe_form_inserir_ocorrencia();">Inserir Ocorrência</button>
 					</div>
 					<div class="col-12 col-sm-6 col-lg-2 mt-2">
-						<button id="btn-consultar" name="btn-consultar" type="button" class="btn btn-success w-100" onclick="exibir_ocorrências()">Consultar Ocorrências</button>
+						<button id="exibir_ocorrencias" name="exibir_ocorrencias" type="button" class="btn btn-success w-100" onclick="exibir_ocorrencias()">Consultar Ocorrências</button>
 					</div>
 				</div>
 				<!--Início do formulário-->
@@ -130,8 +130,12 @@ include "src/protect.php";
 				</div>
 				<!--Final do formulário-->
 				<!--Iinicio das Ocorrências-->
-				<div id="lista_ocorrencias" name="lista_ocorrencias" style="display: block;">
-
+				<div id="bloco_lista_ocorrencias" style="display: none;">
+					<div id="lista_ocorrencias" name="lista_ocorrencias">
+					</div>
+					<div class="col-12 col-sm-6 col-lg-2 mb-3 ms-auto">
+						<button type="button" class="btn btn-danger w-100" id="esconder_ocorrencias" onclick="esconder_ocorrencias();">Fechar Ocorrências</button>
+					</div>
 				</div>
 			</div>
 		</div>	
@@ -155,34 +159,76 @@ include "src/protect.php";
 					$('#telefone_membro').text(data.telefone_membro);
 					$('#tempo_de_membro').text(data.tempo_de_membro);
 					$('#ativo').text(data.ativo);
-					$('#faixa_salarial').text(data.faixa_salarial.toFixed(2));
 					let faixa_salarial = parseFloat(data.faixa_salarial) || 0;
 					$('#faixa_salarial').text(faixa_salarial.toFixed(2));
 					$('#contribuicao_sugerida').text((faixa_salarial / 10).toFixed(2));
-
-
-
+					
 				}else{
 				}
 			},
-			error: function() {//Função executada caso haja um erro na requisição Ajax
-				console.error("Erro ao carregar os dados do membro.", data);
+			error: function(xhr, status, error) {//Função executada caso haja um erro na requisição Ajax
+				console.error("Erro ao carregar os dados do membro.", error);
 			}
 		});
+
+		$.ajax({
+			url: 'ws/seleciona_ocorrencias.php?id=' + <?php echo $_GET['id']; ?>,
+			dataType: 'json',
+			success: function(data){
+				if(data && !data.erro){
+					$('#lista_ocorrencias').empty();
+
+				data.forEach(function(ocorrencia){
+
+					let bloco_ocorrencia = `
+						<div class="col-12 mb-3">
+							<div class="border rounded p-3 bg-light">
+								<p><strong>Data de Registro: </strong>${ocorrencia.data_registro}</p>
+								<p><strong>Título: </strong>${ocorrencia.titulo}</p>
+								<p><strong>Ocorrência: </strong>${ocorrencia.ocorrencia}</p>
+							</div>
+						</div>
+					`;
+
+					$('#lista_ocorrencias').append(bloco_ocorrencia);
+				});
+
+				} else {
+					$('#lista_ocorrencias').html(`<p class="text-danger"><strong>Nenhuma ocorrência encontrada.</strong></p>`);
+				}
+				},
+				error: function(xhr, status, error){
+					console.error("Erro ao carregar ocorrências:", error);
+				}
+			});
 	});
 
 	function exibe_form_inserir_ocorrencia()
 	{
 		$('#inserir_ocorrencia').css('display', 'block');
 		$('#exibe_form_inserir_ocorrencia').css('display', 'none');
-		$('#btn-consultar').css('display', 'none');	
+		$('#exibir_ocorrencias').css('display', 'none');	
 	}
 
 	function cancela_exibe_form_inserir_ocorrencia()
 	{
 		$('#inserir_ocorrencia').css('display', 'none');
 		$('#exibe_form_inserir_ocorrencia').css('display', 'block');
-		$('#btn-consultar').css('display', 'block');	
+		$('#exibir_ocorrencias').css('display', 'block');	
+	}
+
+	function exibir_ocorrencias()
+	{
+		$('#bloco_lista_ocorrencias').css('display', 'block');
+		$('#exibir_ocorrencias').css('display', 'none');
+		$('#exibe_form_inserir_ocorrencia').css('display', 'none');
+	}
+
+	function esconder_ocorrencias()
+	{
+		$('#bloco_lista_ocorrencias').css('display', 'none');
+		$('#exibir_ocorrencias').css('display', 'block');
+		$('#exibe_form_inserir_ocorrencia').css('display', 'block');
 	}
 
 	function inserir_ocorrencia()
@@ -227,42 +273,6 @@ include "src/protect.php";
 		});
 	}
 
-
-	function exibir_ocorrências()
-	{
-		$.ajax({
-			url: 'ws/seleciona_ocorrencias.php?id=' + <?php echo $_GET['id']; ?>,
-			dataType: 'json',
-			success: function(data){
-				if(data && !data.erro){
-					$('#lista_ocorrencias').empty();
-
-				data.forEach(function(ocorrencia){
-
-					let bloco_ocorrencia = `
-						<div class="col-12 mb-3">
-							<div class="border rounded p-3 bg-light">
-								<p><strong>Data de Registro: </strong>${ocorrencia.data_registro}</p>
-								<p><strong>Título: </strong>${ocorrencia.titulo}</p>
-								<p><strong>Ocorrência: </strong>${ocorrencia.ocorrencia}</p>
-							</div>
-						</div>
-					`;
-
-					$('#lista_ocorrencias').append(bloco_ocorrencia);
-				});
-
-				} else {
-					$('#lista_ocorrencias').html(`<p class="text-danger"><strong>Nenhuma ocorrência encontrada.</strong></p>`);
-				}
-				},
-				error: function(xhr, status, error){
-					console.error("Erro ao carregar ocorrências:", error);
-				}
-			});
-
-
-	}
 	</script>
 </body>
 </html>
