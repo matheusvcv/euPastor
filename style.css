@@ -105,22 +105,6 @@ body{
 	color: red;
 }
 
-#titulo_login {
-	font-size: 3vh;
-}
-
-#cadastro_usuario {
-	display: none;
-}
-
-#inserir_ocorrencia {
-	display: none;
-}
-
-#texto_ocorrencia{
-	height: 30vh !important;
-}
-
 .transition-card {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
@@ -182,4 +166,24 @@ body{
 	color: #FFFAFA !important;
 	background-color: #000000;
 	text-transform: uppercase;
+}
+
+#titulo_login {
+	font-size: 3vh;
+}
+
+#cadastro_usuario {
+	display: none;
+}
+
+#inserir_ocorrencia {
+	display: none;
+}
+
+#texto_ocorrencia{
+	height: 30vh !important;
+}
+
+#home{
+	display: flex;
 }

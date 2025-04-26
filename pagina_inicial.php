@@ -57,41 +57,25 @@ include "view/head.php"
       <a class="nav-link barra_item">Outro módulo</a>
     </li>
   </ul>
-<!-- Links -->
-  <section class="container-fluid" id="links" style="margin-bottom: 60px;">
-    <div class="row justify-content-center">
-      <article class="card card-largura p-0 m-3 col-12 col-md-3">
-        <div class="barra">
-          <h5 class="card-title card-titulo" style="padding: 5px 15px; padding-bottom: 0px">Lista de Membros</h5>
-        </div>
-        <div class="card-body">
-          <img src="img/call.png" style="padding-bottom: 10px;">
-          <p class="card-text card-texto" style="padding-bottom: 5px;">Portal para abertura e consulta de chamados para colaboradores.</p>
-          <a href="link_modelo.html" target="blank" class="btn botao-cor-especial" >Clique Aqui</a>
-        </div>
-      </article>
-      <article class="card card-largura p-0 m-3 col-12 col-md-3">
-        <div class="barra">
-          <h5 class="card-title card-titulo" style="padding: 5px 15px; padding-bottom: 0px">Escola Bíblica Dominical</h5>
-        </div>
-        <div class="card-body">
-          <img src="img/bill.png" style="padding-bottom: 10px;">
-          <p class="card-text card-texto" style="padding-bottom: 5px;">Portal de gestão que facilita a comunicação entre as áreas.</p>
-          <a href="link_modelo.html" target="blank" class="btn botao-cor-especial">Clique Aqui</a>
-        </div>
-      </article>
-      <article class="card card-largura p-0 m-3 col-12 col-md-3">
-        <div class="barra">
-          <h5 class="card-title  card-titulo" style="padding: 5px 15px; padding-bottom: 0px">Cadastrar Usuários</h5>
-        </div>
-        <div class="card-body">
-          <img src="img/pbot.png" style="padding-bottom: 10px;">
-          <p class="card-text card-texto" style="padding-bottom: 5px;">Simplifica o registro, rastreamento e gerenciamento de documentos.</p>
-          <a href="#" target="blank" class="btn botao-cor-especial">Clique Aqui</a>
-        </div>
-      </article>
+
+  <div class="card card_body m-3">
+    <div class="card-content collapse show">
+      <div class="card-body card-dashboard">
+        <main id="content">
+          <section id="home">
+            <div id="cta">
+              <h1 class="titulo_pagina_inicia.">Administre sua igreja com <span>exelência</span> e <span>propósito</span>.</h1>
+              <p class="descricao">Administração de igrejas feita de forma inteligente! Organize, gerencie e fortaleça sua missão com o MyChurch WebSystem.</p>      
+            </div>
+
+            <div id="banner">
+              <img src="img/bg_pagina_inicial.jpg">
+            </div>
+          </section>        
+        </main>
+      </div>
     </div>
-  </section>
+  </div> 
 
   <script src="bootstrap/js/bootstrap.min.js"></script>
 	<script>
