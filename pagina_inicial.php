@@ -64,12 +64,16 @@ include "view/head.php"
         <main id="content">
           <section id="home">
             <div id="cta">
-              <h1 class="titulo_pagina_inicia.">Administre sua igreja com <span>exelência</span> e <span>propósito</span>.</h1>
+              <h1 class="titulo_pagina_inicial">Administre sua igreja com <span>exelência</span> e <span>propósito</span>.</h1>
               <p class="descricao">Administração de igrejas feita de forma inteligente! Organize, gerencie e fortaleça sua missão com o MyChurch WebSystem.</p>      
-            </div>
-
+              <div id="cta_botoes">
+                <a href="#" class="btn btn-outline-dark">
+                  Saiba Mais
+                </a>
+              </div>
+           </div>
             <div id="banner">
-              <img src="img/bg_pagina_inicial.jpg">
+              <img src="img/bg_pagina_inicial2.png">
             </div>
           </section>        
         </main>

@@ -186,4 +186,47 @@ body{
 
 #home{
 	display: flex;
+	min-height: calc(100vh - 56px);
+}
+
+#cta{
+	width: 35%;
+	display: flex;
+	flex-direction: column;
+	gap: 28px;
+}
+
+#cta .titulo_pagina_inicial{
+	font-size: 2.2rem;
+	color: #363636;
+}
+
+#cta .titulo_pagina_inicial span{
+	font-weight: bold;
+	color: #000000;
+}
+
+#cta .descricao{
+	font-size: 1rem;
+	color: #000000;
+}
+
+#cta_botoes{
+	display: flex;
+}
+
+#cta_botoes a{
+	text-decoration: none;
+}
+
+#banner{
+	display: flex;
+	align-items: start;
+	justify-content: end;
+	width: 70%;
+}
+
+#banner img{
+	height: 100%;
+	width: fit-content;
 }
