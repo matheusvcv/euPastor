@@ -63,6 +63,7 @@ include "view/head.php"
       <div class="card-body card-dashboard">
         <main id="content">
           <section id="home">
+            <div class="shape"></div>
             <div id="cta">
               <h1 class="titulo_pagina_inicial">Administre sua igreja com <span>exelência</span> e <span>propósito</span>.</h1>
               <p class="descricao">Administração de igrejas feita de forma inteligente! Organize, gerencie e fortaleça sua missão com o MyChurch WebSystem.</p>      
@@ -73,7 +74,7 @@ include "view/head.php"
               </div>
            </div>
             <div id="banner">
-              <img src="img/bg_pagina_inicial2.png">
+              <img src="img/bg_pagina_inicial.png">
             </div>
           </section>        
         </main>
