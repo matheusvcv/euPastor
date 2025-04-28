@@ -66,9 +66,10 @@ include "view/head.php"
             <div class="shape"></div>
             <div id="cta">
               <h1 class="titulo_pagina_inicial">Administre sua igreja com <span>exelência</span> e <span>propósito</span>.</h1>
-              <p class="descricao">Administração de igrejas feita de forma inteligente! Organize, gerencie e fortaleça sua missão com o MyChurch WebSystem.</p>      
+              <p class="descricao">Administração de igrejas feita de forma inteligente! Organize, gerencie e fortaleça sua missão com o MyChurch WebSystem.</p>
+              <p>O MyChurch WebSystem é uma plataforma de gestão para igrejas que organiza membros, turmas e atividades religiosas. Com módulos intuitivos, facilita o trabalho dos líderes, trazendo mais eficiência e segurança à administração.</p>      
               <div id="cta_botoes">
-                <a href="#" class="btn btn-outline-dark">
+                <a href="https://github.com/matheusvcv/euPastor" target="blanket" class="btn btn-outline-dark">
                   Saiba Mais
                 </a>
               </div>

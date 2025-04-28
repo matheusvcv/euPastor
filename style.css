@@ -1,112 +1,111 @@
 @charset "UTF-8";
 
 body{
-	background-color: #F5F5F5 !important;
+  background-color: #F5F5F5 !important;
 }
 
 section{
-	padding: 18px 4%;
+  padding: 18px 4%;
 }
 
 .body_index{
-	background-image: url(img/bg_image.jpg);
-	background-position: top left;
-	background-repeat: no-repeat;
-	background-size: cover;
+  background-image: url(img/bg_image.jpg);
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .bg_login {
-	background-color: rgba(255, 255, 255, 0.5);
-	border-radius: 10px !important;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px !important;
 }
 
 .bg_login:hover {
-	background-color: rgba(255, 255, 255, 0.8);
-	border-radius: 10px !important;
-	border-radius: 15px !important;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px !important;
+  border-radius: 15px !important;
 }
 
 .container_login {
-	border: solid #4F4F4F 1px; 
-	border-radius: 15px !important;
+  border: solid #4F4F4F 1px; 
+  border-radius: 15px !important;
 }
 
 .botao_login {
-	background-color: 	#000000 !important;
+  background-color:   #000000 !important;
 }
 
 .botao_login:hover {
-	background-color: #363636 !important;
+  background-color: #363636 !important;
 }
 
 .letra_escura{
-	color: 	#000000;
-	font-weight: bold;
+  color:  #000000;
+  font-weight: bold;
 }
 
 .esqueci_minha_senha{
-	color: 	#000000;
-	text-decoration: none;
+  color:  #000000;
+  text-decoration: none;
 }
 
 .esqueci_minha_senha:hover {
-	color: 	blue;
+  color:  blue;
 }
 
 .botao_sair:hover{
-	font-weight: bold !important;
+  font-weight: bold !important;
 }
 
 .card_body{
-	background-color: #FFFFFF !important;
+  background-color: #FFFFFF !important;
 }
 
 .barra_nav{
-	background-color: #FFFFFF;
-	border: solid #A9A9A9 1px;
+  background-color: #FFFFFF;
+  border: solid #A9A9A9 1px;
 }
 
 .barra_item{
-	color: black !important;
-	font-weight: bold !important;
+  color: black !important;
+  font-weight: bold !important;
 }
 
 .barra_item:hover{
-	color: #FFFFFF !important;
-	background-color: #212529 !important;
-
+  color: #FFFFFF !important;
+  background-color: #212529 !important;
 }
 
 .form_item{
-	border: solid #212529 1px !important;
+  border: solid #212529 1px !important;
 }
 
 .form_item:hover{
-	border: solid silver 1px !important;
+  border: solid silver 1px !important;
 }
 
 .icon{
-	width: 18px;
-	height: 18px;
+  width: 18px;
+  height: 18px;
 }
 
 .icon:hover{
-	width: 21px;
-	height: 21px;
-	color: red;
+  width: 21px;
+  height: 21px;
+  color: red;
 }
 
 .icon_2{
-	width: 16px;
-	height: 16px;
-	margin-right: 1vh;
-	pointer
+  width: 16px;
+  height: 16px;
+  margin-right: 1vh;
+  pointer
 }
 
 .icon_2:hover{
-	width: 20px;
-	height: 20px;
-	color: red;
+  width: 20px;
+  height: 20px;
+  color: red;
 }
 
 .transition-card {
@@ -119,7 +118,7 @@ section{
 }
 
 .card-style {
-	padding: 1px;
+  padding: 1px;
 }
 
 .card-img-top {
@@ -135,17 +134,17 @@ section{
 }
 
 .card-text {
-	display: flex; 
-	align-items: center;
-	justify-content: center;
-	text-align: justify;
-	text-align-last: left;
-	min-height: 5rem;
-	max-height: 6rem;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: normal;
-	line-height: 1.4; 
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+  text-align-last: left;
+  min-height: 5rem;
+  max-height: 6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.4; 
 }
 
 .swal2-buttons-spacing {
@@ -155,99 +154,158 @@ section{
 }
 
 .checkbox_custom{
-	border: solid 1px black;
+  border: solid 1px black;
 }
 
 .lista{
-	text-decoration: none;
-	color: black;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lista:hover {
-	color: #FFFAFA !important;
-	background-color: #000000;
-	text-transform: uppercase;
+  color: #FFFAFA !important;
+  background-color: #000000;
+  text-transform: uppercase;
 }
 
 .shape{
-	background-color: #F5F5F5;
-	height: 100%;
-	width: 35%;
-	position: absolute;
-	border-radius: 40% 30% 0% 20%;
-	top: 0;
-	right: 0;
-	z-index: 1;
+  background-color: #F5F5F5;
+  height: 100%;
+  width: 35%;
+  position: absolute;
+  border-radius: 40% 30% 0% 20%;
+  top: 0;
+  right: 0;
+  z-index: 1;
 }
 
 #titulo_login {
-	font-size: 3vh;
+  font-size: 3vh;
 }
 
 #cadastro_usuario {
-	display: none;
+  display: none;
 }
 
 #inserir_ocorrencia {
-	display: none;
+  display: none;
 }
 
 #texto_ocorrencia{
-	height: 30vh !important;
+  height: 30vh !important;
 }
 
 #home{
-	display: flex;
-	height: 73vh !important;
-	/*min-height: 85vh;*/
-	position: relative;
-	padding-bottom: 18px; 
+  display: flex;
+  height: 73vh !important;
+  position: relative;
+  padding-bottom: 18px; 
 }
 
 #cta{
-	width: 35%;
-	height: 70vh;
-	display: flex;
-	flex-direction: column;
-	gap: 28px;
+  width: 50%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
 
 #cta .titulo_pagina_inicial{
-	font-size: 2.2rem;
-	color: #363636;
+  font-size: 2.2rem;
+  color: #363636;
 }
 
 #cta .titulo_pagina_inicial span{
-	font-weight: bold;
-	color: #000000;
+  font-weight: bold;
+  color: #000000;
 }
 
 #cta .descricao{
-	font-size: 1rem;
-	color: #000000;
+  font-size: 1rem;
+  color: #000000;
 }
 
 #cta_botoes{
-	display: flex;
+  display: flex;
 }
 
 #cta_botoes a{
-	text-decoration: none;
+  text-decoration: none;
 }
 
 #banner{
-	display: flex;
-	align-items: start;
-	justify-content: end;
-	height: 70vh;
-	width: 70%;
-	z-index: 2;
+  display: flex;
+  align-items: start;
+  justify-content: end;
+  height: 70vh;
+  width: 50%;
+  z-index: 2;
 }
 
 #banner img{
-	height: 85%;
-	width: fit-content;
+  height: 85%;
+  width: fit-content;
+}
+
+@media screen and (max-width: 1170px){
+  #home {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 20px 10px;
+  }
+
+  #cta {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  #cta .titulo_pagina_inicial {
+    font-size: 1.8rem;
+  }
+
+  #cta .descricao {
+    font-size: 0.95rem;
+    padding: 0 10px;
+  }
+
+  #cta_botoes {
+    justify-content: center;
+    width: 100%;
+  }
+
+  #cta_botoes a {
+    width: auto;
+    max-width: 250px;
+  }
+
+  #banner {
+    display: none;
+  }
+
+  .shape {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 576px){
+  #cta .titulo_pagina_inicial {
+    font-size: 1.5rem;
+  }
+
+  #cta .descricao {
+    font-size: 0.9rem;
+  }
+
+  #cta_botoes a {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
 }
