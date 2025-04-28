@@ -175,7 +175,7 @@ section{
 .shape{
 	background-color: #F5F5F5;
 	height: 100%;
-	width: 50%;
+	width: 35%;
 	position: absolute;
 	border-radius: 40% 30% 0% 20%;
 	top: 0;
@@ -201,12 +201,15 @@ section{
 
 #home{
 	display: flex;
-	min-height: calc(100vh - 56px);
+	height: 73vh !important;
+	/*min-height: 85vh;*/
 	position: relative;
+	padding-bottom: 18px; 
 }
 
 #cta{
 	width: 35%;
+	height: 70vh;
 	display: flex;
 	flex-direction: column;
 	gap: 28px;
@@ -239,12 +242,12 @@ section{
 	display: flex;
 	align-items: start;
 	justify-content: end;
+	height: 70vh;
 	width: 70%;
 	z-index: 2;
 }
 
 #banner img{
-	height: 100%;
+	height: 85%;
 	width: fit-content;
-	height: fit-content;
 }
