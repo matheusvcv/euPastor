@@ -57,10 +57,10 @@ include "view/head.php"
       <a class="nav-link barra_item">Outro módulo</a>
     </li>
   </ul>
-
   <div class="card card_body m-3">
     <div class="card-content collapse show">
       <div class="card-body card-dashboard">
+        <p id="mensagem">Seja bem vindo, <?php echo $_SESSION['nome']; ?>!</p>
         <main id="content">
           <section id="home">
             <div class="shape"></div>

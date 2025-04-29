@@ -248,7 +248,19 @@ section{
 #banner img{
   height: 85%;
   width: fit-content;
+  font-size: 40px !important;
 }
+
+#mensagem{
+  color: #363636;
+  font-style: italic;
+}
+
+#mensagem:hover{
+  color: #000000;
+  font-style: italic;
+}
+
 
 @media screen and (max-width: 1170px){
   #home {
