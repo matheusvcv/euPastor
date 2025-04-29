@@ -101,7 +101,7 @@ $turmas = $conexao->query("SELECT id, nome_turma FROM turmas");
               </div>
               <div class="row justify-content-end mb-2">
                 <div class="col-lg-1 col-sm-12 mt-3" style="min-width: 120px;">
-                  <button type="submit" class="btn btn-success form-control form_item" onclick="inserir_membro();">Cadastrar</button>
+                  <button type="submit" class="btn btn-success form-control form_item">Cadastrar</button>
                 </div>
                 <div class="col-lg-1 mt-3" style="min-width: 120px;">
                   <div class="btn btn-danger form-control form_item" onclick="esconde_turmas();">Cancelar</div>
@@ -145,7 +145,7 @@ $turmas = $conexao->query("SELECT id, nome_turma FROM turmas");
               </div>
               <div class="row justify-content-end mb-2">
                 <div class="col-lg-1 col-sm-12 mt-3" style="min-width: 120px;">
-                  <button type="submit" class="btn btn-success form-control form_item" onclick="inserir_membro();">Cadastrar</button>
+                  <button type="submit" class="btn btn-success form-control form_item">Cadastrar</button>
                 </div>
                 <div class="col-lg-1 mt-3" style="min-width: 120px;">
                   <div class="btn btn-danger form-control form_item" onclick="esconde_form_matricular_aluno();">Cancelar</div>
@@ -184,6 +184,37 @@ $turmas = $conexao->query("SELECT id, nome_turma FROM turmas");
     $('#matricular_aluno').css('display', 'none');
     $('#exibe_matricular_aluno').css('display', 'block');
   }
+
+    //Alerta de Usuário Matriculado com sucesso.
+    <?php if(isset($_GET['matricula_realizada']) && $_GET['matricula_realizada'] == 1) { ?>
+      var timerInterval;
+      Swal.fire({
+      title: "Matricula Realizada com Sucesso.",
+      type: "success",
+      timer: 9200,
+      confirmButtonClass: "btn btn-success",
+      buttonsStyling: false,
+      onClose: function() {
+      clearInterval(timerInterval);
+      }
+      })
+    <?php }; ?> 
+
+    //Alerta de Turma Inserida com Sucesso.
+    <?php if(isset($_GET['turma_cadastrada']) && $_GET['turma_cadastrada'] == 1) { ?>
+      var timerInterval;
+      Swal.fire({
+      title: "Turma Cadastrada com Sucesso.",
+      type: "success",
+      timer: 9200,
+      confirmButtonClass: "btn btn-success",
+      buttonsStyling: false,
+      onClose: function() {
+      clearInterval(timerInterval);
+      }
+      })
+    <?php }; ?> 
+
 
 </script>
 </body>

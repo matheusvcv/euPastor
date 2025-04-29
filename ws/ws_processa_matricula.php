@@ -15,13 +15,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
         if($statement->execute()){
             echo "Matrícula realizada com sucesso!";
+            header("Location:../adicionar_turmas.php?matricula_realizada=1");
         } else {
             echo "Erro ao realizar matrícula!";
+            header("Location:../adicionar_turmas.php?matricula_realizada=2");
         }
 
 		$statement->close();
 	} else {
 		echo "Erro ao realizar matrícula: " . $conexao->error;
+		header("Location:../adicionar_turmas.php?matricula_realizada=2");
 	}
 
 	$conexao->close();

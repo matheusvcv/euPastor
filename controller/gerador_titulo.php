@@ -21,9 +21,11 @@
 	}elseif ($titulo_da_pagina === "escola_biblica_dominical.php") {
 		$titulo = "Escola Dominical";
 	}elseif ($titulo_da_pagina === "adicionar_turmas.php") {
-		$titulo = "Adicionar Turmas";
+		$titulo = "Configuração de Turmas";
 	}elseif ($titulo_da_pagina === "adicionar_turmas.php?turma") {
-		$titulo = "Adicionar Turmas";
+		$titulo = "Configuração de Turmas";
+	}elseif ($titulo_da_pagina === "adicionar_turmas.php?matri") {
+		$titulo = "Configuração de Turmas";
 	}elseif ($titulo_da_pagina === "exibir_turmas.php?depar") {
 		$titulo = "Turmas";
 	}
