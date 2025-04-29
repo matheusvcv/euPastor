@@ -75,8 +75,12 @@ if(!isset($_GET['departamento'])){
 	<div class="card card_body m-3">
 		<div class="card-content collapse show">
 			<div class="card-body card-dashboard">
-				<!--Início do formulário-->
-				<h3>Departamento <?php echo ucfirst($departamento); ?></h3>
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h3 class="mb-0">Departamento <?php echo ucfirst($departamento); ?></h3>
+          <a href="escola_biblica_dominical.php">
+            <img src="img/voltar.png" alt="Voltar">
+          </a>
+        </div>
 				<div class="container-fluid">
 					<div class="row mt-3">
 						<h6>Turmas:</h6>

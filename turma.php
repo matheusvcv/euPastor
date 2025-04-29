@@ -9,7 +9,7 @@ if(!isset($_GET['id'])){ //Se o id da turma não estiver definido, encerra o car
 $turma_id = $_GET['id'];// Define a var $turma_id com o valor que foi recebido via GET.
 
 //Busca o nome da turma
-$stm_turma = $conexao->prepare("SELECT nome_turma FROM turmas WHERE id = ?");//Consulta utilizando prepare para evitar SQL injection.
+$stm_turma = $conexao->prepare("SELECT departamento, nome_turma FROM turmas WHERE id = ?");//Consulta utilizando prepare para evitar SQL injection.
 $stm_turma-> bind_param("i", $turma_id);//Associa o valor da variável ao paceholder da consulta
 $stm_turma->execute();//Executa a query preparada
 $resultado_turma = $stm_turma->get_result();//Recupera o resultado da execução da query como um  objeto do tipo mysqli_result
@@ -85,7 +85,14 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 	<div class="card card_body m-3">
 		<div class="card-content collapse show">
 			<div class="card-body card-dashboard">
-				<h3><?php echo htmlspecialchars($turma['nome_turma']); ?></h3>
+
+		<div class="d-flex align-items-center justify-content-between mb-3">
+          <h3><?php echo htmlspecialchars($turma['nome_turma']); ?></h3>
+          <a href="exibir_turmas.php?departamento=<?php echo $turma['departamento'];?>">
+            <img src="img/voltar.png" alt="Voltar">
+          </a>
+        </div>
+				
 				<!--Início da DataTable-->
 				<div class="container-fluid">
 					<div class="row mt-3">
