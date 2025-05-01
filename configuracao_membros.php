@@ -223,7 +223,7 @@ include "src/protect.php";
 	                "data": "id",
 	                "render": function(data, type, row, meta) {
 	                    if (type === 'display') {
-	                        return '<a><img src="img/save_icon.svg" onclick="editar_membros('+ row.id +')" class="icon_2"></a>' + '<a href=""><img src="img/delete_icon.svg" onclick="deletar_membro('+ row.id +')" class="icon"></a>';
+	                        return '<a><img src="img/save_icon.svg" onclick="editar_membros('+ row.id +')" class="icon_2"></a>' + '<a><img src="img/delete_icon.svg" onclick="deletar_membro('+ row.id +')" class="icon"></a>';
 	                    }
 	                    return data;
 	                }
@@ -393,21 +393,34 @@ include "src/protect.php";
 		});
 	}
 
-	function deletar_membro(id)
-	{
-		var membro = $('#nome_membro_'+id+'').val();
-		$.ajax({
-			url: 'ws/ws_deletar_membros.php',
-			type: 'post',
-			data:{
-				'id': id
-			},
-		}).done(function(response) {
-			$('#datatable').DataTable().ajax.reload();
-		});
+function deletar_membro(id) {
+    console.log("Deletando membro com ID: " + id);
 
-	}
+    if (confirm('Tem certeza que deseja deletar este membro?')) {
+        $.ajax({
+            url: 'ws/ws_deletar_membros.php',
+            type: 'POST',
+            dataType: 'json', // Espera resposta JSON
+            data: {
+                id: id
+            },
+            success: function(response) {
+                console.log("Resposta do servidor:", response);
+                if (response.status === 'success') {
+                    $('#datatable').DataTable().ajax.reload(); // Recarrega a tabela
+                    alert("Membro deletado com sucesso!");
+                } else {
+                    alert("Erro ao deletar o membro: " + (response.message || 'Erro desconhecido.'));
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Erro na requisição AJAX:", error);
+                alert("Ocorreu um erro ao tentar deletar o membro. Tente novamente.");
+            }
+        });
+    }
 
+}
 	function exibe_form_cad_membro()
 	{
 		$('#cadastro_usuario').css('display', 'block');
