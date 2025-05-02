@@ -180,6 +180,7 @@ include "src/protect.php";
 	<!--Script Bootstrap-->
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script>
 
 	$(document).ready(function() {
@@ -393,34 +394,42 @@ include "src/protect.php";
 		});
 	}
 
-function deletar_membro(id) {
-    console.log("Deletando membro com ID: " + id);
+	function deletar_membro(id) {
 
-    if (confirm('Tem certeza que deseja deletar este membro?')) {
-        $.ajax({
-            url: 'ws/ws_deletar_membros.php',
-            type: 'POST',
-            dataType: 'json', // Espera resposta JSON
-            data: {
-                id: id
-            },
-            success: function(response) {
-                console.log("Resposta do servidor:", response);
-                if (response.status === 'success') {
-                    $('#datatable').DataTable().ajax.reload(); // Recarrega a tabela
-                    alert("Membro deletado com sucesso!");
-                } else {
-                    alert("Erro ao deletar o membro: " + (response.message || 'Erro desconhecido.'));
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error("Erro na requisição AJAX:", error);
-                alert("Ocorreu um erro ao tentar deletar o membro. Tente novamente.");
-            }
-        });
-    }
+		Swal.fire({
+			title: 'Deletar Membro',
+			text: "Você tem certeza que deseja deletar esse membro?",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#d33',
+			cancelButtonColor: '#3085d6',
+			confirmButtonText: 'Sim, deletar',
+			cancelButtonText: 'Cancelar'
+		}).then((result)=>{
+			if(result.isConfirmed){
+				$.ajax({
+					url: 'ws/ws_deletar_membros.php',
+					type: 'POST',
+					dataType: 'json',
+					data: {id: id},
+					success: function(response){
+						if(response.status === 'success'){
+							$('#datatable').DataTable().ajax.reload();
+							Swal.fire('Deletado!', 'O membro foi deletado com sucesso.', 'success');
 
-}
+						}else{
+							Swal.fire('Erro!', response.message || 'Erro ao deletar o membro.', 'error');
+						}
+					},
+					error: function(xhr, status, error){
+						Swal.fire('Erro!', 'Ocorreu um erro na requisição. Tente Novamente.', 'error');
+					}
+				});
+			}
+		});
+
+	}
+
 	function exibe_form_cad_membro()
 	{
 		$('#cadastro_usuario').css('display', 'block');
