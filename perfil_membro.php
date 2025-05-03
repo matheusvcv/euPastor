@@ -254,7 +254,8 @@ include "src/protect.php";
 					icon: 'success',
 					title: 'Ocorrência Cadastrada!',
 					text: 'Ocorrência foi cadastrada com sucesso!',
-					confirmButtonText: 'OK'
+					confirmButtonText: 'OK',
+					confirmButtonColor: '#198754',
 
 				}).then((result)=>{
 					if(result.isConfirmed){

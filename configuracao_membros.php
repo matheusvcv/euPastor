@@ -394,15 +394,15 @@ include "src/protect.php";
 		});
 	}
 
-	function deletar_membro(id) {
+	function deletar_membro(id)
+	{
 
 		Swal.fire({
 			title: 'Deletar Membro',
 			text: "Você tem certeza que deseja deletar esse membro?",
-			icon: 'warning',
 			showCancelButton: true,
 			confirmButtonColor: '#d33',
-			cancelButtonColor: '#3085d6',
+			cancelButtonColor: '#198754',
 			confirmButtonText: 'Sim, deletar',
 			cancelButtonText: 'Cancelar'
 		}).then((result)=>{
@@ -427,7 +427,6 @@ include "src/protect.php";
 				});
 			}
 		});
-
 	}
 
 	function exibe_form_cad_membro()
