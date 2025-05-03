@@ -143,6 +143,8 @@ include "src/protect.php";
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css" rel="stylesheet">
 	<script src="bootstrap/js/bootstrap.min.js"></script><!--Carrega o Bootstrap-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script><!--Carrega o plugin de Máscaras-->
+
 	<script>
 
 	$(document).ready(function() {//Define que quando o documento for carregado, os dados serão carregados.
@@ -153,10 +155,10 @@ include "src/protect.php";
 				if(data && !data.erro){
 
 					$('#nome_membro').text(data.nome_membro);
-					$('#cpf_membro').text(data.cpf_membro);
+					$('#cpf_membro').text(aplicar_mascara_cpf(data.cpf_membro));
 					$('#nascimento_membro').text(data.nascimento_membro);
 					$('#email_membro').text(data.email_membro);
-					$('#telefone_membro').text(data.telefone_membro);
+					$('#telefone_membro').text(aplicar_mascara_telefone(data.telefone_membro));
 					$('#tempo_de_membro').text(data.tempo_de_membro);
 					$('#ativo').text(data.ativo);
 					let faixa_salarial = parseFloat(data.faixa_salarial) || 0;
@@ -199,7 +201,14 @@ include "src/protect.php";
 				},
 				error: function(xhr, status, error){
 					console.error("Erro ao carregar ocorrências:", error);
-				}
+				},
+
+				"drawCallback": function(settings) {
+	        	//Serve para aplicar as máscaras após a renderização da tabela.
+	        	$('[#cpf_membro]').mask('000.000.000-00');
+	        	$('[#telefone_membro]').mask('(00) 00000-0000');
+	        },
+
 			});
 	});
 
@@ -272,6 +281,14 @@ include "src/protect.php";
 			}
 
 		});
+	}
+
+	function aplicar_mascara_cpf(cpf_membro){//Função desenvolvida para aplicar a máscara ao CPF diretamente usando javascript porque o plug in jQuery Mask não funciona em span.
+		return cpf_membro.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3-$4");
+	}
+
+	function aplicar_mascara_telefone(telefone_membro){//Função desenvolvida para aplicar a máscara ao telefone diretamente usando javascript porque o plug in jQuery Mask não funciona em span.
+		return telefone_membro.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
 	}
 
 	</script>

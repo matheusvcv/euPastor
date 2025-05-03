@@ -181,6 +181,8 @@ include "src/protect.php";
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
 	<script>
 
 	$(document).ready(function() {
@@ -317,7 +319,13 @@ include "src/protect.php";
 						return data;
 					}
 				}
-	        ]
+	        ],
+
+	        "drawCallback": function(settings) {
+	        	//Serve para aplicar as máscaras após a renderização da tabela.
+	        	$('[id^=cpf_membro_]').mask('000.000.000-00');
+	        	$('[id^=telefone_membro_]').mask('(00) 00000-0000');
+	        }
 	    });
 	});
 
