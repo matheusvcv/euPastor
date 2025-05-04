@@ -88,7 +88,7 @@ include "src/protect.php";
 									<input type="text" class="form-control form_item" id="nome_membro" name="nome_membro" placeholder="Digite o nome aqui.">
 								</div>
 								<div class="col-lg-4">
-									<label for="telefone" class="form-label">CPF do mebro:</label>
+									<label for="telefone" class="form-label">CPF do membro:</label>
 									<input type="text" class="form-control form_item" id="cpf_membro" name="cpf_membro" placeholder="Digite o CPF aqui.">
 								</div>
 								<div class="col-lg-4">
@@ -255,7 +255,12 @@ include "src/protect.php";
 					"defaultContent": "",
 					"render": function (data, type, row, meta){
 						if(type === 'display'){
-							return '<input id="nascimento_membro_' + row.id + '" name="nascimento_membro_' + row.id + '" value="'+ data +'" style="text-align: center;">';
+							const date = new Date(data);
+							const dia = String(date.getDate()).padStart(2, '0');
+							const mes = String(date.getMonth() + 1).padStart(2, '0');
+							const ano = date.getFullYear();
+							const data_formatada = `${dia}-${mes}-${ano}`;
+							return '<input id="nascimento_membro_' + row.id + '" name="nascimento_membro_' + row.id + '" value="'+ data_formatada +'" style="text-align: center;">';
 						}
 
 					}
