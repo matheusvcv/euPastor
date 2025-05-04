@@ -149,7 +149,19 @@ include "src/protect.php";
 				},
 				{"data": "nome_membro"},//Recebe o dado que ajax retorna direto do json
 				{"data": "cpf_membro"},//Recebe o dado que ajax retorna direto do json
-				{"data": "nascimento_membro"},//Recebe o dado que ajax retorna direto do json
+				{
+				"data": "nascimento_membro",
+				"render": function(data, type, row, meta){
+					if(type === 'display' && data){
+						const partes = data.split("-");
+						if(partes.length === 3){
+							return partes[2] + '/' + partes[1] + '/' + partes[0];
+						}
+					}
+
+					return data;
+				}
+				},//Recebe o dado que ajax retorna direto do json
 				{"data": "email_membro"},//Recebe o dado que ajax retorna direto do json
 				{"data": "telefone_membro"},//Recebe o dado que ajax retorna direto do json
 				{"data": "tempo_de_membro"},//Recebe o dado que ajax retorna direto do json

@@ -156,7 +156,7 @@ include "src/protect.php";
 
 					$('#nome_membro').text(data.nome_membro);
 					$('#cpf_membro').text(aplicar_mascara_cpf(data.cpf_membro));
-					$('#nascimento_membro').text(data.nascimento_membro);
+					$('#nascimento_membro').text(formatar_data_nascimento(data.nascimento_membro));
 					$('#email_membro').text(data.email_membro);
 					$('#telefone_membro').text(aplicar_mascara_telefone(data.telefone_membro));
 					$('#tempo_de_membro').text(data.tempo_de_membro);
@@ -283,12 +283,22 @@ include "src/protect.php";
 		});
 	}
 
-	function aplicar_mascara_cpf(cpf_membro){//Função desenvolvida para aplicar a máscara ao CPF diretamente usando javascript porque o plug in jQuery Mask não funciona em span.
+	function aplicar_mascara_cpf(cpf_membro)
+	{//Função desenvolvida para aplicar a máscara ao CPF diretamente usando javascript porque o plug in jQuery Mask não funciona em span.
 		return cpf_membro.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3-$4");
 	}
 
-	function aplicar_mascara_telefone(telefone_membro){//Função desenvolvida para aplicar a máscara ao telefone diretamente usando javascript porque o plug in jQuery Mask não funciona em span.
+	function aplicar_mascara_telefone(telefone_membro)
+	{//Função desenvolvida para aplicar a máscara ao telefone diretamente usando javascript porque o plug in jQuery Mask não funciona em span.
 		return telefone_membro.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
+	}
+
+	function formatar_data_nascimento(data)
+	{
+		if(!data) return '';
+		let partes = data.split("-");
+		if(partes.length !== 3) return data;
+		return partes[2] + "/" + partes[1] + "/" + partes[0];
 	}
 
 	</script>
