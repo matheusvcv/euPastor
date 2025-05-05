@@ -60,20 +60,17 @@ include "src/protect.php";
 		<li class="nav-item">
 			<a class="nav-link barra_item" href="pagina_administrativa/views/cadastrar_usuarios.php">Cadastrar Usuários</a>
 		</li>
-		<li class="nav-item">
-			<a class="nav-link barra_item">Outro módulo</a>
-		</li>
 	</ul>
-	<!--Início do Corpo da página.-->
-	<div class="card card_body m-3">
-		<div class="card-content collapse show">
-			<div class="card-body card-dashboard">
-			        <div class="d-flex align-items-center justify-content-between mb-3">
-          <h3 class="mb-0">Configuração de Membros</h3>
-          <a href="pagina_inicial.php">
-            <img src="img/voltar.png" alt="Voltar">
-          </a>
-        </div>
+		<!--Início do Corpo da página.-->
+		<div class="card card_body m-3">
+			<div class="card-content collapse show">
+				<div class="card-body card-dashboard">
+				<div class="d-flex align-items-center justify-content-between mb-3">
+		          <h3 class="mb-0">Configuração de Membros</h3>
+		          <a href="pagina_inicial.php">
+		            <img src="img/voltar.png" alt="Voltar">
+		          </a>
+		        </div>
 				<div id="cadastro_usuario" name="cadastro_usuario">
 					<!--Início do formulário-->
 					<h3>Cadastro de Membros</h3>

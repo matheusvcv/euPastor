@@ -57,16 +57,18 @@ include "../../src/protect.php";
     <li class="nav-item">
       <a class="nav-link barra_item" href="cadastrar_usuarios.php">Cadastrar Usuários</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link barra_item">Outro módulo</a>
-    </li>
   </ul>
 	<!--Início do Corpo da página.-->
 	<div class="card card_body m-3">
 		<div class="card-content collapse show">
 			<div class="card-body card-dashboard">
 				<!--Início do formulário-->
-				<h3>Cadastrar Usuários</h3>
+				<div class="d-flex align-items-center justify-content-between mb-3">
+		            <h3>Cadastrar Usuários</h3>
+		            <a href="../../pagina_inicial.php">
+		              <img src="../../img/voltar.png" alt="Voltar">
+		            </a>
+	          	</div>
 				<div class="container-fluid">
 					<form class="mt-3" method="POST" action="../ws/ws_cadastrar_usuarios.php">
 						<div class="row mt-3">

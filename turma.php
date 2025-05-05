@@ -78,21 +78,16 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
     <li class="nav-item">
       <a class="nav-link barra_item" href="pagina_administrativa/views/cadastrar_usuarios.php">Cadastrar Usuários</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link barra_item">Outro módulo</a>
-    </li>
   </ul>
 	<div class="card card_body m-3">
 		<div class="card-content collapse show">
 			<div class="card-body card-dashboard">
-
-		<div class="d-flex align-items-center justify-content-between mb-3">
-          <h3><?php echo htmlspecialchars($turma['nome_turma']); ?></h3>
-          <a href="exibir_turmas.php?departamento=<?php echo $turma['departamento'];?>">
-            <img src="img/voltar.png" alt="Voltar">
-          </a>
-        </div>
-				
+				<div class="d-flex align-items-center justify-content-between mb-3">
+		          <h3><?php echo htmlspecialchars($turma['nome_turma']); ?></h3>
+		          <a href="exibir_turmas.php?departamento=<?php echo $turma['departamento'];?>">
+		            <img src="img/voltar.png" alt="Voltar">
+		          </a>
+		        </div>
 				<!--Início da DataTable-->
 				<div class="container-fluid">
 					<div class="row mt-3">

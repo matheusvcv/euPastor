@@ -70,7 +70,12 @@ $turmas = $conexao->query("SELECT id, nome_turma FROM turmas");
   <div class="card card_body m-3">
     <div class="card-content collapse show">
       <div class="card-body card-dashboard">
-        <h3>Inserir Nova Turma</h3>
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h3>Inserir Nova Turma</h3>
+          <a href="escola_biblica_dominical.php">
+            <img src="img/voltar.png" alt="Voltar">
+          </a>
+        </div>
           <div class="container-fluid m-3">
             <div>
               <button id="exibe_form_inserir_turma" class="btn btn-success" onclick="exibe_turmas();">Inserir Turma</button> 
@@ -116,7 +121,12 @@ $turmas = $conexao->query("SELECT id, nome_turma FROM turmas");
   <div class="card card_body m-3">
     <div class="card-content collapse show">
       <div class="card-body card-dashboard">
-        <h3>Realizar Matrícula</h3>
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h3>Realizar Matrícula</h3>
+          <a href="escola_biblica_dominical.php">
+            <img src="img/voltar.png" alt="Voltar">
+          </a>
+        </div>
         <div class="container-fluid m-3">
           <div>
             <button id="exibe_matricular_aluno" class="btn btn-success" onclick="exibe_form_matricular_aluno();">Realizar Matrícula</button> 

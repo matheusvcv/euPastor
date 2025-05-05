@@ -59,15 +59,17 @@ include "src/protect.php";
 		<li class="nav-item">
 			<a class="nav-link barra_item" href="pagina_administrativa/views/cadastrar_usuarios.php">Cadastrar Usuários</a>
 		</li>
-		<li class="nav-item">
-			<a class="nav-link barra_item">Outro módulo</a>
-		</li>
 	</ul>
 	<!--Início do Corpo da página.-->
 	<div class="card card_body m-3">
 		<div class="card-content collapse show">
 			<div class="card-body card-dashboard">	
-			<h3>Informações Pessoais:</h3>
+				<div class="d-flex align-items-center justify-content-between mb-3">
+		          <h3>Informações Pessoais:</h3>
+		          <a href="lista_membros.php">
+		            <img src="img/voltar.png" alt="Voltar">
+		          </a>
+		        </div>
 			<div class="container-fluid">
 				<div class="row mt-4" id="perfil_membro">
 					<div class="col-12 col-sm-6 col-lg-4">
