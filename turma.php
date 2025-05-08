@@ -10,7 +10,7 @@ $turma_id = $_GET['id'];// Define a var $turma_id com o valor que foi recebido v
 
 //Busca o nome da turma
 $stm_turma = $conexao->prepare("SELECT departamento, nome_turma FROM turmas WHERE id = ?");//Consulta utilizando prepare para evitar SQL injection.
-$stm_turma-> bind_param("i", $turma_id);//Associa o valor da variável ao paceholder da consulta
+$stm_turma->bind_param("i", $turma_id);//Associa o valor da variável ao paceholder da consulta
 $stm_turma->execute();//Executa a query preparada
 $resultado_turma = $stm_turma->get_result();//Recupera o resultado da execução da query como um  objeto do tipo mysqli_result
 $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em um array associativo e atribiu como valor da variável $turma.
