@@ -28,6 +28,8 @@
 		$titulo = "Configuração de Turmas";
 	}elseif ($titulo_da_pagina === "exibir_turmas.php?depar") {
 		$titulo = "Turmas";
+	}elseif ($titulo_da_pagina === "instrucoes.php") {
+		$titulo = "Instruções";
 	}
 ?>
 
