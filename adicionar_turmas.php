@@ -36,7 +36,7 @@ $turmas = $conexao->query("SELECT id, nome_turma FROM turmas");
               <a class="nav-link" href="configuracao_membros.php">Configuração de Membros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Como utilizar o sistema?</a>
+              <a class="nav-link" href="instrucoes.php">Como utilizar o sistema?</a>
             </li>
           </li>
         </ul>

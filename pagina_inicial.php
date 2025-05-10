@@ -28,7 +28,7 @@ include "view/head.php"
               <a class="nav-link" href="configuracao_membros.php">Configuração de Membros</a>
             </li>
 		        <li class="nav-item">
-		          <a class="nav-link" href="#">Como utilizar o sistema?</a>
+		          <a class="nav-link" href="instrucoes.php">Como utilizar o sistema?</a>
 		        </li>
           </li>
         </ul>
@@ -66,7 +66,7 @@ include "view/head.php"
               <p class="descricao">Administração de igrejas feita de forma inteligente! Organize, gerencie e fortaleça sua missão com o MyChurch WebSystem.</p>
               <p>O MyChurch WebSystem é uma plataforma de gestão para igrejas que organiza membros, turmas e atividades religiosas. Com módulos intuitivos, facilita o trabalho dos líderes, trazendo mais eficiência e segurança à administração.</p>      
               <div id="cta_botoes">
-                <a href="https://github.com/matheusvcv/euPastor" target="blanket" class="btn btn-outline-dark">
+                <a href="instrucoes.php" target="blanket" class="btn btn-outline-dark">
                   Saiba Mais
                 </a>
               </div>
@@ -79,7 +79,6 @@ include "view/head.php"
       </div>
     </div>
   </div> 
-
   <script src="bootstrap/js/bootstrap.min.js"></script>
 	<script>
     //Alerta de Usuário Cadastrado com sucesso.
