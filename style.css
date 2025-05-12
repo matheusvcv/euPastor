@@ -182,6 +182,32 @@ section{
   z-index: 1;
 }
 
+ .accordion-dark .accordion-button {
+    background-color: #fff;
+    color: #212529;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .accordion-dark .accordion-button:hover {
+    background-color: #343a40;
+    color: #fff;
+  }
+
+  .accordion-dark .accordion-button:not(.collapsed) {
+    background-color: #343a40;
+    color: #fff;
+    box-shadow: none;
+  }
+
+  .accordion-dark .accordion-body {
+    background-color: #f8f9fa;
+    color: #212529;
+  }
+
+  .accordion-dark .accordion-item {
+    border: 1px solid #dee2e6;
+  }
+
 #titulo_login {
   font-size: 3vh;
 }

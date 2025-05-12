@@ -64,7 +64,7 @@ include "view/head.php"
                 <img src="img/voltar.png" alt="Voltar">
               </a>
             </div>
-            <div class="accordion" id="modulosAccordion">
+            <div class="accordion accordion-dark" id="modulosAccordion">
               <!-- Introdução -->
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingIntro">
