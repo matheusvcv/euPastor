@@ -96,6 +96,11 @@ include "src/protect.php";
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script><!--Biblioteca para exportação da lista para Excel-->
 	<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script><!--Biblioteca para exportação da lista para Excel-->
 
+	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css"> <!--CSS Responsividade Datatable-->
+	<!--Scripts de Responsividade Datatable/Bootstrap-->
+	<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+	<script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+
 	<script>
 
 	$(document).ready(function() {//Define que quando o documento for carregado, a tabela será configurada
@@ -104,7 +109,8 @@ include "src/protect.php";
 				/* fixedHeader: {
 				header: true,
 				headerOffset: $('.header-navbar').outerHeight()
-			}, */		
+			}, */
+			"responsive": true,	
 			"autoWidth": false,//Desativa a largura automática das colunas
 			"bLengthChange": false,//Remove a opção de alterar o número de intens por página
 			pageLength: 10,//Define 10 itens por página

@@ -118,6 +118,10 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 	<script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script><!--Carrega a Biblioteca Datatables-->
 	<script src="bootstrap/js/bootstrap.min.js"></script><!--Carrega o Bootstrap-->
 
+	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css"> <!--CSS Responsividade Datatable-->
+	<!--Scripts de Responsividade Datatable/Bootstrap-->
+	<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+	<script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
 	<script>
 
 	$(document).ready(function() {//Define que quando o documento for carregado, a tabela será configurada
@@ -126,7 +130,8 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 				/* fixedHeader: {
 				header: true,
 				headerOffset: $('.header-navbar').outerHeight()
-			}, */		
+			}, */
+			"responsive": true,			
 			"autoWidth": false,//Desativa a largura automática das colunas
 			"bLengthChange": false,//Remove a opção de alterar o número de intens por página
 			pageLength: 10,//Define 10 itens por página
