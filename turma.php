@@ -302,7 +302,15 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 								todos: result.value.todos
 							},
 							success: function(res) {
-								Swal.fire('Chamada registrada!', '', 'success');
+								Swal.fire({
+									  title: 'Chamada registrada!',
+									  icon: 'success',
+									  confirmButtonText: 'OK',
+									  customClass: {
+									    confirmButton: 'btn btn-success' // Aqui você define a cor e estilo do botão
+									  },
+									  buttonsStyling: false
+									});
 							},
 							error: function() {
 								Swal.fire('Erro', 'Não foi possível registrar a chamada.', 'error');
