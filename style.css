@@ -9,6 +9,10 @@ section{
 }
 
 .body_index{
+  min-height: 100vh;
+  background-position:
+  background-size: cover;
+  background-attachment: fixed;
   background-image: url(img/bg_image.jpg);
   background-position: top left;
   background-repeat: no-repeat;
