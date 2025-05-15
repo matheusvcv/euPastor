@@ -26,7 +26,6 @@ section{
 
 .bg_login:hover {
   background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 10px !important;
   border-radius: 15px !important;
 }
 
@@ -186,31 +185,31 @@ section{
   z-index: 1;
 }
 
- .accordion-dark .accordion-button {
-    background-color: #fff;
-    color: #212529;
-    transition: background-color 0.3s, color 0.3s;
-  }
+.accordion-dark .accordion-button {
+  background-color: #fff;
+  color: #212529;
+  transition: background-color 0.3s, color 0.3s;
+}
 
-  .accordion-dark .accordion-button:hover {
-    background-color: #343a40;
-    color: #fff;
-  }
+.accordion-dark .accordion-button:hover {
+  background-color: #343a40;
+  color: #fff;
+}
 
-  .accordion-dark .accordion-button:not(.collapsed) {
-    background-color: #343a40;
-    color: #fff;
-    box-shadow: none;
-  }
+.accordion-dark .accordion-button:not(.collapsed) {
+  background-color: #343a40;
+  color: #fff;
+  box-shadow: none;
+}
 
-  .accordion-dark .accordion-body {
-    background-color: #f8f9fa;
-    color: #212529;
-  }
+.accordion-dark .accordion-body {
+  background-color: #f8f9fa;
+  color: #212529;
+}
 
-  .accordion-dark .accordion-item {
-    border: 1px solid #dee2e6;
-  }
+.accordion-dark .accordion-item {
+  border: 1px solid #dee2e6;
+}
 
 #titulo_login {
   font-size: 3vh;
@@ -291,10 +290,9 @@ section{
   font-style: italic;
 }
 
-
 @media screen and (max-width: 1170px){
   #home {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
     height: auto;
@@ -329,7 +327,16 @@ section{
   }
 
   #banner {
-    display: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  #banner img {
+    max-width: 300px;
+    height: auto;
   }
 
   .shape {
