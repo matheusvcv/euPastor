@@ -29,7 +29,7 @@ include "../../src/protect.php";
 						<li class="nav-item">
 							<a class="nav-link active botao_sair" aria-current="page" href="../../logout.php">SAIR</a>
 						<li class="nav-item">
-							<a class="nav-link" href="pagina_inicial.php">Página Inicial</a>
+							<a class="nav-link" href="../../pagina_inicial.php">Página Inicial</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="../../instrucoes.php">Como utilizar o sistema?</a>
