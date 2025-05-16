@@ -363,4 +363,10 @@ section{
     font-size: 0.9rem;
     padding: 10px 15px;
   }
+
+  #banner img {
+    max-width: 220px;
+    height: auto;
+  }
 }
+
