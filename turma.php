@@ -91,8 +91,9 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 				<!--Início da DataTable-->
 				<div class="container-fluid">
 					<div class="row mt-3">
-						<div class="mb-1">
-							<button id="botao_chamada" class="btn btn-success">Realizar Chamada</button> 
+						<div class="d-flex justify-content-between align-items-center mb-3">
+							<button id="botao_chamada" class="btn btn-success">Realizar Chamada</button>
+							<div id="export_excel_container"></div>
 						</div>
 						<table id="datatable" class="table table-striped table-bordered table-hover justify-content-center" cellspacing="0" width="100%">
 							<thead>
@@ -132,6 +133,12 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 
 	$(document).ready(function() {//Define que quando o documento for carregado, a tabela será configurada
 
+		// Move o botão Excel para junto do botão Realizar Chamada
+		setTimeout(() => {
+		    $(".dt-buttons").appendTo("#export_excel_container").removeClass("btn-group");
+		}, 100);
+
+
 		$('#datatable').DataTable({//Inicia a tabela
 				/* fixedHeader: {
 				header: true,
@@ -141,8 +148,7 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 			"autoWidth": false,//Desativa a largura automática das colunas
 			"bLengthChange": false,//Remove a opção de alterar o número de intens por página
 			pageLength: 10,//Define 10 itens por página
-			dom: '<"d-flex justify-content-between align-items-center"lfB>rtip',//Define o Layout para incluir botões
-
+			dom: '<"d-flex justify-content-between align-items-center"lfB>rtip',//Define o Layout para incluir botõesSS
 			buttons: [//Adiciona um botão que exportaos dados da tabela para um arquivo Excel
 			  {
 				extend: 'excelHtml5',
