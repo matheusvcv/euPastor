@@ -143,6 +143,18 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 			pageLength: 10,//Define 10 itens por página
 			dom: '<"d-flex justify-content-between align-items-center"lfB>rtip',//Define o Layout para incluir botões
 
+			buttons: [//Adiciona um botão que exportaos dados da tabela para um arquivo Excel
+			  {
+				extend: 'excelHtml5',
+				text: 'Excel',
+				className: 'btn btn-success',
+				titleAttr: 'Exportar para Excel',
+				exportOptions: {
+				columns: ':visible'
+				}
+			  }
+			],
+
 			"search": {
 				"regex": true//Permite busca com expressões regulares
 			},
