@@ -122,6 +122,12 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 	<!--Scripts de Responsividade Datatable/Bootstrap-->
 	<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
 	<script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+
+	<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script><!--Carrega biblioteca para os botões-->
+	<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js"></script><!--Carrega biblioteca para os botões-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script><!--Biblioteca para exportação da lista para Excel-->
+	<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script><!--Biblioteca para exportação da lista para Excel-->
+
 	<script>
 
 	$(document).ready(function() {//Define que quando o documento for carregado, a tabela será configurada
