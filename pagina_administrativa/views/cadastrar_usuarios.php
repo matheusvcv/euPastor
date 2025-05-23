@@ -77,15 +77,15 @@ include "../../src/protect.php";
 						<div class="row mb-4">
 							<div class="col-lg-4">
 								<label for="nome" class="form-label">Nome Completo:</label>
-								<input type="text" class="form-control form_item" id="nome" name="nome" placeholder="Digite o nome aqui.">
+								<input type="text" class="form-control form_item" id="nome" name="nome" placeholder="Digite o nome aqui." required>
 							</div>
 							<div class="col-lg-4">
 								<label for="telefone" class="form-label">Telefone:</label>
-								<input type="text" class="form-control form_item" id="telefone" name="telefone" placeholder="Digite o telefone aqui.">
+								<input type="text" class="form-control form_item" id="telefone" name="telefone" placeholder="Digite o telefone aqui." required>
 							</div>
 							<div class="col-lg-4">
 								<label for="nascimento" class="form-label">Data de Nascimento:</label>
-								<input type="date" class="form-control form_item" id="nascimento" name="nascimento">
+								<input type="date" class="form-control form_item" id="nascimento" name="nascimento" required>
 							</div>
 						</div>
 						<div class="row mt-3">
@@ -94,15 +94,15 @@ include "../../src/protect.php";
 						<div class="row mb-4">
 							<div class="col-lg-4">
 								<label for="email" class="form-label">Endereço de e-mail:</label>
-								<input type="email" class="form-control form_item" id="email" name="email" placeholder="Digite o e-mail aqui.">
+								<input type="email" class="form-control form_item" id="email" name="email" placeholder="Digite o e-mail aqui." required>
 							</div>
 							<div class="col-lg-4">
 								<label for="nome_usuario" class="form-label">Defina um nome de usuário:</label>
-								<input type="text" class="form-control form_item" id="nome_usuario" name="nome_usuario" placeholder="Digite o nome de usuário aqui.">
+								<input type="text" class="form-control form_item" id="nome_usuario" name="nome_usuario" placeholder="Digite o nome de usuário aqui." required>
 							</div>
 							<div class="col-lg-4">
 								<label for="senha" class="form-label">Senha:</label>
-								<input type="password" class="form-control form_item" id="senha" name="senha" placeholder="Digite a senha aqui.">
+								<input type="password" class="form-control form_item" id="senha" name="senha" placeholder="Digite a senha aqui." required>
 							</div>
 						</div>
 						<div class="row mt-3">
@@ -111,7 +111,7 @@ include "../../src/protect.php";
 						<div class="row mb-4">
 							<div class="col-lg-4">
 								<label for="igreja" class="form-label">Igreja:</label>
-								<input type="text" class="form-control form_item" id="igreja" name="igreja" placeholder="Digite o nome da igreja aqui.">
+								<input type="text" class="form-control form_item" id="igreja" name="igreja" placeholder="Digite o nome da igreja aqui." required>
 							</div>
 							<div class="col-lg-4">
 								<label for="cargo" class="form-label">Cargo:</label>
