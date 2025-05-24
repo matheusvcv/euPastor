@@ -31,6 +31,7 @@ include "src/protect.php";
 					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 						<li class="nav-item">
 							<a class="nav-link active botao_sair" aria-current="page" href="logout.php">SAIR</a>
+						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="pagina_inicial.php">Página Inicial</a>
 						</li>
