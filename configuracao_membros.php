@@ -439,18 +439,25 @@ include "src/protect.php";
 		});
 	}
 
-	function exibe_form_cad_membro()
-	{
-		$('#cadastro_usuario').css('display', 'block');
-		$('#exibe_form_cad_membro').css('display', 'none');
-	}
+// Função que exibe o formulário de cadastro de membro
+function exibe_form_cad_membro()
+{
+    // Mostra o elemento com o ID 'cadastro_usuario'
+    $('#cadastro_usuario').css('display', 'block');
 
-	function esconde_form_cad_membro()
-	{
-		$('#cadastro_usuario').css('display', 'none');
-		$('#exibe_form_cad_membro').css('display', 'block');
-	}
+    // Esconde o botão ou link com o ID 'exibe_form_cad_membro'
+    $('#exibe_form_cad_membro').css('display', 'none');
+}
 
+// Função que esconde o formulário de cadastro de membro
+function esconde_form_cad_membro()
+{
+    // Esconde o elemento com o ID 'cadastro_usuario'
+    $('#cadastro_usuario').css('display', 'none');
+
+    // Mostra o botão ou link com o ID 
+    $('#exibe_form_cad_membro').css('display', 'block');
+}
 	</script>
 </body>
 </html>
