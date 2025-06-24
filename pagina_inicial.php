@@ -74,7 +74,8 @@ include "view/head.php"
             <div id="cta">
               <h1 class="titulo_pagina_inicial">Administre sua igreja com <span>exelência</span> e <span>propósito</span>.</h1>
               <p class="descricao">Administração de igrejas feita de forma inteligente! Organize, gerencie e fortaleça sua missão com o MyChurch WebSystem.</p>
-              <p>O MyChurch WebSystem é uma plataforma de gestão para igrejas que organiza membros, turmas e atividades religiosas. Com módulos intuitivos, facilita o trabalho dos líderes, trazendo mais eficiência e segurança à administração.</p>      
+              <p>O MyChurch WebSystem é uma plataforma completa para igrejas, desenvolvida para organizar membros, turmas e atividades religiosas de forma prática e eficiente. Com módulos intuitivos, oferece mais agilidade, controle e segurança para a administração da igreja, facilitando o trabalho dos líderes e colaboradores.</p>
+      
               <div id="cta_botoes">
                 <a href="instrucoes.php" target="blanket" class="btn btn-outline-dark">
                   Saiba Mais
