@@ -87,13 +87,14 @@ include "view/head.php"
                 </h2>
                 <div id="modulo1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#modulosAccordion">
                   <div class="accordion-body">
-                    <p>Esse módulo organiza o ensino bíblico da igreja em departamentos e turmas. Cada professor pode acessar o sistema para:</p>
+                    <p><strong>Este módulo é responsável por estruturar o ensino bíblico da igreja, organizando-o em departamentos e turmas.</strong> Ele oferece aos professores uma plataforma prática e eficiente para gerenciar suas atividades pedagógicas. Por meio do sistema, é possível:</p>
                     <ul>
-                      <li>Visualizar e gerenciar suas turmas</li>
-                      <li>Adicionar aulas e temas de estudo</li>
-                      <li>Controlar a frequência dos alunos</li>
-                      <li>Atribuir e registrar notas</li>
+                      <li>Visualizar e administrar as turmas sob sua responsabilidade</li>
+                      <li>Cadastrar aulas com seus respectivos temas de estudo</li>
+                      <li>Registrar e acompanhar a frequência dos alunos</li>
+                      <li>Atribuir notas e manter o histórico de desempenho dos participantes</li>
                     </ul>
+                    <p>Com essa funcionalidade, o processo de ensino torna-se mais organizado, transparente e alinhado com os objetivos formativos da igreja.</p>
                   </div>
                 </div>
               </div>
