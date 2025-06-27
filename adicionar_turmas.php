@@ -88,7 +88,7 @@ $turmas = $conexao->query("SELECT id, nome_turma FROM turmas");
         </div>
           <div class="container-fluid m-3">
             <div>
-              <button id="exibe_form_inserir_turma" class="btn btn-success" onclick="exibe_turmas();">Inserir Turma</button> 
+              <button id="exibe_form_inserir_turma" class="btn btn-success tamanho_botao" onclick="exibe_turmas();">Inserir Turma</button> 
             </div>
             <form  method="POST" action="ws/ws_adicionar_turmas.php" name="inserir_turma" id="inserir_turma" style="display:none;">
               <div class="row mt-3">
@@ -139,7 +139,7 @@ $turmas = $conexao->query("SELECT id, nome_turma FROM turmas");
         </div>
         <div class="container-fluid m-3">
           <div>
-            <button id="exibe_matricular_aluno" class="btn btn-success" onclick="exibe_form_matricular_aluno();">Realizar Matrícula</button> 
+            <button id="exibe_matricular_aluno" class="btn btn-success tamanho_botao" onclick="exibe_form_matricular_aluno();">Realizar Matrícula</button> 
           </div>
           <form  method="POST" action="ws/ws_processa_matricula.php" name="matricular_aluno" id="matricular_aluno" style="display:none;">
             <div class="row mt-3">

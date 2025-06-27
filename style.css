@@ -211,6 +211,14 @@ section{
   border: 1px solid #dee2e6;
 }
 
+.tamanho_botao{
+  min-width: 12rem;
+  max-width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  text-align: center;
+}
+
 #titulo_login {
   font-size: 3vh;
 }
