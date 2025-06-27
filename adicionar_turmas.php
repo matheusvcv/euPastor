@@ -106,12 +106,12 @@ $turmas = $conexao->query("SELECT id, nome_turma FROM turmas");
                     </select>
                 </div>
                 <div class="col-lg-4">
-                  <label for="telefone" class="form-label">Professor:</label>
-                  <input type="text" class="form-control form_item" id="professor" name="professor" placeholder="Professor">
-                </div>
-                <div class="col-lg-4">
                   <label for="telefone" class="form-label">Nome da turma:</label>
                   <input type="text" class="form-control form_item" id="nome_turma" name="nome_turma" placeholder="Nome da Turma">
+                </div>
+                <div class="col-lg-4">
+                  <label for="telefone" class="form-label">Professor:</label>
+                  <input type="text" class="form-control form_item" id="professor" name="professor" placeholder="Professor">
                 </div>
               </div>
               <div class="row justify-content-end mb-2">
