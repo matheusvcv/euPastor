@@ -438,8 +438,12 @@ include "src/protect.php";
 					success: function(response){
 						if(response.status === 'success'){
 							$('#datatable').DataTable().ajax.reload();
-							Swal.fire('Deletado!', 'O membro foi deletado com sucesso.', 'success');
-
+							Swal.fire({
+								title: 'Deletado!',
+								text: 'O membro foi deletado com sucesso!',
+								icon: 'success',
+								confirmButtonColor: '#198754',
+							});
 						}else{
 							Swal.fire('Erro!', response.message || 'Erro ao deletar o membro.', 'error');
 						}

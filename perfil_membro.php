@@ -1,5 +1,4 @@
 <?php
-//include "view/head_lista_membros.php";
 include "src/protect.php";
 ?>
 <!Doctype html>
