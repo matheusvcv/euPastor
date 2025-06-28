@@ -132,7 +132,7 @@ include "view/head.php"
                 </h2>
                 <div id="modulo3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#modulosAccordion">
                   <div class="accordion-body">
-                    <p>Permite cadastrar novos membros, editar dados e excluir registros diretamente da lista, com resposta dinâmica e sem precisar recarregar a página.</p>
+                    <p>Gerencie o cadastro de membros com facilidade: adicione novos registros, atualize informações existentes ou remova membros da lista, tudo de forma dinâmica, sem recarregar a página.</p>
                   </div>
                 </div>
               </div>
