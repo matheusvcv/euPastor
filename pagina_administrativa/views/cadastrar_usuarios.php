@@ -33,7 +33,7 @@ include "../../src/protect.php";
 						<a class="nav-link active botao_config" aria-current="page" href="logout.php">SAIR</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active botao_config" href="instrucoes.php">Como utilizar o sistema?</a>
+						<a class="nav-link active botao_config" href="../../instrucoes.php">Como utilizar o sistema?</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Módulos:</a>
