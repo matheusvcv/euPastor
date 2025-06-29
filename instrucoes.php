@@ -145,7 +145,7 @@ include "view/head.php"
                 </h2>
                 <div id="modulo4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#modulosAccordion">
                   <div class="accordion-body">
-                    <p>Exclusivo para administradores. Permite criar novos usuários do sistema, definindo nome de usuário e senha para cada um.</p>
+                    <p>Função restrita a administradores. Permite cadastrar novos usuários no sistema, atribuindo nome de usuário e senha individuais.</p>
                   </div>
                 </div>
               </div>
