@@ -9,7 +9,17 @@ if (!isset($_GET['id'])) {//Verifica se o parâmetro ID foi passado via URL.
 
 $membro_individual_id = $_GET['id'];//Define o ID passado via URL como valor da variavel $membro_individual_id;
 
-$sql = "SELECT * FROM ocorrencias WHERE id_membro = ?";
+$sql = "SELECT
+			id,
+			id_membro,
+			titulo,
+			ocorrencia,
+			data_criacao AS data_registro
+		FROM ocorrencias
+		WHERE id_membro = ?
+		ORDER BY data_criacao DESC
+		";
+		
 $statement = $conexao->prepare($sql);
 
 if(!$statement){
