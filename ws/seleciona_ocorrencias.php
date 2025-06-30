@@ -19,7 +19,7 @@ $sql = "SELECT
 		WHERE id_membro = ?
 		ORDER BY data_criacao DESC
 		";
-		
+
 $statement = $conexao->prepare($sql);
 
 if(!$statement){
@@ -43,5 +43,8 @@ if(count($ocorrencias) > 0){
 }else{
 	echo json_encode(['erro'=> 'Nenhuma ocorrência encontrada.']);
 }
+
+$statement->close();
+$conexao->close();
 
 ?>
