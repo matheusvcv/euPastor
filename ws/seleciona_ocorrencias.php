@@ -14,10 +14,10 @@ $sql = "SELECT
 			id_membro,
 			titulo,
 			ocorrencia,
-			data_criacao AS data_registro
+			data_registro
 		FROM ocorrencias
 		WHERE id_membro = ?
-		ORDER BY data_criacao DESC
+		ORDER BY data_registro DESC
 		";
 
 $statement = $conexao->prepare($sql);
