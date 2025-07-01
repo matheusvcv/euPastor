@@ -11,12 +11,14 @@
 			INSERT INTO ocorrencias (
 				id_membro,
 				titulo,
-				ocorrencia
+				ocorrencia,
+				data_registro
 			)
 			VALUES (
 				?,
 				?,
-				?
+				?,
+				Now()
 			)
 		";
 
