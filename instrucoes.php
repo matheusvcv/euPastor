@@ -158,12 +158,12 @@ include "view/head.php"
                 </h2>
                 <div id="modulo5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#modulosAccordion">
                   <div class="accordion-body">
-                    <p>O sistema possui login seguro com os seguintes recursos:</p>
+                    <p>O sistema conta com um login seguro, implementado com os seguintes recursos:</p>
                     <ul>
-                      <li>Validação de campos obrigatórios</li>
+                      <li>Validação de todos os campos obrigatórios</li>
                       <li>Proteção contra SQL Injection</li>
-                      <li>Uso da função <code>password_verify()</code> para autenticação</li>
-                      <li>Uso de sessões PHP para manter o usuário logado com segurança</li>
+                      <li>Autenticação robusta com <code>password_verify()</code></li>
+                      <li>Gerenciamento de sessões PHP para manter o usuário autenticado de forma segura</li>
                     </ul>
                   </div>
                 </div>
