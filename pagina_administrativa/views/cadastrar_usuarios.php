@@ -51,7 +51,7 @@ include "../../src/protect.php";
 						<a class="nav-link" href="../../configuracao_membros.php">Configuração de Membros</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="pagina_administrativa/views/cadastrar_usuarios.php">Cadastrar Usuários</a>
+						<a class="nav-link" href="cadastrar_usuarios.php">Cadastrar Usuários</a>
 					</li>
 				</ul>
 			</div>
@@ -172,5 +172,27 @@ include "../../src/protect.php";
 
 <!-- Script Bootstrap -->
 <script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const telefoneInput = document.getElementById('telefone');
+
+telefoneInput.addEventListener('input', function (e) {
+		let value = e.target.value.replace(/\D/g, '');
+		if(value.length > 0){
+			value = '(' + value;
+		}
+
+		if(value.length > 3){
+			value = value.slice(0, 3) + ') ' + value.slice(3);
+		}
+
+		if(value.length > 10){
+			value = value.slice(0, 10) + '-' + value.slice(10);
+		}
+
+		e.target.value = value;
+	});
+});
+</script>
 </body>
 </html>
