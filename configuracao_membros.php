@@ -344,8 +344,10 @@ include "src/protect.php";
 	    });
 	});
 
+	//Função de inserir novo membro.
 	function inserir_membro()
 	{
+		//Captura os valores dos campos do formulário usando jQuery.
 		var nome_membro = $('#nome_membro').val();
 		var cpf_membro = $('#cpf_membro').val();
 		var nascimento_membro = $('#nascimento_membro').val();
@@ -356,9 +358,9 @@ include "src/protect.php";
 		var ativo = $('#ativo').val();
 
 		$.ajax({
-			url: 'ws/ws_cadastrar_membros.php',
-			type: 'post',
-			data:{
+			url: 'ws/ws_cadastrar_membros.php',//URL do cófigo responsável pelo cadastro.
+			type: 'post',//Método HTTP POST.
+			data:{//Dados enviados pela requisição.
 				'nome_membro': nome_membro,
 				'cpf_membro': cpf_membro,
 				'nascimento_membro': nascimento_membro,
