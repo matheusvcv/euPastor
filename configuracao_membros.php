@@ -371,13 +371,14 @@ include "src/protect.php";
 				'ativo': ativo
 			},
 
+		//Função executada quando a requisição for concluída com sucesso.
 		}).done(function(response){
-			
+			//Se o servidor retornar "success", redireciona para a página com parâmetro de sucesso.
 			if (response === "success")
 			{
 				window.location.href = 'configuracao_membros.php?s=1';
 			}
-
+			//Se o servidor retornar "error", redireciona com parâmetro de erro.
 			if (response === "error")
 			{
 				window.location.href = 'configuracao_membros.php?s=0';
