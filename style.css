@@ -237,7 +237,7 @@ section{
 
 #home{
   display: flex;
-  height: 73vh !important;
+  height: 77vh !important;
   position: relative;
   padding-bottom: 18px; 
 }
