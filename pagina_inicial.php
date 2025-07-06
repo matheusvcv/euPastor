@@ -77,7 +77,7 @@ include "view/head.php"
               <p>O MyChurch WebSystem é uma plataforma completa para igrejas, desenvolvida para organizar membros, turmas e atividades religiosas de forma prática e eficiente. Com módulos intuitivos, oferece mais agilidade, controle e segurança para a administração da igreja, facilitando o trabalho dos líderes e colaboradores.</p>
       
               <div id="cta_botoes">
-                <a href="instrucoes.php" target="blanket" class="btn btn-outline-dark">
+                <a href="instrucoes.php" class="btn btn-outline-dark">
                   Saiba Mais
                 </a>
               </div>
