@@ -47,23 +47,24 @@ include "view/head.php"
   </div>
 </nav>
   <!--Barra de Navegação entre módulos-->
-  <ul class="nav mb-2 barra_nav">
-    <li class="nav-item">
-      <a class="nav-link barra_item" href="pagina_inicial.php">Página Inicial</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link barra_item" href="lista_membros.php">Lista de Membros</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link barra_item" href="escola_biblica_dominical.php">Escola Biblica Dominical</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link barra_item" href="configuracao_membros.php">Configuração de Membros</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link barra_item" href="pagina_administrativa/views/cadastrar_usuarios.php">Cadastrar Usuários</a>
-    </li>
-  </ul>
+  <ul class="nav mb-2 barra_nav flex-wrap">
+  <li class="nav-item">
+    <a class="nav-link barra_item text-center" href="pagina_inicial.php">Página Inicial</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link barra_item text-center" href="lista_membros.php">Lista de Membros</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link barra_item text-center" href="escola_biblica_dominical.php">Escola Bíblica Dominical</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link barra_item text-center" href="configuracao_membros.php">Configuração de Membros</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link barra_item text-center" href="pagina_administrativa/views/cadastrar_usuarios.php">Cadastrar Usuários</a>
+  </li>
+</ul>
+
   <div class="card card_body m-3">
     <div class="card-content collapse show">
       <div class="card-body card-dashboard">
