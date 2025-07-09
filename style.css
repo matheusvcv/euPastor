@@ -160,20 +160,26 @@ section{
   border: solid 1px black;
 }
 
-.lista{
+.lista {
   text-decoration: none;
-  color: black;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.lista a {
+  color: black;
+  text-decoration: none;
+}
+
 .lista:hover {
-  color: #FFFAFA !important;
   background-color: #000000;
   text-transform: uppercase;
 }
 
+.lista:hover a {
+  color: #FFFAFA !important;
+}
 .shape{
   background-color: #F5F5F5;
   height: 100%;
