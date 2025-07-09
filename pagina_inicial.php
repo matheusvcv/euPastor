@@ -87,10 +87,7 @@ include "view/head.php"
               <img src="img/bg_pagina_inicial.png">
             </div>
           </section>      
-        </main>
-        <footer class="footer footer-text">
-            <a class="text-light" href="#" style="text-decoration: none;">Portal Serviços</a>
-      </footer>  
+        </main> 
       </div>
     </div>
   </div> 

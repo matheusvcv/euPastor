@@ -78,7 +78,7 @@ include "view/head.php";
             </a>
           </div>
         <div class="d-flex justify-content-start">
-          <a href="adicionar_turmas.php" class="btn btn-dark mt-2">Configuração de Turmas</a>
+          <a href="adicionar_turmas.php" class="btn btn-outline-dark mt-2">Configuração de Turmas</a>
         </div>
         <!-- Cards -->
         <div class="container-fluid">
@@ -92,7 +92,7 @@ include "view/head.php";
                   <div class="card-body">
                     <h5 class="card-title card-title-style">Departamento Infantil</h5>
                     <p class="card-text card-text-style">Turmas para crianças de 3 a 7 anos, com histórias, músicas e atividades bíblicas interativas.</p>
-                    <a href="exibir_turmas.php?departamento=infantil" class="btn btn-dark">Abrir Turmas</a>
+                    <a href="exibir_turmas.php?departamento=infantil" class="btn btn-outline-dark">Abrir Turmas</a>
                   </div>
                 </div>
               </div>
@@ -102,7 +102,7 @@ include "view/head.php";
                   <div class="card-body">
                   <h5 class="card-title card-title-style">Juniores</h5>
                   <p class="card-text card-text-style">Para crianças de 8 a 11 anos, com estudos dinâmicos, desafios e aprendizado prático da Bíblia.</p>
-                  <a href="exibir_turmas.php?departamento=juniores" class="btn btn-dark">Abrir Turmas</a>
+                  <a href="exibir_turmas.php?departamento=juniores" class="btn btn-outline-dark">Abrir Turmas</a>
                 </div>
                 </div>
               </div>
@@ -112,7 +112,7 @@ include "view/head.php";
                   <div class="card-body">
                     <h5 class="card-title card-title-style">Adolescentes</h5>
                     <p class="card-text card-text-style">Jovens de 12 a 17 anos, aprendendo a aplicar princípios bíblicos aos desafios diários.</p>
-                    <a href="exibir_turmas.php?departamento=adolescentes" class="btn btn-dark">Abrir Turmas</a>
+                    <a href="exibir_turmas.php?departamento=adolescentes" class="btn btn-outline-dark">Abrir Turmas</a>
                   </div>
                 </div>
               </div>
@@ -122,7 +122,7 @@ include "view/head.php";
                     <div class="card-body">
                       <h5 class="card-title card-title-style">Jovens</h5>
                       <p class="card-text card-text-style">Destinado a jovens de 18 a 25 anos, com estudos bíblicos, debates e fortalecimento da fé.</p>
-                      <a href="exibir_turmas.php?departamento=jovens" class="btn btn-dark">Abrir Turmas</a>
+                      <a href="exibir_turmas.php?departamento=jovens" class="btn btn-outline-dark">Abrir Turmas</a>
                     </div>
                 </div>
               </div>
@@ -132,7 +132,7 @@ include "view/head.php";
                   <div class="card-body">
                     <h5 class="card-title card-title-style">Adultos</h5>
                     <p class="card-text card-text-style">Pessoas acima de 25 anos, com reflexões profundas e aplicação prática dos ensinamentos bíblicos.</p>
-                    <a href="exibir_turmas.php?departamento=adultos" class="btn btn-dark">Abrir Turmas</a>
+                    <a href="exibir_turmas.php?departamento=adultos" class="btn btn-outline-dark">Abrir Turmas</a>
                   </div>
                 </div>
               </div>
