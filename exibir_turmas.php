@@ -102,6 +102,18 @@ if(!isset($_GET['departamento'])){
 					  </ul>
 					</div>	
 				</div>
+
+               <table>
+              <tr>
+                <th>Titulo</th>
+              </tr>
+              <tr>
+                <?php while($turmas = $resultado_turmas->fetch_assoc()) { ?>
+              <li class="list-group-item lista" style=""><a class="lista" href="turma.php?id=<?php echo $turmas['id'];  ?>"><?php echo $turmas['nome_turma']; } ?></a></li>
+              </tr>
+              
+            </table>
+
 			</div>	
 		</div>
 	</div>
