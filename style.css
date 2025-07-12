@@ -183,7 +183,19 @@ section{
 
 .tabela_turmas{
   border: solid 1px;
+}
 
+.tabela_turmas a{
+  color: #000000;
+}
+
+.tabela_turmas td:hover {
+  background-color: #000000;
+}
+
+.tabela_turmas td:hover a {
+  color: #FFFAFA !important;
+  text-transform: uppercase;
 }
 
 .shape{
