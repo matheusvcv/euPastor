@@ -180,6 +180,12 @@ section{
 .lista:hover a {
   color: #FFFAFA !important;
 }
+
+.tabela_turmas{
+  border: solid 1px;
+
+}
+
 .shape{
   background-color: #F5F5F5;
   height: 100%;
