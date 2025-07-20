@@ -19,5 +19,5 @@ if ($membros->num_rows > 0) {//Se a consulta retornar pelo menos uma linha execu
 
 } else {//Se a pesquisa não retornar nada, executa o código abaixo.
 
-    echo "Nenhum resultado encontrado.";//Imprime uma mensagem de erro na tela.
+     echo json_encode([]);
 }
