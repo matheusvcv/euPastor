@@ -95,24 +95,19 @@ if(!isset($_GET['departamento'])){
 					<div class="row mt-3">
 						<h6>Turmas:</h6>
 					</div>
-					<div class="card" style="width: 18rem;">
-            <table class="table tabela_turmas">
-              <thead>
-                <tr>
-                  <th>Título</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php while($turmas = $resultado_turmas->fetch_assoc()) { ?>
-                  <tr>
-                    <td>
-                      <a class="lista" href="turma.php?id=<?php echo $turmas['id'];  ?>"><?php echo $turmas['nome_turma']; ?></a>
-                    </td>
-                  </tr>
-                  <?php } ?>
-              </tbody>      
-            </table>
-					</div>	
+          <div class="card" style="width: 18rem;">
+              <table class="table tabela_turmas">
+                <tbody>
+                  <?php while($turmas = $resultado_turmas->fetch_assoc()) { ?>
+                    <tr>
+                      <td>
+                        <a class="lista" href="turma.php?id=<?php echo $turmas['id'];  ?>"><?php echo $turmas['nome_turma']; ?></a>
+                      </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>      
+              </table>
+  </div>
 				</div>
 			</div>	
 		</div>
