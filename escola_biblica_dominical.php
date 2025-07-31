@@ -5,7 +5,8 @@ include "view/head.php";
 <!Doctype html>
 <html>
 <head>
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Escola Bíblica Dominical</title>
 </head>
 <body>
 <!--Início da NavBar-->

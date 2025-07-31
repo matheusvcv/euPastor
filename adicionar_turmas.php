@@ -10,7 +10,8 @@ $turmas = $conexao->query("SELECT id, nome_turma FROM turmas");
 <!Doctype html>
 <html>
 <head>
-<link rel="stylesheet" href="style.css">
+    <title>Configuração de Turmas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <!--Início da NavBar-->
@@ -33,9 +34,9 @@ $turmas = $conexao->query("SELECT id, nome_turma FROM turmas");
             <li class="nav-item">
               <a class="nav-link active botao_config" href="" disabled><h7>Módulos:</h7></a>
             </li>
-		        <li class="nav-item">
-		          <a class="nav-link" href="pagina_inicial.php">Página Inicial</a>
-		        </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pagina_inicial.php">Página Inicial</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="lista_membros.php">Lista de Membros</a>
             </li>
