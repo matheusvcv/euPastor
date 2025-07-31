@@ -4,6 +4,9 @@ include "src/conexao.php"; //Inclui o arquivo que faz a conexão com o banco de 
 include "ws/ws_login.php"; //Inclui o arquivo que verifica as credenciais no BDD, e se elas forem válidas inicia uma sessão.
 include "view/head.php"; //Inclui o arquivo que contém as informações do head html.
 ?>
+<head>
+    <title>Login</title>
+</head>
 <body class="body_index">
 	<div class="container-fluid p-5 mt-4">
 		<div class="row">

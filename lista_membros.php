@@ -4,6 +4,7 @@ include "src/protect.php";
 ?>
 <!Doctype html>
 <html>
+    <title>Lista de Membros</title>
 <body>
 <!--Início da NavBar-->
 	<nav class="navbar navbar-dark bg-dark">

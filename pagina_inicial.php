@@ -4,6 +4,9 @@ include "view/head.php"
 ?>
 <!Doctype html>
 <html>
+<head>
+    <title>Página Inicial</title>
+</head>
 <body>
 <!--Início da NavBar-->
 <nav class="navbar navbar-dark bg-dark">
@@ -25,9 +28,9 @@ include "view/head.php"
             <li class="nav-item">
               <a class="nav-link active botao_config" href="" disabled><h7>Módulos:</h7></a>
             </li>
-		        <li class="nav-item">
-		          <a class="nav-link" href="pagina_inicial.php">Página Inicial</a>
-		        </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pagina_inicial.php">Página Inicial</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="lista_membros.php">Lista de Membros</a>
             </li>
@@ -92,7 +95,7 @@ include "view/head.php"
     </div>
   </div> 
   <script src="bootstrap/js/bootstrap.min.js"></script>
-	<script>
+  <script>
     //Alerta de Usuário Cadastrado com sucesso.
     <?php if(isset($_GET['usuario_cadastrado']) && $_GET['usuario_cadastrado'] == 1) { ?>
       var timerInterval;
