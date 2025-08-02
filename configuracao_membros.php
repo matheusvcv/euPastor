@@ -342,6 +342,10 @@ include "src/protect.php";
 	        	$('[id^=telefone_membro_]').mask('(00) 00000-0000');
 	        }
 	    });
+		
+		//Máscaras do formulário de cadastro
+		$('#cpf_membro').mask('000.000.000-00');
+		$('#telefone_membro').mask('(00) 00000-0000');
 	});
 
 	//Função de inserir novo membro.
