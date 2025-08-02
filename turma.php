@@ -335,6 +335,7 @@ $turma = $resultado_turma->fetch_assoc();//Pega o mysqli_result e transforma em 
 									  },
 									  buttonsStyling: false
 									});
+								location.reload();
 							},
 							error: function() {
 								Swal.fire('Erro', 'Não foi possível registrar a chamada.', 'error');
